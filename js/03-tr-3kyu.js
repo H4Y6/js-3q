@@ -10270,14 +10270,21 @@ Your task is to return the word pattern for a given word. All words provided wil
   //   return res.join(".");
   // }
 
-  function wordPattern(word) {
-    return [...word.toLowerCase()]
-      .reduce(
-        (res, e) => [...res, [...new Set([...word.toLowerCase()])].indexOf(e)],
-        []
-      )
-      .join(".");
-  }
+  // function wordPattern(word) {
+  //   return [...word.toLowerCase()]
+  //     .reduce(
+  //       (res, e) => [...res, [...new Set([...word.toLowerCase()])].indexOf(e)],
+  //       []
+  //     )
+  //     .join(".");
+  // }
 
-  console.log(wordPattern("helLo"));
+  // const wordPattern = (word) => [...word.toLowerCase()].reduce((res, e) => [...res, [...new Set([...word.toLowerCase()])].indexOf(e)], []).join(".");
+
+  const wordPattern = (word) =>
+    [...word.toLowerCase()]
+      .map((e) => [...new Set([...word.toLowerCase()])].indexOf(e))
+      .join(".");
+
+  // console.log(wordPattern("helLo"));
 }
