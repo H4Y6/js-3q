@@ -10253,7 +10253,6 @@ As an example, the word "hello" would become "0.1.2.2.3". For this task case-sen
 
 Your task is to return the word pattern for a given word. All words provided will be non-empty strings of alphabetic characters only, i.e. matching the regex "[a-zA-Z]+".
  */
-
   // function wordPattern(word) {
   //   let res = [];
   //   let n = 0;
@@ -10266,10 +10265,8 @@ Your task is to return the word pattern for a given word. All words provided wil
   //       res.push((n += 1));
   //     }
   //   });
-
   //   return res.join(".");
   // }
-
   // function wordPattern(word) {
   //   return [...word.toLowerCase()]
   //     .reduce(
@@ -10278,12 +10275,12 @@ Your task is to return the word pattern for a given word. All words provided wil
   //     )
   //     .join(".");
   // }
-
   // const wordPattern = (word) => [...word.toLowerCase()].reduce((res, e) => [...res, [...new Set([...word.toLowerCase()])].indexOf(e)], []).join(".");
+  // const wordPattern = (word) => [...word.toLowerCase()].map((e) => [...new Set([...word.toLowerCase()])].indexOf(e)).join(".");
 
   const wordPattern = (word) =>
     [...word.toLowerCase()]
-      .map((e) => [...new Set([...word.toLowerCase()])].indexOf(e))
+      .map((e, i, ar) => [...new Set(ar)].indexOf(e))
       .join(".");
 
   // console.log(wordPattern("helLo"));
