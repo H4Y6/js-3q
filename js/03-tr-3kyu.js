@@ -10311,11 +10311,14 @@ Your task is to return the word pattern for a given word. All words provided wil
   //     (e) => +e.toFixed(4)
   //   );
 
+  // const barTriang = (p1, p2, p3) =>
+  //   Array.from(
+  //     { length: 2 },
+  //     (e, i) => +((p1[i] + p2[i] + p3[i]) / 3).toFixed(4)
+  //   );
+
   const barTriang = (p1, p2, p3) =>
-    Array.from(
-      { length: 2 },
-      (e, i) => +((p1[i] + p2[i] + p3[i]) / 3).toFixed(4)
-    );
+    Array.from(p1, (e, i) => +((p1[i] + p2[i] + p3[i]) / 3).toFixed(4));
 
   // console.log(barTriang([4, 6], [12, 4], [10, 10]));
 }
