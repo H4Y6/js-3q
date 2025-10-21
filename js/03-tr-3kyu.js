@@ -10387,3 +10387,18 @@ sortDict({1:2, 2:4, 3:6}) == [[3,6], [2,4], [1,2]]    */
 
   // console.log(sortDict({ a: 2, 2: 4, 3: 6 }));
 }
+
+{
+  /**  
+7 kyu
+Is It Negative Zero (-0)?
+There exist two zeroes: +0 (or just 0) and -0.
+
+Write a function that returns true if the input number is -0 and false otherwise (True and False for Python).
+
+In JavaScript / TypeScript / Coffeescript the input will be a number.*/
+
+  const isNegativeZero = (n) => n === 0 && 1 / n === -Infinity;
+
+  console.log(isNegativeZero(-0));
+}
