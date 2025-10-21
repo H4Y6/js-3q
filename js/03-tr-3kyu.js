@@ -10364,11 +10364,16 @@ Examples
 sortDict({3:1, 2:2, 1:3}) == [[1,3], [2,2], [3,1]]
 sortDict({1:2, 2:4, 3:6}) == [[3,6], [2,4], [1,2]]    */
 
-  function sortDict(dict) {
-    return Object.entries(dict)
-      .sort((a, b) => b[1] - a[1])
-      .map((e) => [parseInt(e[0]) ? +e[0] : e[0], e[1]]);
-  }
+  // function sortDict(dict) {
+  //   return Object.entries(dict)
+  //     .sort((a, b) => b[1] - a[1])
+  //     .map((e) => [parseInt(e[0]) ? +e[0] : e[0], e[1]]);
+  // }
+
+  const sortDict = (dict) =>
+    Object.entries(dict)
+      .map((e) => [+e[0] || e[0], e[1]])
+      .sort((a, b) => b[1] > a[1]);
 
   console.log(sortDict({ a: 2, 2: 4, 3: 6 }));
 }
