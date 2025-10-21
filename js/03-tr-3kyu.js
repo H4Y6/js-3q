@@ -10375,10 +10375,15 @@ sortDict({1:2, 2:4, 3:6}) == [[3,6], [2,4], [1,2]]    */
   //     .map((e) => [+e[0] || e[0], e[1]])
   //     .sort((a, b) => b[1] > a[1]);
 
+  // const sortDict = (dict) =>
+  //   Object.keys(dict)
+  //     .map((e) => [+e || e, dict[e]])
+  //     .sort((a, b) => b[1] > a[1]);
+
   const sortDict = (dict) =>
     Object.keys(dict)
-      .map((e) => [+e || e, dict[e]])
-      .sort((a, b) => b[1] > a[1]);
+      .map((e) => [isNaN(e) ? e : +e, dict[e]])
+      .sort((a, b) => b[1] - a[1]);
 
-  console.log(sortDict({ a: 2, 2: 4, 3: 6 }));
+  // console.log(sortDict({ a: 2, 2: 4, 3: 6 }));
 }
