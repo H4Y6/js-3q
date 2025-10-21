@@ -10398,7 +10398,9 @@ Write a function that returns true if the input number is -0 and false otherwise
 
 In JavaScript / TypeScript / Coffeescript the input will be a number.*/
 
-  const isNegativeZero = (n) => n === 0 && 1 / n === -Infinity;
+  // const isNegativeZero = (n) => n === 0 && 1 / n === -Infinity;
 
-  console.log(isNegativeZero(-0));
+  const isNegativeZero = (n) => Object.is(n, -0);
+
+  // console.log(isNegativeZero(-0));
 }
