@@ -10402,7 +10402,10 @@ In JavaScript / TypeScript / Coffeescript the input will be a number.*/
 
   // const isNegativeZero = (n) => Object.is(n, -0);
 
-  const isNegativeZero = (n) => !n && 1 / n < 0;
+  // const isNegativeZero = (n) => !n && 1 / n < 0;
 
-  // console.log(isNegativeZero(-0));
+  const util = require("util"); /** using node/util */
+  const isNegativeZero = (n) => util.inspect(n) === "-0";
+
+  console.log(isNegativeZero(-0));
 }
