@@ -10411,12 +10411,16 @@ In JavaScript / TypeScript / Coffeescript the input will be a number.*/
 }
 
 {
+  // function firstNonRepeated(s) {
+  //   for (let i = 0; i < s.length; i += 1) {
+  //     if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) return s[i];
+  //   }
+  //   return null;
+  // }
+
   function firstNonRepeated(s) {
-    for (let i = 0; i < s.length; i += 1) {
-      if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) return s[i];
-    }
-    return null;
+    return [...s].find((e) => s.indexOf(e) === s.lastIndexOf(e)) ?? null;
   }
 
-  console.log(firstNonRepeated("tesste"));
+  console.log(firstNonRepeated("tesse"));
 }
