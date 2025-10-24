@@ -10425,12 +10425,16 @@ In JavaScript / TypeScript / Coffeescript the input will be a number.*/
   // const firstNonRepeated = (s) =>
   //   [...s].find((e) => s.indexOf(e) === s.lastIndexOf(e)) ?? null;
 
-  const firstNonRepeated = (s) => {
-    for (let i = 0; i < s.length; i++) {
-      if (!(s.slice(0, i) + s.slice(i + 1)).includes(s[i])) return s[i];
-    }
-    return null;
-  };
+  // const firstNonRepeated = (s) => {
+  //   for (let i = 0; i < s.length; i++) {
+  //     if (!(s.slice(0, i) + s.slice(i + 1)).includes(s[i])) return s[i];
+  //   }
+  //   return null;
+  // };
 
-  console.log(firstNonRepeated("tesset"));
+  const firstNonRepeated = (s) =>
+    [...s].find((e, i) => !(s.slice(0, i) + s.slice(i + 1)).includes(e)) ??
+    null;
+
+  // console.log(firstNonRepeated("tersset"));
 }
