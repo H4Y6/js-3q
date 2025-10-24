@@ -10493,21 +10493,23 @@ capital(mixed_capitals)[1] // returns "The capital of Spain is Madrid"
   //         }`
   //   );
 
+  // const capital = (capitals) =>
+  //   capitals.map(
+  //     (e, i) =>
+  //       `The capital of ${
+  //         Object.keys(e)[1] === "capital"
+  //           ? `${Object.values(e)[0]} is ${Object.values(e)[1]}`
+  //           : `${Object.keys(e)[1]} is ${Object.keys(e)[0]}
+  //         }`
+  //       }`
+  //   );
+
   const capital = (capitals) =>
-    capitals.map(
-      (e, i) =>
-        `The capital of ${
-          Object.keys(e)[1] === "capital"
-            ? `${Object.values(e)[0]} is ${Object.values(e)[1]}`
-            : `${Object.keys(e)[1]} is ${Object.keys(e)[0]}
-          }`
-        }`
+    capitals.map((e, i) =>
+      Object.keys(e)[1] === "capital"
+        ? `The capital of ${Object.values(e)[0]} is ${Object.values(e)[1]}`
+        : "The capital of " + Object.values(e)[1] + " is " + Object.values(e)[0]
     );
 
-  console.log(
-    capital([
-      { state: "Maine", capital: "Augusta" },
-      { country: "Spain", capital: "Madrid" },
-    ])
-  );
+  // console.log( capital([{ state: "Maine", capital: "Augusta" }, { country: "Spain", capital: "Madrid" }]));
 }
