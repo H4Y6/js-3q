@@ -10535,5 +10535,7 @@ As you can see, the lists are cascading; ie, they overlap, but never out of orde
   const eachCons = (array, n) =>
     array.map((e, i) => array.slice(i, i + n)).filter((a) => a.length === n);
 
-  console.log(eachCons([1, 2, 3, 4], 3));
+  // const eachCons = (array, n) => array.reduce((arr, e, i) => i > array.length - n ? arr : [...arr, array.slice(i, i + n)], []);
+
+  // console.log(eachCons([1, 2, 3, 4], 3));
 }
