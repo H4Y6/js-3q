@@ -10526,11 +10526,14 @@ each_cons([1,2,3,4], 3)
   
 As you can see, the lists are cascading; ie, they overlap, but never out of order. */
 
-  function eachCons(array, n) {
-    return array
-      .map((e, i, ar) => array.slice(i, i + n))
-      .filter((a) => a.length === n);
-  }
+  // function eachCons(array, n) {
+  //   return array
+  //     .map((e, i, ar) => array.slice(i, i + n))
+  //     .filter((a) => a.length === n);
+  // }
+
+  const eachCons = (array, n) =>
+    array.map((e, i) => array.slice(i, i + n)).filter((a) => a.length === n);
 
   console.log(eachCons([1, 2, 3, 4], 3));
 }
