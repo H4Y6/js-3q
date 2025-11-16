@@ -10606,11 +10606,14 @@ That's all of your work.  */
   //   ].join("");
   // }
 
-  function colorOf(r, g, b) {
-    return (
-      "#" + [r, g, b].map((e) => ("0" + e.toString(16)).slice(-2)).join("")
-    );
-  }
+  // function colorOf(r, g, b) {
+  //   return (
+  //     "#" + [r, g, b].map((e) => ("0" + e.toString(16)).slice(-2)).join("")
+  //   );
+  // }
 
-  console.log(colorOf(255, 2, 3));
+  const colorOf = (r, g, b) =>
+    "#" + [r, g, b].map((e) => ("0" + e.toString(16)).slice(-2)).join("");
+
+  // console.log(colorOf(255, 2, 3));
 }
