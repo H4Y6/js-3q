@@ -10612,8 +10612,10 @@ That's all of your work.  */
   //   );
   // }
 
-  const colorOf = (r, g, b) =>
-    "#" + [r, g, b].map((e) => ("0" + e.toString(16)).slice(-2)).join("");
+  // const colorOf = (r, g, b) =>  "#" + [r, g, b].map((e) => ("0" + e.toString(16)).slice(-2)).join("");
 
-  // console.log(colorOf(255, 2, 3));
+  const colorOf = (...color) =>
+    "#" + color.map((e) => ("0" + e.toString(16)).slice(-2)).join("");
+
+  console.log(colorOf(255, 2, 3));
 }
