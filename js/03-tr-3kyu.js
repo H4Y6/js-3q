@@ -10597,13 +10597,19 @@ colorOf(0,111,0) should return "#006f00"
 colorOf(1, 2 ,3) should return "#010203"
 That's all of your work.  */
 
+  // function colorOf(r, g, b) {
+  //   return [
+  //     "#",
+  //     ("0" + r.toString(16)).slice(-2),
+  //     ("0" + g.toString(16)).slice(-2),
+  //     ("0" + b.toString(16)).slice(-2),
+  //   ].join("");
+  // }
+
   function colorOf(r, g, b) {
-    return [
-      "#",
-      ("0" + r.toString(16)).slice(-2),
-      ("0" + g.toString(16)).slice(-2),
-      ("0" + b.toString(16)).slice(-2),
-    ].join("");
+    return (
+      "#" + [r, g, b].map((e) => ("0" + e.toString(16)).slice(-2)).join("")
+    );
   }
 
   console.log(colorOf(255, 2, 3));
