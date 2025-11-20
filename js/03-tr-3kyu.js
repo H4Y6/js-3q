@@ -10713,17 +10713,25 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
   //     .join("");
   // }
 
-  const changer = (str) =>
-    [...str.toLowerCase()]
-      .map((e) =>
-        e === "z"
-          ? "a"
-          : e.match(/[a-z]/)
-          ? String.fromCharCode(e.charCodeAt() + 1)
-          : e
-      )
-      .map((e) => ("aeiou".includes(e) ? e.toUpperCase() : e))
-      .join("");
+  // const changer = (str) =>
+  //   [...str.toLowerCase()]
+  //     .map((e) =>
+  //       e === "z"
+  //         ? "a"
+  //         : e.match(/[a-z]/)
+  //         ? String.fromCharCode(e.charCodeAt() + 1)
+  //         : e
+  //     )
+  //     .map((e) => ("aeiou".includes(e) ? e.toUpperCase() : e))
+  //     .join("");
 
-  console.log(changer("Cat30"));
+  const changer = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[a-z]/g, (e) =>
+        e === "z" ? "a" : String.fromCharCode(e.charCodeAt() + 1)
+      )
+      .replace(/[aeiou]/g, (e) => e.toUpperCase());
+
+  // console.log(changer("Cat30"));
 }
