@@ -10700,8 +10700,21 @@ the alphabet should wrap around, so Z becomes A
 in this kata, y isn't considered as a vowel.
 So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU30)   */
 
-  function changer(str) {
-    return [...str.toLowerCase()]
+  // function changer(str) {
+  //   return [...str.toLowerCase()]
+  //     .map((e) =>
+  //       e === "z"
+  //         ? "a"
+  //         : e.match(/[a-z]/)
+  //         ? String.fromCharCode(e.charCodeAt() + 1)
+  //         : e
+  //     )
+  //     .map((e) => ("aeiou".includes(e) ? e.toUpperCase() : e))
+  //     .join("");
+  // }
+
+  const changer = (str) =>
+    [...str.toLowerCase()]
       .map((e) =>
         e === "z"
           ? "a"
@@ -10711,7 +10724,6 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
       )
       .map((e) => ("aeiou".includes(e) ? e.toUpperCase() : e))
       .join("");
-  }
 
   console.log(changer("Cat30"));
 }
