@@ -10666,14 +10666,22 @@ For apples=[7,7,7,5], the output should be -1.
   //   );
   // }
 
-  const minSteps = (apples) => {
-    return ((med) =>
+  // const minSteps = (apples) => {
+  //   return ((med) =>
+  //     apples.some((e) => (Math.abs(med - e) / 2) % 1) || med % 1
+  //       ? -1
+  //       : apples.reduce((score, e) => score + Math.abs(med - e) / 2, 0) / 2)(
+  //     apples.reduce((sum, e) => sum + e, 0) / apples.length
+  //   );
+  // };
+
+  const minSteps = (apples) =>
+    ((med) =>
       apples.some((e) => (Math.abs(med - e) / 2) % 1) || med % 1
         ? -1
-        : apples.reduce((score, e) => score + Math.abs(med - e) / 2, 0) / 2)(
+        : apples.reduce((score, e) => score + Math.abs(med - e) / 4, 0))(
       apples.reduce((sum, e) => sum + e, 0) / apples.length
     );
-  };
 
-  console.log(minSteps([1, 1, 4, 4, 8, 6]));
+  // console.log(minSteps([1, 1, 4, 4, 8, 6]));
 }
