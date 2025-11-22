@@ -10845,9 +10845,12 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
   /**  7 kyu  Ch4113ng3
 Make your strings more nerdy: Replace all 'a'/'A' with 4, 'e'/'E' with 3 and 'l' with 1 e.g. "Fundamentals" --> "Fund4m3nt41s"   */
 
-  function nerdify(txt) {
-    return txt.replace(/[a]/gi, 4).replace(/[e]/gi, 3).replace(/[l]/g, 1);
-  }
+  // function nerdify(txt) {
+  //   return txt.replace(/[a]/gi, 4).replace(/[e]/gi, 3).replace(/[l]/g, 1);
+  // }
+
+  const nerdify = (txt) =>
+    txt.replace(/[a]/gi, 4).replace(/[e]/gi, 3).replace(/[l]/g, 1);
 
   console.log(nerdify("Los Angeles"));
 }
