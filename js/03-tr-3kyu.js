@@ -10849,8 +10849,11 @@ Make your strings more nerdy: Replace all 'a'/'A' with 4, 'e'/'E' with 3 and 'l'
   //   return txt.replace(/[a]/gi, 4).replace(/[e]/gi, 3).replace(/[l]/g, 1);
   // }
 
-  const nerdify = (txt) =>
-    txt.replace(/[a]/gi, 4).replace(/[e]/gi, 3).replace(/[l]/g, 1);
+  // const nerdify = (txt) =>
+  //   txt.replace(/[a]/gi, 4).replace(/[e]/gi, 3).replace(/[l]/g, 1);
 
-  console.log(nerdify("Los Angeles"));
+  const nerdify = (txt) =>
+    txt.replace(/[aelAE]/g, (el) => ({ a: 4, e: 3, l: 1 }[el.toLowerCase()]));
+
+  // console.log(nerdify("Los Angeles"));
 }
