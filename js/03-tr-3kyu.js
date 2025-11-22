@@ -10772,27 +10772,49 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
   //     ? { Run: "Nearly there!" }
   //     : "You're done! Stop running!";
 
+  // const iTri = (s) => {
+  //   const toPass = [
+  //     "Starting Line... Good Luck!",
+  //     { Swim: (140.6 - s).toFixed(2) + " to go!" },
+  //     { Bike: (140.6 - s).toFixed(2) + " to go!" },
+  //     { Run: (140.6 - s).toFixed(2) + " to go!" },
+  //     { Run: "Nearly there!" },
+  //     "You're done! Stop running!",
+  //   ];
+
+  //   return !s
+  //     ? toPass[0]
+  //     : s < 2.4
+  //     ? toPass[1]
+  //     : s < 114.4
+  //     ? toPass[2]
+  //     : s < 130.6
+  //     ? toPass[3]
+  //     : s < 140.6
+  //     ? toPass[4]
+  //     : toPass[5];
+  // };
+
   const iTri = (s) => {
-    const toPass = [
+    return ((toPass) =>
+      !s
+        ? toPass[0]
+        : s < 2.4
+        ? toPass[1]
+        : s < 114.4
+        ? toPass[2]
+        : s < 130.6
+        ? toPass[3]
+        : s < 140.6
+        ? toPass[4]
+        : toPass[5])([
       "Starting Line... Good Luck!",
       { Swim: (140.6 - s).toFixed(2) + " to go!" },
       { Bike: (140.6 - s).toFixed(2) + " to go!" },
       { Run: (140.6 - s).toFixed(2) + " to go!" },
       { Run: "Nearly there!" },
       "You're done! Stop running!",
-    ];
-
-    return !s
-      ? toPass[0]
-      : s < 2.4
-      ? toPass[1]
-      : s < 114.4
-      ? toPass[2]
-      : s < 130.6
-      ? toPass[3]
-      : s < 140.6
-      ? toPass[4]
-      : toPass[5];
+    ]);
   };
 
   console.log(iTri(121));
