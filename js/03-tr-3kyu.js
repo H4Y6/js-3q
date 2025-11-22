@@ -10735,3 +10735,30 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
 
   // console.log(changer("Cat30"));
 }
+
+{
+  function iTri(s) {
+    if (!s) return "Starting Line... Good Luck!";
+
+    if (s < 2.4) {
+      return { Swim: (140.6 - s).toFixed(2) + " to go!" };
+    }
+
+    if (s < 114.4) {
+      return { Bike: (140.6 - s).toFixed(2) + " to go!" };
+    }
+
+    if (s < 130.6) {
+      return { Run: (140.6 - s).toFixed(2) + " to go!" };
+    }
+
+    if (s < 140.6) {
+      return { Run: "Nearly there!" };
+    } else {
+      return "You're done! Stop running!";
+    }
+  }
+
+  console.log(iTri(121));
+  // console.log(2.4 + 112 + 26.2);
+}
