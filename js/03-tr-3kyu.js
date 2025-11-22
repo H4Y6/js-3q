@@ -10737,28 +10737,63 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
 }
 
 {
-  function iTri(s) {
-    if (!s) return "Starting Line... Good Luck!";
+  // function iTri(s) {
+  //   if (!s) return "Starting Line... Good Luck!";
 
-    if (s < 2.4) {
-      return { Swim: (140.6 - s).toFixed(2) + " to go!" };
-    }
+  //   if (s < 2.4) {
+  //     return { Swim: (140.6 - s).toFixed(2) + " to go!" };
+  //   }
 
-    if (s < 114.4) {
-      return { Bike: (140.6 - s).toFixed(2) + " to go!" };
-    }
+  //   if (s < 114.4) {
+  //     return { Bike: (140.6 - s).toFixed(2) + " to go!" };
+  //   }
 
-    if (s < 130.6) {
-      return { Run: (140.6 - s).toFixed(2) + " to go!" };
-    }
+  //   if (s < 130.6) {
+  //     return { Run: (140.6 - s).toFixed(2) + " to go!" };
+  //   }
 
-    if (s < 140.6) {
-      return { Run: "Nearly there!" };
-    } else {
-      return "You're done! Stop running!";
-    }
-  }
+  //   if (s < 140.6) {
+  //     return { Run: "Nearly there!" };
+  //   } else {
+  //     return "You're done! Stop running!";
+  //   }
+  // }
+
+  // const iTri = (s) =>
+  //   !s
+  //     ? "Starting Line... Good Luck!"
+  //     : s < 2.4
+  //     ? { Swim: (140.6 - s).toFixed(2) + " to go!" }
+  //     : s < 114.4
+  //     ? { Bike: (140.6 - s).toFixed(2) + " to go!" }
+  //     : s < 130.6
+  //     ? { Run: (140.6 - s).toFixed(2) + " to go!" }
+  //     : s < 140.6
+  //     ? { Run: "Nearly there!" }
+  //     : "You're done! Stop running!";
+
+  const iTri = (s) => {
+    const toPass = [
+      "Starting Line... Good Luck!",
+      { Swim: (140.6 - s).toFixed(2) + " to go!" },
+      { Bike: (140.6 - s).toFixed(2) + " to go!" },
+      { Run: (140.6 - s).toFixed(2) + " to go!" },
+      { Run: "Nearly there!" },
+      "You're done! Stop running!",
+    ];
+
+    return !s
+      ? toPass[0]
+      : s < 2.4
+      ? toPass[1]
+      : s < 114.4
+      ? toPass[2]
+      : s < 130.6
+      ? toPass[3]
+      : s < 140.6
+      ? toPass[4]
+      : toPass[5];
+  };
 
   console.log(iTri(121));
-  // console.log(2.4 + 112 + 26.2);
 }
