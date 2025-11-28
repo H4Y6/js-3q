@@ -10894,20 +10894,20 @@ So for this head: "------/------" you shoud return:
   //   ];
   // }
 
-  function bald(x) {
-    return ((n) => [
-      x.replaceAll("/", "-"),
-      n
-        ? n < 2
-          ? "Unicorn!"
-          : n < 3
-          ? "Homer!"
-          : n > 5
-          ? "Hobo!"
-          : "Careless!"
-        : "Clean!",
-    ])(x.length - x.replaceAll("/", "").length);
-  }
+  // function bald(x) {
+  //   return ((n) => [
+  //     x.replaceAll("/", "-"),
+  //     n
+  //       ? n < 2
+  //         ? "Unicorn!"
+  //         : n < 3
+  //         ? "Homer!"
+  //         : n > 5
+  //         ? "Hobo!"
+  //         : "Careless!"
+  //       : "Clean!",
+  //   ])(x.length - x.replaceAll("/", "").length);
+  // }
 
   // const bald = (x) =>
   //   ((n) => [
@@ -10922,6 +10922,20 @@ So for this head: "------/------" you shoud return:
   //         : "Careless!"
   //       : "Clean!",
   //   ])(x.length - x.replaceAll("/", "").length);
+
+  const bald = (x) =>
+    ((n) => [
+      x.replaceAll("/", "-"),
+      n
+        ? n < 2
+          ? "Unicorn!"
+          : n < 3
+          ? "Homer!"
+          : n > 5
+          ? "Hobo!"
+          : "Careless!"
+        : "Clean!",
+    ])(x.split("/").length - 1);
 
   console.log(bald("--/--/---/-/---"));
 }
