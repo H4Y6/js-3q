@@ -10923,9 +10923,23 @@ So for this head: "------/------" you shoud return:
   //       : "Clean!",
   //   ])(x.length - x.replaceAll("/", "").length);
 
+  // const bald = (x) =>
+  //   ((n) => [
+  //     x.replaceAll("/", "-"),
+  //     n
+  //       ? n < 2
+  //         ? "Unicorn!"
+  //         : n < 3
+  //         ? "Homer!"
+  //         : n > 5
+  //         ? "Hobo!"
+  //         : "Careless!"
+  //       : "Clean!",
+  //   ])(x.split("/").length - 1);
+
   const bald = (x) =>
     ((n) => [
-      x.replaceAll("/", "-"),
+      "-".repeat(x.length),
       n
         ? n < 2
           ? "Unicorn!"
