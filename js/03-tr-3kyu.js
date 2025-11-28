@@ -10894,8 +10894,8 @@ So for this head: "------/------" you shoud return:
   //   ];
   // }
 
-  const bald = (x) =>
-    ((n) => [
+  function bald(x) {
+    return ((n) => [
       x.replaceAll("/", "-"),
       n
         ? n < 2
@@ -10907,6 +10907,21 @@ So for this head: "------/------" you shoud return:
           : "Careless!"
         : "Clean!",
     ])(x.length - x.replaceAll("/", "").length);
+  }
+
+  // const bald = (x) =>
+  //   ((n) => [
+  //     x.replaceAll("/", "-"),
+  //     n
+  //       ? n < 2
+  //         ? "Unicorn!"
+  //         : n < 3
+  //         ? "Homer!"
+  //         : n > 5
+  //         ? "Hobo!"
+  //         : "Careless!"
+  //       : "Clean!",
+  //   ])(x.length - x.replaceAll("/", "").length);
 
   console.log(bald("--/--/---/-/---"));
 }
