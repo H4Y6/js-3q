@@ -10878,9 +10878,24 @@ So for this head: "------/------" you shoud return:
 
  */
 
+  // function bald(x) {
+  //   const n = x.length - x.replaceAll("/", "").length;
+  //   return [
+  //     x.replaceAll("/", "-"),
+  //     n
+  //       ? n < 2
+  //         ? "Unicorn!"
+  //         : n < 3
+  //         ? "Homer!"
+  //         : n > 5
+  //         ? "Hobo!"
+  //         : "Careless!"
+  //       : "Clean!",
+  //   ];
+  // }
+
   function bald(x) {
-    const n = x.length - x.replaceAll("/", "").length;
-    return [
+    return ((n) => [
       x.replaceAll("/", "-"),
       n
         ? n < 2
@@ -10891,7 +10906,7 @@ So for this head: "------/------" you shoud return:
           ? "Hobo!"
           : "Careless!"
         : "Clean!",
-    ];
+    ])(x.length - x.replaceAll("/", "").length);
   }
 
   console.log(bald("--/--/---/-/---"));
