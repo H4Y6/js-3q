@@ -11001,12 +11001,18 @@ Returns
 
 ['xxd', 'xxc', 'xxb', 'xxa', 'xd', 'xc', 'xb', 'xa']           */
 
-  function lineupStudents(students) {
-    return students
+  // function lineupStudents(students) {
+  //   return students
+  //     .split(" ")
+  //     .sort((a, b) => b.localeCompare(a))
+  //     .sort((a, b) => b.length - a.length);
+  // }
+
+  const lineupStudents = (students) =>
+    students
       .split(" ")
       .sort((a, b) => b.localeCompare(a))
       .sort((a, b) => b.length - a.length);
-  }
 
   console.log(
     lineupStudents(
