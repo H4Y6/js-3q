@@ -11008,15 +11008,16 @@ Returns
   //     .sort((a, b) => b.length - a.length);
   // }
 
+  // const lineupStudents = (students) =>
+  //   students
+  //     .split(" ")
+  //     .sort((a, b) => b.localeCompare(a))
+  //     .sort((a, b) => b.length - a.length);
+
   const lineupStudents = (students) =>
     students
       .split(" ")
-      .sort((a, b) => b.localeCompare(a))
-      .sort((a, b) => b.length - a.length);
+      .sort((a, b) => b.length - a.length || b.localeCompare(a));
 
-  console.log(
-    lineupStudents(
-      "Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi"
-    )
-  );
+  // console.log(lineupStudents("Tadashi Takahiro Takao Takashi Takayuki Takehiko Takeo Takeshi Takeshi"));
 }
