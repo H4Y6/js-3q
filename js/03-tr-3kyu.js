@@ -11038,9 +11038,12 @@ keepOrder([1, 2, 3, 4, 7], 0) //=> 0
 keepOrder([1, 1, 2, 2, 2], 2) //=> 2
                 ^(index 2)           */
 
-  function keepOrder(ary, val) {
-    return [...ary, val].sort((a, b) => a - b).indexOf(val);
-  }
+  // function keepOrder(ary, val) {
+  //   return [...ary, val].sort((a, b) => a - b).indexOf(val);
+  // }
 
-  console.log(keepOrder([1, 2, 3, 4, 7], 5));
+    const keepOrder=(ary, val) => [...ary, val].sort((a, b) => a - b).indexOf(val);
+  
+
+  // console.log(keepOrder([1, 2, 3, 4, 7], 5));
 }
