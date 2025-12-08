@@ -11042,8 +11042,39 @@ keepOrder([1, 1, 2, 2, 2], 2) //=> 2
   //   return [...ary, val].sort((a, b) => a - b).indexOf(val);
   // }
 
-    const keepOrder=(ary, val) => [...ary, val].sort((a, b) => a - b).indexOf(val);
-  
+  const keepOrder = (ary, val) =>
+    [...ary, val].sort((a, b) => a - b).indexOf(val);
 
   // console.log(keepOrder([1, 2, 3, 4, 7], 5));
+}
+
+{
+  function solve(s, k) {
+    const ab = "abcdefghijklmnopqrstuvwxyz";
+
+    if (!k) {
+      return s;
+    }
+
+    for (let i = 0; i < 26; i++) {
+      if (!s.includes(ab[i])) {
+        continue;
+      }
+
+      if (s.includes(ab[i])) {
+        const quantity = [...s].filter((e) => e === ab[i]).length;
+        for (let j = 0; j < quantity; j++) {
+          s = s.replace(ab[i], "");
+          k -= 1;
+          console.log(s, k);
+
+          if (!k || !s) {
+            return s;
+          }
+        }
+      }
+    }
+  }
+
+  console.log(solve("abracadabra", 6));
 }
