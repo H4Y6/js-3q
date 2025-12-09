@@ -11076,12 +11076,19 @@ keepOrder([1, 1, 2, 2, 2], 2) //=> 2
   //   }
   // }
 
+  // function solve(s, k) {
+  //   const str = [...s].sort().slice(0, k);
+  //   for (let i = 0; i < str.length; i++) {
+  //     s = s.slice(0, s.indexOf(str[i])) + s.slice(s.indexOf(str[i]) + 1);
+  //   }
+  //   return s;
+  // }
+
   function solve(s, k) {
-    const str = [...s].sort().slice(0, k);
-    for (let i = 0; i < str.length; i++) {
-      s = s.slice(0, s.indexOf(str[i])) + s.slice(s.indexOf(str[i]) + 1);
-    }
-    return s;
+    return [...s]
+      .sort()
+      .slice(0, k)
+      .reduce((res, e) => res.replace(e, ""), s);
   }
 
   console.log(solve("abracadabra", 8));
