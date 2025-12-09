@@ -11091,11 +11091,18 @@ keepOrder([1, 1, 2, 2, 2], 2) //=> 2
   //     .reduce((res, e) => res.replace(e, ""), s);
   // }
 
+  // const solve = (s, k) =>
+  //   [...s]
+  //     .sort()
+  //     .slice(0, k)
+  //     .reduce((res, e) => res.replace(e, ""), s);
+
   const solve = (s, k) =>
     [...s]
       .sort()
       .slice(0, k)
-      .reduce((res, e) => res.replace(e, ""), s);
+      .map((e) => (s = s.replace(e, "")))
+      .slice(-1)[0] ?? s;
 
   console.log(solve("abracadabra", 8));
 }
