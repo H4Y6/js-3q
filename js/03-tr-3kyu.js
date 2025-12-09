@@ -11049,32 +11049,40 @@ keepOrder([1, 1, 2, 2, 2], 2) //=> 2
 }
 
 {
+  // function solve(s, k) {
+  //   const ab = "abcdefghijklmnopqrstuvwxyz";
+
+  //   if (!k) {
+  //     return s;
+  //   }
+
+  //   for (let i = 0; i < 26; i++) {
+  //     if (!s.includes(ab[i])) {
+  //       continue;
+  //     }
+
+  //     if (s.includes(ab[i])) {
+  //       const quantity = [...s].filter((e) => e === ab[i]).length;
+  //       for (let j = 0; j < quantity; j++) {
+  //         s = s.replace(ab[i], "");
+  //         k -= 1;
+  //         console.log(s, k);
+
+  //         if (!k || !s) {
+  //           return s;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
   function solve(s, k) {
-    const ab = "abcdefghijklmnopqrstuvwxyz";
-
-    if (!k) {
-      return s;
+    const str = [...s].sort().slice(0, k);
+    for (let i = 0; i < str.length; i++) {
+      s = s.slice(0, s.indexOf(str[i])) + s.slice(s.indexOf(str[i]) + 1);
     }
-
-    for (let i = 0; i < 26; i++) {
-      if (!s.includes(ab[i])) {
-        continue;
-      }
-
-      if (s.includes(ab[i])) {
-        const quantity = [...s].filter((e) => e === ab[i]).length;
-        for (let j = 0; j < quantity; j++) {
-          s = s.replace(ab[i], "");
-          k -= 1;
-          console.log(s, k);
-
-          if (!k || !s) {
-            return s;
-          }
-        }
-      }
-    }
+    return s;
   }
 
-  console.log(solve("abracadabra", 6));
+  console.log(solve("abracadabra", 8));
 }
