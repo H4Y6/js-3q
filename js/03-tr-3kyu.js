@@ -11153,24 +11153,39 @@ Examples (input -> output):
   //     : [week[first], week[last]];
   // }
 
+  // const mostFrequentDays = (year) => {
+  //   const week = [
+  //     "Sunday",
+  //     "Monday",
+  //     "Tuesday",
+  //     "Wednesday",
+  //     "Thursday",
+  //     "Friday",
+  //     "Saturday",
+  //   ];
+  //   const first = new Date(year, 0, 1).getDay();
+  //   const last = new Date(year + 1, 0, 0).getDay();
+
+  //   return first === last
+  //     ? [week[first]]
+  //     : first
+  //     ? [week[first], week[last]]
+  //     : [week[last], week[first]];
+  // };
+
   const mostFrequentDays = (year) => {
-    const week = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const first = new Date(year, 0, 1).getDay();
-    const last = new Date(year + 1, 0, 0).getDay();
+    const first = new Date(year, 0, 1).toLocaleString("en", {
+      weekday: "long",
+    });
+    const last = new Date(year + 1, 0, 0).toLocaleString("en", {
+      weekday: "long",
+    });
 
     return first === last
-      ? [week[first]]
-      : first
-      ? [week[first], week[last]]
-      : [week[last], week[first]];
+      ? [first]
+      : first !== "Sunday"
+      ? [first, last]
+      : [last, first];
   };
 
   console.log(mostFrequentDays(1984));
