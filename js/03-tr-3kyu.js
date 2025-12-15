@@ -11130,7 +11130,6 @@ Examples (input -> output):
 * 2427 -> ['Friday']
 * 2185 -> ['Saturday']
 * 2860 -> ['Thursday', 'Friday']     */
-
   // function mostFrequentDays(year) {
   //   const week = [
   //     "Sunday",
@@ -11145,14 +11144,12 @@ Examples (input -> output):
   //     new Date(year, 0, 1).getDay(),
   //     new Date(year + 1, 0, 0).getDay(),
   //   ];
-
   //   return first === last
   //     ? [week[first]]
   //     : !first
   //     ? [week[last], week[first]]
   //     : [week[first], week[last]];
   // }
-
   // const mostFrequentDays = (year) => {
   //   const week = [
   //     "Sunday",
@@ -11165,14 +11162,12 @@ Examples (input -> output):
   //   ];
   //   const first = new Date(year, 0, 1).getDay();
   //   const last = new Date(year + 1, 0, 0).getDay();
-
   //   return first === last
   //     ? [week[first]]
   //     : first
   //     ? [week[first], week[last]]
   //     : [week[last], week[first]];
   // };
-
   // const mostFrequentDays = (year) => {
   //   const first = new Date(year, 0, 1).toLocaleString("en", {
   //     weekday: "long",
@@ -11180,14 +11175,12 @@ Examples (input -> output):
   //   const last = new Date(year + 1, 0, 0).toLocaleString("en", {
   //     weekday: "long",
   //   });
-
   //   return first === last
   //     ? [first]
   //     : first !== "Sunday"
   //     ? [first, last]
   //     : [last, first];
   // };
-
   // const mostFrequentDays = (year) => {
   //   const set = [
   //     ...new Set([
@@ -11199,10 +11192,8 @@ Examples (input -> output):
   //       }),
   //     ]),
   //   ];
-
   //   return set[0] !== "Sunday" ? set : set.reverse();
   // };
-
   // const mostFrequentDays = (year) => {
   //   return ((set) => (set[0] !== "Sunday" ? set : set.reverse()))([
   //     ...new Set([
@@ -11215,18 +11206,35 @@ Examples (input -> output):
   //     ]),
   //   ]);
   // };
+  // const mostFrequentDays = (year) =>
+  //   ((set) => (set[0] !== "Sunday" ? set : set.reverse()))([
+  //     ...new Set([
+  //       new Date(year, 0, 1).toLocaleString("en", {
+  //         weekday: "long",
+  //       }),
+  //       new Date(year + 1, 0, 0).toLocaleString("en", {
+  //         weekday: "long",
+  //       }),
+  //     ]),
+  //   ]);
 
-  const mostFrequentDays = (year) =>
-    ((set) => (set[0] !== "Sunday" ? set : set.reverse()))([
-      ...new Set([
-        new Date(year, 0, 1).toLocaleString("en", {
-          weekday: "long",
-        }),
-        new Date(year + 1, 0, 0).toLocaleString("en", {
-          weekday: "long",
-        }),
-      ]),
-    ]);
+  function mostFrequentDays(year) {
+    const q = new Date(year, 1, 29).getDate() > 28;
 
-  // console.log(mostFrequentDays(1984));
+    const first = new Date(year, 0, 1);
+
+    return q
+      ? first.getDay()
+        ? [
+            first.toLocaleString("en", { weekday: "long" }),
+            new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
+          ]
+        : [
+            new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
+            first.toLocaleString("en", { weekday: "long" }),
+          ]
+      : [new Date(year, 0, 1).toLocaleString("en", { weekday: "long" })];
+  }
+
+  console.log(mostFrequentDays(1984));
 }
