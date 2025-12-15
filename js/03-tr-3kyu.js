@@ -11218,12 +11218,26 @@ Examples (input -> output):
   //     ]),
   //   ]);
 
-  function mostFrequentDays(year) {
-    const q = new Date(year, 1, 29).getDate() > 28;
+  // function mostFrequentDays(year) {
+  //   const q = new Date(year, 1, 29).getDate() > 28;
 
-    const first = new Date(year, 0, 1);
+  //   const first = new Date(year, 0, 1);
 
-    return q
+  //   return q
+  //     ? first.getDay()
+  //       ? [
+  //           first.toLocaleString("en", { weekday: "long" }),
+  //           new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
+  //         ]
+  //       : [
+  //           new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
+  //           first.toLocaleString("en", { weekday: "long" }),
+  //         ]
+  //     : [new Date(year, 0, 1).toLocaleString("en", { weekday: "long" })];
+  // }
+
+  function mostFrequentDays(year, first = new Date(year, 0, 1)) {
+    return new Date(year, 1, 29).getDate() > 28
       ? first.getDay()
         ? [
             first.toLocaleString("en", { weekday: "long" }),
