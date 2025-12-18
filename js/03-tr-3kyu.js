@@ -11250,18 +11250,29 @@ Examples (input -> output):
   //     : [new Date(year, 0, 1).toLocaleString("en", { weekday: "long" })];
   // }
 
-  const mostFrequentDays = (year, first = new Date(year, 0, 1)) =>
-    new Date(year, 1, 29).getDate() > 28
-      ? first.getDay()
-        ? [
-            first.toLocaleString("en", { weekday: "long" }),
-            new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
-          ]
-        : [
-            new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
-            first.toLocaleString("en", { weekday: "long" }),
-          ]
-      : [new Date(year, 0, 1).toLocaleString("en", { weekday: "long" })];
+  // const mostFrequentDays = (year, first = new Date(year, 0, 1)) =>
+  //   new Date(year, 1, 29).getDate() > 28
+  //     ? first.getDay()
+  //       ? [
+  //           first.toLocaleString("en", { weekday: "long" }),
+  //           new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
+  //         ]
+  //       : [
+  //           new Date(year, 0, 2).toLocaleString("en", { weekday: "long" }),
+  //           first.toLocaleString("en", { weekday: "long" }),
+  //         ]
+  //     : [new Date(year, 0, 1).toLocaleString("en", { weekday: "long" })];
 
-  // console.log(mostFrequentDays(1984));
+  const mostFrequentDays = (
+    year,
+    first = new Date(year, 0, 1).toLocaleString("en", { weekday: "long" }),
+    last = new Date(year, 11, 31).toLocaleString("en", { weekday: "long" })
+  ) =>
+    first !== last
+      ? first !== "Sunday"
+        ? [first, last]
+        : [last, first]
+      : [first];
+
+  console.log(mostFrequentDays(1989));
 }
