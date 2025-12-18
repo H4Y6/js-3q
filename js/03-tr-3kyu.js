@@ -11383,12 +11383,14 @@ if (x) == ['a', 3]  you should return [['a', 3], ['a', 3], ['a', 3]].    */
 
   // const explode = (x) => x.some((e) => +(typeof e === "number")) ? Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(x ) : "Void!";
 
+  // const explode = (x) => new String(x[0] + x[1]).replace(/\D/g, "") ? Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(x) : "Void!";
+
   const explode = (x) =>
-    new String(x[0] + x[1]).replace(/\D/g, "")
-      ? Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(
+    x.every((e) => isNaN(e))
+      ? "Void!"
+      : Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(
           x
-        )
-      : "Void!";
+        );
 
   // console.log(explode(["y", 0]));
 }
