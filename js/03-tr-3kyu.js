@@ -11317,11 +11317,11 @@ Examples (input -> output):
 
 reject([1, 2, 3, 4, 5, 6], (n) => n % 2 === 0)  =>  [1, 3, 5]   */
 
-  function reject(array, predicate) {
-    return array.filter((e) => !predicate(e));
-  }
+  // function reject(array, predicate) { return array.filter((e) => !predicate(e))}
 
   // const reject = (array, predicate) => { return array.filter((e) => !predicate(e));};
 
-  console.log(reject(["a", "b", 3, "d"], (x) => typeof x === "number"));
+  const reject = (array, predicate) => array.filter((e) => !predicate(e));
+
+  // console.log(reject(["a", "b", 3, "d"], (x) => typeof x === "number"));
 }
