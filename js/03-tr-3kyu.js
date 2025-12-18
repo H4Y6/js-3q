@@ -11325,3 +11325,60 @@ reject([1, 2, 3, 4, 5, 6], (n) => n % 2 === 0)  =>  [1, 3, 5]   */
 
   // console.log(reject(["a", "b", 3, "d"], (x) => typeof x === "number"));
 }
+
+{
+  Array.range = function (start, count) {
+    console.log(arguments);
+    return Array(count)
+      .fill(start)
+      .map((e, i) => e + i);
+  };
+
+  // console.log(Array.range(3, 4));
+
+  Array.prototype.sum = function (...args) {
+    return args.reduce((s, e) => s + +e, 0);
+  };
+
+  // console.log(Array.prototype.sum([-8]));
+
+  /**  Time: 806ms Passed: 5Failed: 1Exit Code: 1
+Test Results:
+Fixed Tests
+Array.range
+Array.prototype.sum
+Empty array should sum to 0
+Should be able to add negative numbers
+Log
+[]
+expected +0 to equal -8
+Completed in 1ms
+Should be able to add all numbers in the array
+Completed in 2ms
+Completed in 3ms      */
+}
+
+{
+  /**  
+7 kyu
+Array Array Array
+
+You are given an initial 2-value array (x). You will use this to calculate a score.
+
+If both values in (x) are numbers, the score is the sum of the two. If only one is a number, the score is that number. If neither is a number, return 'Void!'.
+
+Once you have your score, you must return an array of arrays. Each sub array will be the same as (x) and the number of sub arrays should be equal to the score.
+
+For example:
+
+if (x) == ['a', 3]  you should return [['a', 3], ['a', 3], ['a', 3]].    */
+
+  function explode(x) {
+    return x.some((e) => +(typeof e === "number"))
+      ? Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(
+          x
+        )
+      : "Void!";
+  }
+  console.log(explode(["y", 0]));
+}
