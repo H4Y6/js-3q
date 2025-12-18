@@ -11287,9 +11287,20 @@ Examples (input -> output):
   //     new Date(year, 11, 31).toLocaleString("en", { weekday: "long" }),
   //   ]);
 
+  // const mostFrequentDays = (year) =>
+  //   ((set) =>
+  //     set.length < 2 ? set : set[0] !== "Sunday" ? set : [set[1], set[0]])([
+  //     ...new Set([
+  //       new Date(year, 0, 1).toLocaleString("en", {
+  //         weekday: "long",
+  //       }),
+  //       new Date(year, 11, 31).toLocaleString("en", { weekday: "long" }),
+  //     ]),
+  //   ]);
+
   const mostFrequentDays = (year) =>
     ((set) =>
-      set.length < 2 ? set : set[0] !== "Sunday" ? set : [set[1], set[0]])([
+      set.length < 2 ? set : set[0] !== "Sunday" ? set : set.reverse())([
       ...new Set([
         new Date(year, 0, 1).toLocaleString("en", {
           weekday: "long",
@@ -11298,5 +11309,5 @@ Examples (input -> output):
       ]),
     ]);
 
-  console.log(mostFrequentDays(1984));
+  // console.log(mostFrequentDays(1984));
 }
