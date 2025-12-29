@@ -11512,3 +11512,27 @@ STDERR => Execution Timed Out (12000 ms) */
 
   // console.log(sumPairs([10, 5, 2, 3, 7, 5], 10));
 }
+
+{
+  function scoreboard(string) {
+    return string
+      .split(" ")
+      .map((e) =>
+        [
+          "nil",
+          "one",
+          "two",
+          "three",
+          "four",
+          "five",
+          "six",
+          "seven",
+          "eight",
+          "nine",
+        ].indexOf(e)
+      )
+      .filter((e) => e !== -1);
+  }
+
+  console.log(scoreboard("The score is four nil"));
+}
