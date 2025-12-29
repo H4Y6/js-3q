@@ -11550,24 +11550,42 @@ Either teams score has a range of 0-9, and the ref won't say the same string eve
   //     .filter((e) => e !== -1);
   // }
 
+  // const scoreboard = (string) =>
+  //   string
+  //     .split(" ")
+  //     .map((e) =>
+  //       [
+  //         "nil",
+  //         "one",
+  //         "two",
+  //         "three",
+  //         "four",
+  //         "five",
+  //         "six",
+  //         "seven",
+  //         "eight",
+  //         "nine",
+  //       ].indexOf(e)
+  //     )
+  //     .filter((e) => e !== -1);
+
   const scoreboard = (string) =>
-    string
-      .split(" ")
-      .map((e) =>
-        [
-          "nil",
-          "one",
-          "two",
-          "three",
-          "four",
-          "five",
-          "six",
-          "seven",
-          "eight",
-          "nine",
-        ].indexOf(e)
-      )
-      .filter((e) => e !== -1);
+    ((dgts) =>
+      string
+        .split(" ")
+        .filter((e) => dgts.includes(e))
+        .map((e) => dgts.indexOf(e)))([
+      "nil",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+    ]);
 
   console.log(scoreboard("The score is four nil"));
 }
