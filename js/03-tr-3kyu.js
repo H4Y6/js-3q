@@ -577,20 +577,20 @@ See Examples Test Cases for more examples.    */
       !st
         ? `No participants`
         : n > arr.length
-        ? `Not enough participants`
-        : arr[n - 1][0])(
-      st
-        .split(`,`)
-        .map((e, i) => [
-          e,
-          [...e.toUpperCase()].reduce(
-            (res, el) => res + el.charCodeAt() - 64,
-            e.length
-          ) * we[i],
-        ])
-        .sort()
-        .sort((a, b) => b[1] - a[1])
-    );
+          ? `Not enough participants`
+          : arr[n - 1][0])(
+            st
+              .split(`,`)
+              .map((e, i) => [
+                e,
+                [...e.toUpperCase()].reduce(
+                  (res, el) => res + el.charCodeAt() - 64,
+                  e.length
+                ) * we[i],
+              ])
+              .sort()
+              .sort((a, b) => b[1] - a[1])
+          );
 
   // console.log(rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4));
   // console.log(rank("Addison,Ben,Sofia,Michael,Andrew,William,Willaim", [4, 2, 1, 4, 3, 2, 2], 4));
@@ -726,12 +726,12 @@ grader(0.6) should be "D"         */
     return score < 0.6 || score > 1
       ? "F"
       : score < 0.7
-      ? "D"
-      : score < 0.8
-      ? "C"
-      : score < 0.9
-      ? "B"
-      : "A";
+        ? "D"
+        : score < 0.8
+          ? "C"
+          : score < 0.9
+            ? "B"
+            : "A";
   }
 }
 {
@@ -809,8 +809,7 @@ For example:
 
   // const toTime = seconds => `${Math.trunc(seconds / 3600)} hour(s) and ${Math.trunc(seconds % 3600 / 60)} minute(s)`;
   const toTime = (seconds) =>
-    `${(seconds / 3600) ^ 0} hour(s) and ${
-      ((seconds % 3600) / 60) ^ 0
+    `${(seconds / 3600) ^ 0} hour(s) and ${((seconds % 3600) / 60) ^ 0
     } minute(s)`;
   // console.log(toTime(3700));
 }
@@ -1633,8 +1632,8 @@ The Office I - Outed   */
     scoreRes <= 80
       ? "kill me now"
       : scoreRes >= 100
-      ? "party time!!"
-      : "i can handle this";
+        ? "party time!!"
+        : "i can handle this";
   // console.log(boredom({
   // tim: 'change', jim: 'accounts',
   // randy: 'canteen', sandy: 'change', andy: 'change', katie: 'IS',
@@ -1940,10 +1939,10 @@ If the total of both even and odd numbers are identical return: "Even and Odd ar
       e > 0
         ? "Odd is greater than Even"
         : e
-        ? "Even is greater than Odd"
-        : "Even and Odd are the same")(
-      [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0)
-    );
+          ? "Even is greater than Odd"
+          : "Even and Odd are the same")(
+            [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0)
+          );
 
   // console.log(evenOrOdd('12123344'));
 }
@@ -2305,7 +2304,7 @@ If the sequence is empty, you should return 0. */
   const evenLast = (numbers) =>
     numbers.length
       ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) *
-        numbers.slice(-1)
+      numbers.slice(-1)
       : 0;
   // console.log(evenLast([2, 3, 4, 5]));
 }
@@ -2742,10 +2741,10 @@ If the input-string is null or empty return exactly this value! (empty string fo
     !timestring
       ? timestring
       : /(\d{2}:){2}\d{2}/.test(timestring)
-      ? new Date(new Date().setHours(...timestring.split(`:`)))
+        ? new Date(new Date().setHours(...timestring.split(`:`)))
           .toTimeString()
           .slice(0, 8)
-      : null;
+        : null;
   // console.log(timeCorrect("52:01:01"));
 }
 {
@@ -2953,8 +2952,8 @@ Examples (Input => Output)
     return Array.isArray(arguments[arguments.length - 1])
       ? arguments[arguments.length - 1].slice(-1)[0]
       : typeof arguments[0] === "string"
-      ? arguments[0].slice(-1)
-      : arguments[arguments.length - 1];
+        ? arguments[0].slice(-1)
+        : arguments[arguments.length - 1];
   }
   // console.log(last(1, 2, 3));
   // console.log(last('abc'));
@@ -3705,8 +3704,8 @@ Do not expect any negative or invalid inputs. */
   const binaryToString = (binary) =>
     binary
       ? String.fromCharCode(
-          ...binary.match(/\d{8}/g).map((e) => parseInt(e, 2))
-        )
+        ...binary.match(/\d{8}/g).map((e) => parseInt(e, 2))
+      )
       : "";
 
   // console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
@@ -4064,11 +4063,11 @@ Do not expect any negative or invalid inputs. */
   function alphabetWar(fight, str = "mqdz sbpw") {
     return ((res) =>
       res ? (res > 0 ? "Lef" : "Righ") + "t side wins!" : "Let's fight again!")(
-      fight
-        .replace(/(\w?\*\w?)|[^mqdzsbpw]/g, "")
-        .split("")
-        .reduce((sum, e) => sum + str.indexOf(e) - 4, 0)
-    );
+        fight
+          .replace(/(\w?\*\w?)|[^mqdzsbpw]/g, "")
+          .split("")
+          .reduce((sum, e) => sum + str.indexOf(e) - 4, 0)
+      );
   }
 
   // const alphabetWar = fight => (res => res > 0 ? "Left side wins!" : res < 0 ? "Right side wins!" : "Let's fight again!")
@@ -4127,7 +4126,7 @@ Do not expect any negative or invalid inputs. */
       let digitStr = "";
       [..."1234567890"].some((e) => !digitStr.includes(e));
       digitStr += x * ++n
-    ) {}
+    ) { }
     return n;
   }
   // console.log(computeDepth(42));
@@ -4873,7 +4872,7 @@ chain(2, [add, mult]);
   //   const res = [...new Set(arr)].map(e => [e, arr.filter(el => el === e).length]).sort((a, b) => b[1] - a[1])[0];
   //   return res[1] > arr.length / 2 ? res[0] : -1;
   // } /** time out */
-  function dominator(arr) {}
+  function dominator(arr) { }
   // console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
 }
 {
@@ -5160,10 +5159,10 @@ Hi < firstName here >, what do you like the most about < language here >?   */
   const greetDevelopers = (list) =>
     list.map(
       (d) =>
-        (d = {
-          ...d,
-          greeting: `Hi ${d.firstName}, what do you like the most about ${d.language}?`,
-        })
+      (d = {
+        ...d,
+        greeting: `Hi ${d.firstName}, what do you like the most about ${d.language}?`,
+      })
     );
 
   // console.log(greetDevelopers(list1));
@@ -5203,8 +5202,8 @@ Your task is to return one of the following strings:
       d
         ? `${d.firstName}, ${d.country}`
         : "There will be no Python developers")(
-      list.find((d) => d.language === "Python")
-    );
+          list.find((d) => d.language === "Python")
+        );
 
   // console.log(getFirstPython(list1));
 }
@@ -5270,10 +5269,10 @@ Your task is to return one of the following strings:
   const countLanguages = (list) =>
     [...new Set(list.map(({ language }) => language))].reduce(
       (res, l) =>
-        (res = {
-          ...res,
-          [l]: list.filter(({ language }) => language === l).length,
-        }),
+      (res = {
+        ...res,
+        [l]: list.filter(({ language }) => language === l).length,
+      }),
       {}
     );
 
@@ -6017,12 +6016,12 @@ Task:    Write function scale(strng, k, v) k and v will be positive integers. If
   const scale = (strng, k, n) =>
     strng
       ? strng
-          .split("\n")
-          .map((e) =>
-            ([...e].map((el) => el.repeat(k)).join("") + "\n").repeat(n)
-          )
-          .join("")
-          .trim()
+        .split("\n")
+        .map((e) =>
+          ([...e].map((el) => el.repeat(k)).join("") + "\n").repeat(n)
+        )
+        .join("")
+        .trim()
       : "";
 
   // console.log(scale('abcd\nefgh\nijkl\nmnop', 2, 3));
@@ -6284,8 +6283,8 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
     return a.length === b.length
       ? a.reduce((res, e, i) => [...res, e, b[i]], [])
       : a.length < b.length
-      ? a.reduce((res, e, i) => [...res, e, b[i]], []).concat(b.slice(a.length))
-      : a
+        ? a.reduce((res, e, i) => [...res, e, b[i]], []).concat(b.slice(a.length))
+        : a
           .slice(0, b.length)
           .reduce((res, e, i) => [...res, e, b[i]], [])
           .concat(a.slice(b.length));
@@ -6539,15 +6538,15 @@ secondSymbol('Hello world!!!', 'A') --> -1   */
 
   const AmIAfraid = (day, num) =>
     ((d) =>
-      ({
-        Mo: num === 12,
-        Tu: num > 95,
-        We: num === 34,
-        Th: num === 0,
-        Fr: num % 2 === 0,
-        Sa: num === 56,
-        Su: 666 === Math.abs(num),
-      }[d]))((day = day.slice(0, 2)));
+    ({
+      Mo: num === 12,
+      Tu: num > 95,
+      We: num === 34,
+      Th: num === 0,
+      Fr: num % 2 === 0,
+      Sa: num === 56,
+      Su: 666 === Math.abs(num),
+    }[d]))((day = day.slice(0, 2)));
 
   // console.log(AmIAfraid('Friday', 2));
 }
@@ -6613,14 +6612,14 @@ Some examples
       !ms
         ? "Cuckoo ".repeat(hs % 12).trim() || "Cuckoo ".repeat(12).trim()
         : ms + "" === "30"
-        ? "Cuckoo"
-        : !(ms % 15)
-        ? "Fizz Buzz"
-        : !(ms % 5)
-        ? "Buzz"
-        : !(ms % 3)
-        ? "Fizz"
-        : "tick")(time.split(":").map((e) => +e));
+          ? "Cuckoo"
+          : !(ms % 15)
+            ? "Fizz Buzz"
+            : !(ms % 5)
+              ? "Buzz"
+              : !(ms % 3)
+                ? "Fizz"
+                : "tick")(time.split(":").map((e) => +e));
 
   // const fizzBuzzCuckooClock = time => (([hs, ms]) => !ms ? Array(hs > 12 ? hs - 12 : hs || 12).fill('Cuckoo').join(' ') : ms + '' === '30'
   // ? 'Cuckoo' : !(ms % 15) ? 'Fizz Buzz' : !(ms % 5) ? 'Buzz' : !(ms % 3) ? 'Fizz' : 'tick')(time.split(':').map(e => +e));
@@ -7174,8 +7173,8 @@ Requested maximum length will be greater than 0. Input string will not be empty.
     str.length <= size
       ? str
       : str.length > 4
-      ? str.slice(0, size - 3 > 0 ? size - 3 : size).concat("...")
-      : str.slice(0, size).concat("...");
+        ? str.slice(0, size - 3 > 0 ? size - 3 : size).concat("...")
+        : str.slice(0, size).concat("...");
 
   // console.log(trim('Creating kata is fun', 2));
 }
@@ -7512,39 +7511,39 @@ roundIt(34.56) should return 35   */
   const roundIt = (n) =>
     ((res) =>
       res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n))(
-      (n + "").split(".")[0].length - (n + "").split(".")[1].length
-    );
+        (n + "").split(".")[0].length - (n + "").split(".")[1].length
+      );
 
   // console.log(roundIt(3.45));
 }
 {
   /**  
-	8 kyu	Training JS #5: Basic data types--Object
+  8 kyu	Training JS #5: Basic data types--Object
 	
-	In javascript, Object is one of basic data types. Define an Object can use var obj=new Object() or var obj={}
+  In javascript, Object is one of basic data types. Define an Object can use var obj=new Object() or var obj={}
 	
-	You can define the object attributes during initialization, like this:
+  You can define the object attributes during initialization, like this:
 	
-	var animal={name:"dog"}
+  var animal={name:"dog"}
 	
-	you can also set/get some properties after the object definition, like this:
+  you can also set/get some properties after the object definition, like this:
 	
-	var animal={}
-	animal.name="dog"  (or animal["name"]="dog")
+  var animal={}
+  animal.name="dog"  (or animal["name"]="dog")
 	
-	Task
+  Task
 	
-	Give you a function animal, accept 1 parameter:obj like this:
+  Give you a function animal, accept 1 parameter:obj like this:
 	
-	{name:"dog",legs:4,color:"white"}
+  {name:"dog",legs:4,color:"white"}
 	
-	and return a string like this:
+  and return a string like this:
 	
-	"This white dog has 4 legs."
+  "This white dog has 4 legs."
 	
-	When you have finished the work, click "Run Tests" to see if your code is working properly.
+  When you have finished the work, click "Run Tests" to see if your code is working properly.
 	
-	In the end, click "Submit" to submit your code pass this kata. */
+  In the end, click "Submit" to submit your code pass this kata. */
 
   // function animal(obj) {
   //   const { name, legs, color } = obj;
@@ -7562,9 +7561,9 @@ roundIt(34.56) should return 35   */
 }
 {
   /** 7 kyu 	How many times should I go?
-	Lot of museum allow you to be a member, for a certain amount amount_by_year you can have unlimitted acces to the museum.
+  Lot of museum allow you to be a member, for a certain amount amount_by_year you can have unlimitted acces to the museum.
 	
-	In this kata you should complete a function in order to know after how many visit it will be better to take an annual pass. The function take 2 arguments annual_price and individual_price. */
+  In this kata you should complete a function in order to know after how many visit it will be better to take an annual pass. The function take 2 arguments annual_price and individual_price. */
 
   // function howManyTimes(annualPrice, individualPrice) {
   // 	return (annualPrice / individualPrice) % 1
@@ -7583,10 +7582,10 @@ roundIt(34.56) should return 35   */
 }
 {
   /** 7 kyu	What dominates your array?
-	A zero-indexed array arr consisting of n integers is given. The dominator of array arr is the value that occurs in more than half of the elements of arr.
-	For example, consider array arr such that arr = [3,4,3,2,3,1,3,3]
-	The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more than a half of 8.
-	Write a function dominator(arr) that, given a zero-indexed array arr consisting of n integers, returns the dominator of arr. The function should return −1 if array does not have a dominator. All values in arr will be >=0. */
+  A zero-indexed array arr consisting of n integers is given. The dominator of array arr is the value that occurs in more than half of the elements of arr.
+  For example, consider array arr such that arr = [3,4,3,2,3,1,3,3]
+  The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more than a half of 8.
+  Write a function dominator(arr) that, given a zero-indexed array arr consisting of n integers, returns the dominator of arr. The function should return −1 if array does not have a dominator. All values in arr will be >=0. */
 
   // function dominator(arr) {
   //   return (ar =>
@@ -7627,13 +7626,13 @@ roundIt(34.56) should return 35   */
 }
 {
   /** 7 kyu	Replace all items
-	Write function replaceAll (Python: replace_all) that will replace all occurrences of an item with another.
+  Write function replaceAll (Python: replace_all) that will replace all occurrences of an item with another.
 	
-	Python / JavaScript: The function has to work for strings and lists.
+  Python / JavaScript: The function has to work for strings and lists.
 	
-	Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]
+  Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]
 	
-	replaceAll(replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]	 */
+  replaceAll(replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]	 */
   //
   //   function replaceAll(seq, find, replace) {
   //     return typeof seq === 'string'
@@ -7667,36 +7666,36 @@ roundIt(34.56) should return 35   */
 {
   /**  7 kyu  Digital cypher vol 2
 
-	Digital Cypher assigns to each letter of the alphabet unique number. For example:
+  Digital Cypher assigns to each letter of the alphabet unique number. For example:
 	
-	 a  b  c  d  e  f  g  h  i  j  k  l  m
-	 1  2  3  4  5  6  7  8  9 10 11 12 13
-	 n  o  p  q  r  s  t  u  v  w  x  y  z
-	14 15 16 17 18 19 20 21 22 23 24 25 26
-	Instead of letters in encrypted word we write the corresponding number, eg. The word scout:
+   a  b  c  d  e  f  g  h  i  j  k  l  m
+   1  2  3  4  5  6  7  8  9 10 11 12 13
+   n  o  p  q  r  s  t  u  v  w  x  y  z
+  14 15 16 17 18 19 20 21 22 23 24 25 26
+  Instead of letters in encrypted word we write the corresponding number, eg. The word scout:
 	
-	 s  c  o  u  t
-	19  3 15 21 20
-	Then we add to each obtained digit consecutive digits from the key. For example. In case of key equal to 1939 :
+   s  c  o  u  t
+  19  3 15 21 20
+  Then we add to each obtained digit consecutive digits from the key. For example. In case of key equal to 1939 :
 	
-		 s  c  o  u  t
-		19  3 15 21 20
-	 + 1  9  3  9  1
-	 ---------------
-		20 12 18 30 21
-		
-		 m  a  s  t  e  r  p  i  e  c  e
-		13  1 19 20  5 18 16  9  5  3  5
-	+  1  9  3  9  1  9  3  9  1  9  3
-		--------------------------------
-		14 10 22 29  6 27 19 18  6  12 8
-	Task
-	Write a function that accepts an array of integers code and a key number. As the result, it should return string containg a decoded message from the code.
+     s  c  o  u  t
+    19  3 15 21 20
+   + 1  9  3  9  1
+   ---------------
+    20 12 18 30 21
+  	
+     m  a  s  t  e  r  p  i  e  c  e
+    13  1 19 20  5 18 16  9  5  3  5
+  +  1  9  3  9  1  9  3  9  1  9  3
+    --------------------------------
+    14 10 22 29  6 27 19 18  6  12 8
+  Task
+  Write a function that accepts an array of integers code and a key number. As the result, it should return string containg a decoded message from the code.
 	
-	Example
-	decode([ 20, 12, 18, 30, 21],1939);  ==> "scout"
-	decode([ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8],1939);  ==>  "masterpiece"
-	 */
+  Example
+  decode([ 20, 12, 18, 30, 21],1939);  ==> "scout"
+  decode([ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8],1939);  ==>  "masterpiece"
+   */
 
   //   function decode(code, n) {
   //     const alphabet = [
@@ -8153,16 +8152,16 @@ Write a function that accepts arbitrary X and Y resolutions and converts them in
     return constant === "height"
       ? [Math.ceil((y * 16) / 9), y]
       : constant === "width"
-      ? [x, Math.ceil((x * 9) / 16)]
-      : constant === "diagonal"
-      ? [
-          Math.ceil(16 * ((x ** 2 + y ** 2) / 337) ** 0.5),
-          Math.ceil(9 * ((x ** 2 + y ** 2) / 337) ** 0.5),
-        ]
-      : [
-          Math.ceil(16 * ((x * y) / 144) ** 0.5),
-          Math.ceil(9 * ((x * y) / 144) ** 0.5),
-        ];
+        ? [x, Math.ceil((x * 9) / 16)]
+        : constant === "diagonal"
+          ? [
+            Math.ceil(16 * ((x ** 2 + y ** 2) / 337) ** 0.5),
+            Math.ceil(9 * ((x ** 2 + y ** 2) / 337) ** 0.5),
+          ]
+          : [
+            Math.ceil(16 * ((x * y) / 144) ** 0.5),
+            Math.ceil(9 * ((x * y) / 144) ** 0.5),
+          ];
   }
 
   // console.log(aspectRatio(374, 280, 'height'));
@@ -8440,15 +8439,15 @@ Notes:
     !getTowns(strng).includes(town)
       ? -1
       : findTownData(town, strng).reduce((sum, e) => sum + e, 0) /
-        findTownData(town, strng).length;
+      findTownData(town, strng).length;
 
   const variance = (town, strng) =>
     !getTowns(strng).includes(town)
       ? -1
       : findTownData(town, strng).reduce(
-          (sum, e) => sum + (e - mean(town, strng)) ** 2,
-          0
-        ) / findTownData(town, strng).length;
+        (sum, e) => sum + (e - mean(town, strng)) ** 2,
+        0
+      ) / findTownData(town, strng).length;
 
   // console.log(mean('London', data));
   // console.log(variance('London', data));
@@ -8676,9 +8675,9 @@ Notes:
   const sortVowels = (s) =>
     typeof s === "string"
       ? s
-          .split("")
-          .map((e) => (/[aeoui]/i.test(e) ? "|" + e : e + "|"))
-          .join("\n")
+        .split("")
+        .map((e) => (/[aeoui]/i.test(e) ? "|" + e : e + "|"))
+        .join("\n")
       : "";
 
   // console.log(sortVowels('Codewars'));
@@ -9077,7 +9076,7 @@ Examples: [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They d
     };
     const res = [
       Math.round((array.reduce((sum, e) => sum + e, 0) / array.length) * 1e3) /
-        1e3,
+      1e3,
       obj,
     ];
     obj.h < array.length ? res : res.push("They did well");
@@ -9384,20 +9383,19 @@ What you need to think about is how to judge it correctly and effectively and do
   // }
 
   const whatNumberIsIt = (n) =>
-    `Input number is ${
-      n === Number.POSITIVE_INFINITY
-        ? "Number.POSITIVE_INFINITY"
-        : n === Number.MAX_VALUE
+    `Input number is ${n === Number.POSITIVE_INFINITY
+      ? "Number.POSITIVE_INFINITY"
+      : n === Number.MAX_VALUE
         ? "Number.MAX_VALUE"
         : n === Number.NEGATIVE_INFINITY
-        ? "Number.NEGATIVE_INFINITY"
-        : isNaN(n)
-        ? "Number.NaN"
-        : !n
-        ? n
-        : n <= Number.MIN_VALUE
-        ? "Number.MIN_VALUE"
-        : n
+          ? "Number.NEGATIVE_INFINITY"
+          : isNaN(n)
+            ? "Number.NaN"
+            : !n
+              ? n
+              : n <= Number.MIN_VALUE
+                ? "Number.MIN_VALUE"
+                : n
     }`;
 }
 
@@ -9930,23 +9928,22 @@ Go to the store and buy some more, 99 bottles of beer on the wall.
     code === "H"
       ? "Hello World!"
       : code === "Q"
-      ? code
-      : code === "9"
-      ? `${Array.from({ length: 97 }, (_, i) => 99 - i)
-          .map(
-            (n) =>
-              `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${
-                n - 1
-              } bottles of beer on the wall.`
-          )
-          .join("\n")}
+        ? code
+        : code === "9"
+          ? `${Array.from({ length: 97 }, (_, i) => 99 - i)
+            .map(
+              (n) =>
+                `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${n - 1
+                } bottles of beer on the wall.`
+            )
+            .join("\n")}
 2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
 1 bottle of beer on the wall, 1 bottle of beer.
 Take one down and pass it around, no more bottles of beer on the wall.
 No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall.`
-      : undefined;
+          : undefined;
 
   // console.log(HQ9('9'));
 }
@@ -10036,12 +10033,11 @@ Using string template and ternary operator can make your work easier. */
   //     : "It's a fake array";
 
   const blackAndWhite = (arr) =>
-    `It's a ${
-      Array.isArray(arr)
-        ? arr.indexOf(5) < 0 || arr.indexOf(13) < 0
-          ? "white"
-          : "black"
-        : "fake"
+    `It's a ${Array.isArray(arr)
+      ? arr.indexOf(5) < 0 || arr.indexOf(13) < 0
+        ? "white"
+        : "black"
+      : "fake"
     } array`;
 
   // console.log(blackAndWhite([8, 5, 13, 9]));
@@ -10089,8 +10085,8 @@ tailAndHead([35456,782,569,2454,875]) should return 12012          */
         .slice(0, -1)
         .map((e, i) => eval([e[1], ar.slice(1)[i][0]].join("+")))
         .reduce((pr, e) => pr * e))(
-      arr.map((e, i) => [("" + e)[0], ("" + e)[("" + e).length - 1]])
-    );
+          arr.map((e, i) => [("" + e)[0], ("" + e)[("" + e).length - 1]])
+        );
 
   // console.log(tailAndHead([123, 456, 789, 12, 34, 56, 78]));
 }
@@ -10546,8 +10542,8 @@ As you can see, the lists are cascading; ie, they overlap, but never out of orde
     n > array.length
       ? []
       : Array(array.length - n + 1)
-          .fill(1)
-          .map((e, i) => array.slice(i, i + n));
+        .fill(1)
+        .map((e, i) => array.slice(i, i + n));
 
   // console.log(eachCons([7, 4], 3));
 }
@@ -10680,8 +10676,8 @@ For apples=[7,7,7,5], the output should be -1.
       apples.some((e) => (Math.abs(med - e) / 2) % 1) || med % 1
         ? -1
         : apples.reduce((score, e) => score + Math.abs(med - e) / 4, 0))(
-      apples.reduce((sum, e) => sum + e, 0) / apples.length
-    );
+          apples.reduce((sum, e) => sum + e, 0) / apples.length
+        );
 
   // console.log(minSteps([1, 1, 4, 4, 8, 6]));
 }
@@ -10822,21 +10818,21 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
       !s
         ? toPass[0]
         : s < 2.4
-        ? toPass[1]
-        : s < 114.4
-        ? toPass[2]
-        : s < 130.6
-        ? toPass[3]
-        : s < 140.6
-        ? toPass[4]
-        : toPass[5])([
-      "Starting Line... Good Luck!",
-      { Swim: (140.6 - s).toFixed(2) + " to go!" },
-      { Bike: (140.6 - s).toFixed(2) + " to go!" },
-      { Run: (140.6 - s).toFixed(2) + " to go!" },
-      { Run: "Nearly there!" },
-      "You're done! Stop running!",
-    ]);
+          ? toPass[1]
+          : s < 114.4
+            ? toPass[2]
+            : s < 130.6
+              ? toPass[3]
+              : s < 140.6
+                ? toPass[4]
+                : toPass[5])([
+                  "Starting Line... Good Luck!",
+                  { Swim: (140.6 - s).toFixed(2) + " to go!" },
+                  { Bike: (140.6 - s).toFixed(2) + " to go!" },
+                  { Run: (140.6 - s).toFixed(2) + " to go!" },
+                  { Run: "Nearly there!" },
+                  "You're done! Stop running!",
+                ]);
 
   // console.log(iTri(121));
 }
@@ -10958,10 +10954,10 @@ So for this head: "------/------" you shoud return:
         ? n < 2
           ? "Unicorn!"
           : n < 3
-          ? "Homer!"
-          : n > 5
-          ? "Hobo!"
-          : "Careless!"
+            ? "Homer!"
+            : n > 5
+              ? "Hobo!"
+              : "Careless!"
         : "Clean!",
     ])(x.replaceAll("-", "").length);
 
@@ -11301,13 +11297,13 @@ Examples (input -> output):
   const mostFrequentDays = (year) =>
     ((set) =>
       set.length < 2 ? set : set[0] !== "Sunday" ? set : set.reverse())([
-      ...new Set([
-        new Date(year, 0, 1).toLocaleString("en", {
-          weekday: "long",
-        }),
-        new Date(year, 11, 31).toLocaleString("en", { weekday: "long" }),
-      ]),
-    ]);
+        ...new Set([
+          new Date(year, 0, 1).toLocaleString("en", {
+            weekday: "long",
+          }),
+          new Date(year, 11, 31).toLocaleString("en", { weekday: "long" }),
+        ]),
+      ]);
 
   // console.log(mostFrequentDays(1984));
 }
@@ -11389,8 +11385,8 @@ if (x) == ['a', 3]  you should return [['a', 3], ['a', 3], ['a', 3]].    */
     x.every((e) => isNaN(e))
       ? "Void!"
       : Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(
-          x
-        );
+        x
+      );
 
   // console.log(explode(["y", 0]));
 }
@@ -11606,5 +11602,16 @@ Either teams score has a range of 0-9, and the ref won't say the same string eve
         ].indexOf(e)
       );
 
-  console.log(scoreboard("The score is four nil"));
+  // console.log(scoreboard("The score is four nil"));
+}
+
+
+{
+  function solve(s, g) {
+
+    const second = s - g
+    if (second % g) { return -1 }
+    else { return [g, second] }
+  }
+  console.log(solve(12, 4))
 }
