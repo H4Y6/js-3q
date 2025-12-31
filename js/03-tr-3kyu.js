@@ -11662,7 +11662,10 @@ If the input is 78, then you should return "01:18", because 78 minutes converts 
   // }
 
 
-  const timeConvert = (num) => num > 0 ? ('' + Math.floor(num / 60)).padStart(2, '0') + ':' + ('' + num % 60).padStart(2, '0') : '00:00'
+  // const timeConvert = (num) => num > 0 ? ('' + Math.floor(num / 60)).padStart(2, '0') + ':' + ('' + num % 60).padStart(2, '0') : '00:00'
+
+  const timeConvert = (num) => num > 0 ? ('' + ((num / 60 ^ 0) || 0)).padStart(2, '0') + ':' + ('' + num % 60).padStart(2, '0') : '00:00'
+
 
   console.log(timeConvert(565757))
 }
