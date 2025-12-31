@@ -11629,11 +11629,14 @@ More examples in test cases.  */
   //   else { return [g, second] }
   // }
 
-  const solve = (s, g) => {
-    if ((s - g) % g) { return -1 }
-    else { return [g, s - g] }
-  }
+  // const solve = (s, g) => {
+  //   if ((s - g) % g) { return -1 }
+  //   else { return [g, s - g] }
+  // }
 
+  const solve = (s, g) =>
+    ((s - g) % g) ? -1 :
+      [g, s - g]
 
   console.log(solve(12, 4))
 }
