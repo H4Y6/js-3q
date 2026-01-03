@@ -11719,7 +11719,19 @@ should return "unknown value"
   //     ? eval(`(${a} ${sign} ${b})`) : 'unknown value'
   // }
 
-  const calculator = (a, b, sign) => ['+', '-', '*', '/'].filter(e => e === sign).length && [a, b].every(e => typeof e === 'number') ? eval(`(${a} ${sign} ${b})`) : 'unknown value'
+  // const calculator = (a, b, sign) => ['+', '-', '*', '/'].filter(e => e === sign).length && [a, b].every(e => typeof e === 'number') ? eval(`(${a} ${sign} ${b})`) : 'unknown value'
 
-  console.log(calculator(1, 5, '*',))
+  const calculator = (a, b, sign) => {
+    if ([a, b].every(e => typeof e === 'number')) {
+      switch (sign) {
+        case '+': return a + b
+        case '-': return a - b
+        case '*': return a * b
+        case '/': return a / b
+      }
+    }
+    return 'unknown value'
+  }
+
+  console.log(calculator(1, 5, '',))
 }
