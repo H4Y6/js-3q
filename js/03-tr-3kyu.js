@@ -11705,14 +11705,21 @@ arguments: 1, "k", "*"
 should return "unknown value"
  */
 
-  function calculator(a, b, sign) {
-    if ([a, b].every(e => typeof e === 'number')) {
-      if (sign === '+') { return a + b } else if (sign === '-') { return a - b } else if (sign === '*') {
-        return a * b
-      } else if (sign === '/') { return a / b }
-      else { return 'unknown value' }
-    } else { return 'unknown value' }
-  }
+  // function calculator(a, b, sign) {
+  //   if ([a, b].every(e => typeof e === 'number')) {
+  //     if (sign === '+') { return a + b } else if (sign === '-') { return a - b } else if (sign === '*') {
+  //       return a * b
+  //     } else if (sign === '/') { return a / b }
+  //     else { return 'unknown value' }
+  //   } else { return 'unknown value' }
+  // }
+
+  // function calculator(a, b, sign) {
+  //   return ['+', '-', '*', '/'].filter(e => e === sign).length && [a, b].every(e => typeof e === 'number')
+  //     ? eval(`(${a} ${sign} ${b})`) : 'unknown value'
+  // }
+
+  const calculator = (a, b, sign) => ['+', '-', '*', '/'].filter(e => e === sign).length && [a, b].every(e => typeof e === 'number') ? eval(`(${a} ${sign} ${b})`) : 'unknown value'
 
   console.log(calculator(1, 5, '*',))
 }
