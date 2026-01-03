@@ -11733,15 +11733,25 @@ should return "unknown value"
   //   return 'unknown value'
   // }
 
+  // const calculator = (a, b, sign) => {
+  //   const acts = {
+  //     '+': a + b,
+  //     '-': a - b,
+  //     '*': a * b,
+  //     '/': a / b
+  //   }
+  //   return acts[sign] ? acts[sign] : 'unknown value'
+  // }
+
   const calculator = (a, b, sign) => {
-    const acts = {
-      '+': a + b,
-      '-': a - b,
-      '*': a * b,
-      '/': a / b
+    const fn = {
+      '+': (a, b) => a + b,
+      '-': (a, b) => a - b,
+      '*': (a, b) => a * b,
+      '/': (a, b) => a / b
     }
-    return acts[sign] ? acts[sign] : 'unknown value'
+    return fn[sign] && !isNaN(a) && !isNaN(b) ? fn[sign](a, b) : 'unknown value'
   }
 
-  console.log(calculator(1, 5, '',))
+  // console.log(calculator(1, 5, '',))
 }
