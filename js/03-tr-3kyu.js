@@ -11755,3 +11755,23 @@ should return "unknown value"
 
   // console.log(calculator(1, 5, '',))
 }
+
+{
+  const people = [
+    { name: 'Warrior reading this kata', wasNice: true },
+    { name: 'xDranik', wasNice: false },
+    { name: 'Santa', wasNice: true }
+  ]
+
+  function getNiceNames(people) {
+    return people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
+  }
+
+  function getNaughtyNames(people) {
+    return people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
+  }
+
+  console.log(getNiceNames(people))
+  console.log(getNaughtyNames(people))
+
+}
