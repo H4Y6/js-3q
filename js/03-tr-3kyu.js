@@ -11763,13 +11763,16 @@ should return "unknown value"
     { name: 'Santa', wasNice: true }
   ]
 
-  function getNiceNames(people) {
-    return people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
-  }
+  // function getNiceNames(people) {
+  //   return people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
+  // }
 
-  function getNaughtyNames(people) {
-    return people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
-  }
+  // function getNaughtyNames(people) {
+  //   return people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
+  // }
+
+  const getNiceNames = (people) => people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
+  const getNaughtyNames = (people) => people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
 
   console.log(getNiceNames(people))
   console.log(getNaughtyNames(people))
