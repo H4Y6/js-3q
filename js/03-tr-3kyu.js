@@ -11786,10 +11786,12 @@ should return "unknown value"
   // const getNiceNames = (...args) => { const [arg] = args; return arg.map((p) => p = p.wasNice ? p.name : '').filter(e => e) }
   // const getNaughtyNames = (...args) => { const [arg] = args; return arg.map(({ wasNice, name }) => !wasNice ? name : '').filter(e => e) }
 
-  const getNiceNames = (...args) => args[0].map((p) => p = p.wasNice ? p.name : '').filter(e => e)
-  const getNaughtyNames = (...args) => args[0].map(({ wasNice, name }) => !wasNice ? name : '').filter(e => e)
+  // const getNiceNames = (...args) => args[0].map((p) => p = p.wasNice ? p.name : '').filter(e => e)
+  // const getNaughtyNames = (...args) => args[0].map(({ wasNice, name }) => !wasNice ? name : '').filter(e => e)
 
-  console.log(getNiceNames(people))
-  console.log(getNaughtyNames(people))
+  const getNiceNames = (people, bool = true) => people.map((p) => p.wasNice === bool ? p.name : '').filter(name => name)
+  const getNaughtyNames = (people) => getNiceNames(people, false)
 
+  // console.log(getNiceNames(people))
+  // console.log(getNaughtyNames(people))
 }
