@@ -11774,16 +11774,17 @@ should return "unknown value"
   // const getNiceNames = (people) => people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
   // const getNaughtyNames = (people) => people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
 
-
   // const getNiceNames = (people) => people.reduce((res, p) => p.wasNice ? [...res, p.name] : res, [])
   // const getNaughtyNames = (people) => people.reduce((res, { wasNice, name }) => !wasNice ? [...res, name] : res, [])
 
   // const getNiceNames = (people) => people.reduce((res, p) => { p.wasNice && res.push(p.name); return res }, [])
   // const getNaughtyNames = (people) => people.reduce((res, { wasNice, name }) => { !wasNice && res.push(name); return res }, [])
 
-  const getNiceNames = (people) => people.map((p) => p = p.wasNice ? p.name : '').filter(e => e)
-  const getNaughtyNames = (people) => people.map(({ wasNice, name }) => !wasNice ? name : '').filter(e => e)
+  // const getNiceNames = (people) => people.map((p) => p = p.wasNice ? p.name : '').filter(e => e)
+  // const getNaughtyNames = (people) => people.map(({ wasNice, name }) => !wasNice ? name : '').filter(e => e)
 
+  const getNiceNames = (...args) => { const [arg] = args; return arg.map((p) => p = p.wasNice ? p.name : '').filter(e => e) }
+  const getNaughtyNames = (...args) => { const [arg] = args; return arg.map(({ wasNice, name }) => !wasNice ? name : '').filter(e => e) }
 
   console.log(getNiceNames(people))
   console.log(getNaughtyNames(people))
