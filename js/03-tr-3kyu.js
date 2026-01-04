@@ -11771,8 +11771,12 @@ should return "unknown value"
   //   return people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
   // }
 
-  const getNiceNames = (people) => people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
-  const getNaughtyNames = (people) => people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
+  // const getNiceNames = (people) => people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
+  // const getNaughtyNames = (people) => people.filter((p) => !p.wasNice ? p : '').map(({ name }) => name)
+
+
+  const getNiceNames = (people) => people.reduce((res, p) => p.wasNice ? [...res, p.name] : res, [])
+  const getNaughtyNames = (people) => people.reduce((res, { wasNice, name }) => !wasNice ? [...res, name] : res, [])
 
   console.log(getNiceNames(people))
   console.log(getNaughtyNames(people))
