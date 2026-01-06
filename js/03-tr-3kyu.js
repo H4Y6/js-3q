@@ -11795,3 +11795,29 @@ should return "unknown value"
   // console.log(getNiceNames(people))
   // console.log(getNaughtyNames(people))
 }
+
+{
+  function compareVersions(version1, version2) {
+    console.log(version1, '"', version2)
+    let v1 = version1.split('.')
+    let v2 = version2.split('.')
+
+    if (v1.length - v2.length) {
+      if (v1.length > v2.length) {
+        v2.push('0'.repeat(v1.length - v2.length).split(''));
+        v2 = v2.flatMap(e => e)
+      } else {
+        v1.push('0'.repeat(v2.length - v1.length).split(''));
+        v1 = v1.flatMap(e => e)
+      }
+    }
+
+    for (let i = 0; i < v1.length; i++) {
+      if (parseInt(v1[i]) - parseInt(v2[i])) return parseInt(v1[i]) > parseInt(v2[i])
+    }
+
+    return true
+  }
+
+  console.log(compareVersions("10.4.3.10", "10.4.3.9"))
+}
