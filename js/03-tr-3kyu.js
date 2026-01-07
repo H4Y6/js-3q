@@ -11849,7 +11849,19 @@ Specification notes:
   //   return version1.localeCompare(version2, 0, { numeric: true }) >= 0
   // }
 
-  const compareVersions = (version1, version2) => version1.localeCompare(version2, 0, { numeric: true }) >= 0
+  // const compareVersions = (version1, version2) => version1.localeCompare(version2, 0, { numeric: true }) >= 0
 
-  // console.log(compareVersions("10.4.3.10", "10.4.3.9"))
+  const compareVersions = (version1, version2) => {
+    const v1 = version1.split('.').map(Number)
+    const v2 = version2.split('.').map(Number)
+
+    for (let i = 0; i < v1.length; i++) {
+      console.log(v1[1], '"', v2[i], '"', v1[i] - v2[i])
+      if (v1[i] - v2[i]) return v1[i] > v2[i]
+    }
+
+    return v1.length >= v2.length
+  }
+
+  // console.log(compareVersions("10.4.3.10.1.1", "10.4.3.10.1"))
 }
