@@ -11892,17 +11892,29 @@ So max_rot (or maxRot or ... depending on the language) is such as:
 
     max_rot(56789) should return 68957
 
-    max_rot(38458215) should return 85821534
+    max_rot(38458215) should return 85821534    */
 
- */
+  // function maxRot(n) {
+  //   let s = n.toString()
+  //   const arr = []
+
+  //   for (let i = 0; i < n.toString().length; i++) {
+  //     arr.push(s)
+  //     s = s.slice(0, i) + s.slice(i + 1) + s.slice(i, i + 1)
+  //   }
+  //   return Math.max(...arr)
+  // }
 
   function maxRot(n) {
-    let s = n.toString()
+    n = n.toString()
     const arr = []
 
     for (let i = 0; i < n.toString().length; i++) {
-      arr.push(s)
-      s = s.slice(0, i) + s.slice(i + 1) + s.slice(i, i + 1)
+      console.log(n)
+      arr.push(n)
+      console.log(arr)
+      n = n.slice(0, i) + n.slice(i + 1) + n.slice(i, i + 1)
+
     }
     return Math.max(...arr)
   }
