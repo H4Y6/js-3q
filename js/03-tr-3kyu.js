@@ -11845,9 +11845,11 @@ Specification notes:
   //   return true;
   // };
 
-  function compareVersions(version1, version2) {
-    return version1.localeCompare(version2, 0, { numeric: true }) >= 0
-  }
+  // function compareVersions(version1, version2) {
+  //   return version1.localeCompare(version2, 0, { numeric: true }) >= 0
+  // }
 
-  console.log(compareVersions("10.4.3.10", "10.4.3.9"))
+  const compareVersions = (version1, version2) => version1.localeCompare(version2, 0, { numeric: true }) >= 0
+
+  // console.log(compareVersions("10.4.3.10", "10.4.3.9"))
 }
