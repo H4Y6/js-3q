@@ -11905,19 +11905,31 @@ So max_rot (or maxRot or ... depending on the language) is such as:
   //   return Math.max(...arr)
   // }
 
+  // function maxRot(n) {
+  //   n = n.toString()
+  //   const arr = []
+
+  //   for (let i = 0; i < n.toString().length; i++) {
+  //     console.log(n)
+  //     arr.push(n)
+  //     console.log(arr)
+  //     n = n.slice(0, i) + n.slice(i + 1) + n.slice(i, i + 1)
+
+  //   }
+  //   return Math.max(...arr)
+  // }
+
   function maxRot(n) {
     n = n.toString()
-    const arr = []
+    let arr = [n]
 
-    for (let i = 0; i < n.toString().length; i++) {
-      console.log(n)
-      arr.push(n)
-      console.log(arr)
-      n = n.slice(0, i) + n.slice(i + 1) + n.slice(i, i + 1)
-
+    for (let i = 0; i < n.length; i++) {
+      n = n.slice(0, i) + n.slice(i + 1) + n.slice(i, i + 1);
+      arr = [...arr, n]
     }
+
     return Math.max(...arr)
   }
 
-  console.log(maxRot(56780))
+  console.log(maxRot(56789))
 }
