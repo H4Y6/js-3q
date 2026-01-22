@@ -12003,10 +12003,13 @@ reverseByCenter("secret")  == "retsec" // no center character
 reverseByCenter("agent")   == "nteag"  // center character is "e"
  */
 
-  function reverseByCenter(s) {
-    return s.length % 2 ? s.slice(s.length / 2 + 1) + s.slice(s.length / 2, s.length / 2 + 1) + s.slice(0, s.length / 2) : s.slice(s.length / 2)
-      + s.slice(0, s.length / 2)
-  }
+  // function reverseByCenter(s) {
+  //   return s.length % 2 ? s.slice(s.length / 2 + 1) + s.slice(s.length / 2, s.length / 2 + 1) + s.slice(0, s.length / 2) : s.slice(s.length / 2)
+  //     + s.slice(0, s.length / 2)
+  // }
 
-  console.log(reverseByCenter('agenda'))
+  const reverseByCenter = (s) => s.length % 2 ? s.slice(s.length / 2 + 1) + s.slice(s.length / 2, s.length / 2 + 1) + s.slice(0, s.length / 2) : s.slice(s.length / 2)
+    + s.slice(0, s.length / 2)
+
+  // console.log(reverseByCenter('agenda'))
 }
