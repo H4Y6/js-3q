@@ -11975,9 +11975,12 @@ Random input limits:
   let players = ex_names.map((n) => new Player(n));
 
 
-  function duckDuckGoose(players, goose) {
-    console.log(players)
-    return players[((goose - 1) % players.length)].name
-  }
-  console.log(duckDuckGoose(players, 5))
+  // function duckDuckGoose(players, goose) {
+  //   console.log(players)
+  //   return players[((goose - 1) % players.length)].name
+  // }
+
+  const duckDuckGoose = (players, goose) => players[((goose - 1) % players.length)].name
+
+  // console.log(duckDuckGoose(players, 5))
 }
