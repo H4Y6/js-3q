@@ -12008,8 +12008,7 @@ reverseByCenter("agent")   == "nteag"  // center character is "e"
   //     + s.slice(0, s.length / 2)
   // }
 
-  const reverseByCenter = (s) => s.length % 2 ? s.slice(s.length / 2 + 1) + s.slice(s.length / 2, s.length / 2 + 1) + s.slice(0, s.length / 2) : s.slice(s.length / 2)
-    + s.slice(0, s.length / 2)
+  const reverseByCenter = (s) => (n => s.length % 2 ? s.slice(n + 1) + s.slice(n, n + 1) + s.slice(0, n) : s.slice(n) + s.slice(0, n))(s.length / 2)
 
   // console.log(reverseByCenter('agenda'))
 }
