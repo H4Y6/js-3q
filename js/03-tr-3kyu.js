@@ -12013,7 +12013,16 @@ reverseByCenter("agent")   == "nteag"  // center character is "e"
   // console.log(reverseByCenter('agenda'))
 }
 
-{
+{  /**
+8 kyu
+Enumerable Magic #2 - True for Any?
+
+The task is to write a function that accepts two parameters: an array and a callback function (in Ruby: a block).
+
+The function should return true if the callback function / block returns true for any item in the array, otherwise return false.
+
+The function should return false if the array is empty.  */
+
   // function any(arr, fun) {
   //   return arr.some((e, i) => fun(e) && i)
   // }
@@ -12022,5 +12031,5 @@ reverseByCenter("agent")   == "nteag"  // center character is "e"
 
   const any = (arr, fun) => arr.some(fun)
 
-  console.log(any([1, 2, 3, 4], function (v, i) { return v > 1 }))
+  // console.log(any([1, 2, 3, 4], function (v, i) { return v > 1 }))
 }
