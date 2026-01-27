@@ -12012,3 +12012,11 @@ reverseByCenter("agent")   == "nteag"  // center character is "e"
 
   // console.log(reverseByCenter('agenda'))
 }
+
+{
+  function any(arr, fun) {
+    return arr.some((e, i) => fun(e) && i)
+  }
+
+  console.log(any([1, 2, 3, 4], function (v, i) { return v > 1 }))
+}
