@@ -12018,8 +12018,9 @@ reverseByCenter("agent")   == "nteag"  // center character is "e"
   //   return arr.some((e, i) => fun(e) && i)
   // }
 
-  const any = (arr, fun) => arr.some((e, i) => fun(e) && i)
+  // const any = (arr, fun) => arr.some((e, i) => fun(e) && i)
 
+  const any = (arr, fun) => arr.some(fun)
 
   console.log(any([1, 2, 3, 4], function (v, i) { return v > 1 }))
 }
