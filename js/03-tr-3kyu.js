@@ -12056,9 +12056,11 @@ eliminateUnsetBits("000") -> 0
   //   return number.length ? parseInt(number, 2) : 0
   // }
 
-  const eliminateUnsetBits = (number) => {
-    return (n => n.length ? parseInt(n, 2) : 0)(number.replace(/0/g, ''))
-  }
+  // const eliminateUnsetBits = (number) => {
+  //   return (n => n.length ? parseInt(n, 2) : 0)(number.replace(/0/g, ''))
+  // }
+
+  const eliminateUnsetBits = (number) => (n => n.length ? parseInt(n, 2) : 0)(number.replace(/0/g, ''))
 
   console.log(eliminateUnsetBits("000"))
 }
