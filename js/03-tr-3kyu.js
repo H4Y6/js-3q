@@ -12066,7 +12066,9 @@ eliminateUnsetBits("000") -> 0
 
   // const eliminateUnsetBits = (number) => parseInt(number.replace(/0/g, ''), 2) || 0
 
-  const eliminateUnsetBits = (number) => Number.isNaN(parseInt(number.replace(/0/g, ''), 2)) ? 0 : (parseInt(number.replace(/0/g, ''), 2))
+  // const eliminateUnsetBits = (number) => Number.isNaN(parseInt(number.replace(/0/g, ''), 2)) ? 0 : (parseInt(number.replace(/0/g, ''), 2))
+
+  const eliminateUnsetBits = (number) => (n => Number.isNaN(n) ? 0 : n)(parseInt(number.replace(/0/g, ''), 2))
 
   console.log(eliminateUnsetBits("000"))
 }
