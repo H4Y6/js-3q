@@ -12183,5 +12183,7 @@ inputs        outputs
 
   const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : [...Array(Math.max(...arr) + 1).keys()]
 
+  // const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : [...Array(Math.max(...arr) + 1)].map((e, i) => i)
+
   // console.log(completeSeries([1, 4, 6]))
 }
