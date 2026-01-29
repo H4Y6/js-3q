@@ -12179,8 +12179,9 @@ inputs        outputs
 
   // const completeSeries = (arr) => [...new Set(arr)].length !== arr.length ? [0] : Array.from({ length: Math.max(...arr) + 1 }, (e, i) => i)
 
-  const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : Array.from({ length: Math.max(...arr) + 1 }, (e, i) => i)
+  // const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : Array.from({ length: Math.max(...arr) + 1 }, (e, i) => i)
 
+  const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : [...Array(Math.max(...arr) + 1).keys()]
 
-  console.log(completeSeries([1, 1, 4, 6]))
+  // console.log(completeSeries([1, 4, 6]))
 }
