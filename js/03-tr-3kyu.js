@@ -12119,20 +12119,35 @@ Example:
 [ [1, 2], [1, 3], [1, 4] ]  -->  [13, 12]
 1/2  +  1/3  +  1/4     =      13/12   */
 
+  // function sumFracts(l) {
+  //   if (!l.length) return null
+  //   let cd = l.reduce((d, e) => d * e[1], 1)
+  //   let sum = l.reduce((s, e) => s + e[0] * cd / e[1], 0)
+
+  //   for (let i = 2; i < cd; i++) {
+  //     while (cd % i === 0 && sum % i === 0) {
+  //       sum /= i
+  //       cd /= i
+  //     }
+  //   }
+
+  //   return sum % cd === 0 ? sum / cd : [sum, cd]
+  // }
+
   function sumFracts(l) {
     if (!l.length) return null
     let cd = l.reduce((d, e) => d * e[1], 1)
     let sum = l.reduce((s, e) => s + e[0] * cd / e[1], 0)
 
     for (let i = 2; i < cd; i++) {
-      while (cd % i === 0 && sum % i === 0) {
+      while (!(cd % i) && !(sum % i)) {
         sum /= i
         cd /= i
       }
     }
 
-    return sum % cd === 0 ? sum / cd : [sum, cd]
+    return !(sum % cd) ? sum / cd : [sum, cd]
   }
 
-  console.log(sumFracts([[2, 7], [1, 3], [1, 12]]))
+  // console.log(sumFracts([[2, 7], [1, 3], [1, 12]]))
 }
