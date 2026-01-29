@@ -12173,9 +12173,11 @@ inputs        outputs
 [3,4,5] ->    [0,1,2,3,4,5]
 [0,1,0] ->    [0]   */
 
-  function completeSeries(arr) {
-    return [...new Set(arr)].length !== arr.length ? [0] : Array.from({ length: Math.max(...arr) + 1 }, (e, i) => i)
-  }
+  // function completeSeries(arr) {
+  //   return [...new Set(arr)].length !== arr.length ? [0] : Array.from({ length: Math.max(...arr) + 1 }, (e, i) => i)
+  // }
+
+  const completeSeries = (arr) => [...new Set(arr)].length !== arr.length ? [0] : Array.from({ length: Math.max(...arr) + 1 }, (e, i) => i)
 
   console.log(completeSeries([1, 1, 4, 6]))
 }
