@@ -12201,9 +12201,11 @@ group([3, 2, 6, 2, 1, 3])
 Assume the input is always going to be an array of numbers. If the input is an empty array, an empty array should be returned.
  */
 
-  function group(arr) {
-    return [...new Set(arr)].map(e => arr.filter(el => el === e))
-  }
+  // function group(arr) {
+  //   return [...new Set(arr)].map(e => arr.filter(el => el === e))
+  // }
 
-  console.log(group([3, 2, 6, 2, 1, 3]))
+  const group = (arr) => [...new Set(arr)].map(e => arr.filter(el => el === e))
+
+  // console.log(group([3, 2, 6, 2, 1, 3]))
 }
