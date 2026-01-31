@@ -12272,16 +12272,27 @@ The function should return 0 if num doesn't contain a binary gap. */
   //   return arr.length ? Math.max(...arr) : 0;
   // }
 
-  function gap(num) {
-    let n = num.toString(2).replace(/^[0]+/, "").replace(/[0]+$/);
+  // function gap(num) {
+  //   let n = num.toString(2).replace(/^[0]+/, "").replace(/[0]+$/);
 
-    const arr = n
-      .split("1")
-      .filter((e) => /0+/.test(e))
+  //   const arr = n
+  //     .split("1")
+  //     .filter((e) => /0+/.test(e))
+  //     .map((e) => e.length);
+
+  //   return arr.length ? Math.max(...arr) : 0;
+  // }
+
+  function gap(num) {
+    const arr = num
+      .toString(2)
+      .replace(/^[0]+/, "")
+      .replace(/[0]+$/, "")
+      .split(/[1]+/)
       .map((e) => e.length);
 
     return arr.length ? Math.max(...arr) : 0;
   }
 
-  console.log(gap(1566));
+  console.log(gap(15));
 }
