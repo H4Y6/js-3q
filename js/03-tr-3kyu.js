@@ -12256,14 +12256,25 @@ For example:
 Write function gap(num) that,  given a positive num,  returns the length of its longest binary gap.
 The function should return 0 if num doesn't contain a binary gap. */
 
+  // function gap(num) {
+  //   let n = num.toString(2);
+  //   while (n.startsWith("0")) {
+  //     n = n.slice(1);
+  //   }
+  //   while (n.endsWith("0")) {
+  //     n = n.slice(0, -1);
+  //   }
+  //   const arr = n
+  //     .split("1")
+  //     .filter((e) => /0+/.test(e))
+  //     .map((e) => e.length);
+
+  //   return arr.length ? Math.max(...arr) : 0;
+  // }
+
   function gap(num) {
-    let n = num.toString(2);
-    while (n.startsWith("0")) {
-      n = n.slice(1);
-    }
-    while (n.endsWith("0")) {
-      n = n.slice(0, -1);
-    }
+    let n = num.toString(2).replace(/^[0]+/, "").replace(/[0]+$/);
+
     const arr = n
       .split("1")
       .filter((e) => /0+/.test(e))
@@ -12272,5 +12283,5 @@ The function should return 0 if num doesn't contain a binary gap. */
     return arr.length ? Math.max(...arr) : 0;
   }
 
-  console.log(gap(15));
+  console.log(gap(1566));
 }
