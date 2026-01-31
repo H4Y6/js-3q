@@ -579,18 +579,18 @@ See Examples Test Cases for more examples.    */
         : n > arr.length
           ? `Not enough participants`
           : arr[n - 1][0])(
-            st
-              .split(`,`)
-              .map((e, i) => [
-                e,
-                [...e.toUpperCase()].reduce(
-                  (res, el) => res + el.charCodeAt() - 64,
-                  e.length
-                ) * we[i],
-              ])
-              .sort()
-              .sort((a, b) => b[1] - a[1])
-          );
+      st
+        .split(`,`)
+        .map((e, i) => [
+          e,
+          [...e.toUpperCase()].reduce(
+            (res, el) => res + el.charCodeAt() - 64,
+            e.length
+          ) * we[i],
+        ])
+        .sort()
+        .sort((a, b) => b[1] - a[1])
+    );
 
   // console.log(rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4));
   // console.log(rank("Addison,Ben,Sofia,Michael,Andrew,William,Willaim", [4, 2, 1, 4, 3, 2, 2], 4));
@@ -809,7 +809,8 @@ For example:
 
   // const toTime = seconds => `${Math.trunc(seconds / 3600)} hour(s) and ${Math.trunc(seconds % 3600 / 60)} minute(s)`;
   const toTime = (seconds) =>
-    `${(seconds / 3600) ^ 0} hour(s) and ${((seconds % 3600) / 60) ^ 0
+    `${(seconds / 3600) ^ 0} hour(s) and ${
+      ((seconds % 3600) / 60) ^ 0
     } minute(s)`;
   // console.log(toTime(3700));
 }
@@ -1941,8 +1942,8 @@ If the total of both even and odd numbers are identical return: "Even and Odd ar
         : e
           ? "Even is greater than Odd"
           : "Even and Odd are the same")(
-            [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0)
-          );
+      [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0)
+    );
 
   // console.log(evenOrOdd('12123344'));
 }
@@ -2304,7 +2305,7 @@ If the sequence is empty, you should return 0. */
   const evenLast = (numbers) =>
     numbers.length
       ? numbers.reduce((res, e, i) => res + (i % 2 ? 0 : e), 0) *
-      numbers.slice(-1)
+        numbers.slice(-1)
       : 0;
   // console.log(evenLast([2, 3, 4, 5]));
 }
@@ -2444,7 +2445,8 @@ As the Next closest year with only distinct digits is 1023 .*/
 
   // const heron = (a, b, c, s = (a + b + c) / 2) => Math.sqrt(s * (s - a) * (s - b) * (s - c));
   const heron = (a, b, c, s) => (
-    (s = (a + b + c) / 2), Math.sqrt(s * ((s - a) * (s - b) * (s - c)))
+    (s = (a + b + c) / 2),
+    Math.sqrt(s * ((s - a) * (s - b) * (s - c)))
   );
   // console.log(heron(3, 4, 5));
 }
@@ -2742,8 +2744,8 @@ If the input-string is null or empty return exactly this value! (empty string fo
       ? timestring
       : /(\d{2}:){2}\d{2}/.test(timestring)
         ? new Date(new Date().setHours(...timestring.split(`:`)))
-          .toTimeString()
-          .slice(0, 8)
+            .toTimeString()
+            .slice(0, 8)
         : null;
   // console.log(timeCorrect("52:01:01"));
 }
@@ -3444,7 +3446,7 @@ Examples
       Quarters: (e / 25) ^ 0,
       Dimes: ((e % 25) / 10) ^ 0,
       Nickels: (((e % 25) % 10) / 5) ^ 0,
-      Pennies: e % 5 ^ 0,
+      Pennies: (e % 5) ^ 0,
     }))(Math.sign(cents) + 1 ? cents : 0);
 
   // console.log(looseChange(66));
@@ -3704,8 +3706,8 @@ Do not expect any negative or invalid inputs. */
   const binaryToString = (binary) =>
     binary
       ? String.fromCharCode(
-        ...binary.match(/\d{8}/g).map((e) => parseInt(e, 2))
-      )
+          ...binary.match(/\d{8}/g).map((e) => parseInt(e, 2))
+        )
       : "";
 
   // console.log(binaryToString('01001011010101000100100001011000010000100101100101000101'));
@@ -4063,11 +4065,11 @@ Do not expect any negative or invalid inputs. */
   function alphabetWar(fight, str = "mqdz sbpw") {
     return ((res) =>
       res ? (res > 0 ? "Lef" : "Righ") + "t side wins!" : "Let's fight again!")(
-        fight
-          .replace(/(\w?\*\w?)|[^mqdzsbpw]/g, "")
-          .split("")
-          .reduce((sum, e) => sum + str.indexOf(e) - 4, 0)
-      );
+      fight
+        .replace(/(\w?\*\w?)|[^mqdzsbpw]/g, "")
+        .split("")
+        .reduce((sum, e) => sum + str.indexOf(e) - 4, 0)
+    );
   }
 
   // const alphabetWar = fight => (res => res > 0 ? "Left side wins!" : res < 0 ? "Right side wins!" : "Let's fight again!")
@@ -4126,7 +4128,7 @@ Do not expect any negative or invalid inputs. */
       let digitStr = "";
       [..."1234567890"].some((e) => !digitStr.includes(e));
       digitStr += x * ++n
-    ) { }
+    ) {}
     return n;
   }
   // console.log(computeDepth(42));
@@ -4872,7 +4874,7 @@ chain(2, [add, mult]);
   //   const res = [...new Set(arr)].map(e => [e, arr.filter(el => el === e).length]).sort((a, b) => b[1] - a[1])[0];
   //   return res[1] > arr.length / 2 ? res[0] : -1;
   // } /** time out */
-  function dominator(arr) { }
+  function dominator(arr) {}
   // console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
 }
 {
@@ -5159,10 +5161,10 @@ Hi < firstName here >, what do you like the most about < language here >?   */
   const greetDevelopers = (list) =>
     list.map(
       (d) =>
-      (d = {
-        ...d,
-        greeting: `Hi ${d.firstName}, what do you like the most about ${d.language}?`,
-      })
+        (d = {
+          ...d,
+          greeting: `Hi ${d.firstName}, what do you like the most about ${d.language}?`,
+        })
     );
 
   // console.log(greetDevelopers(list1));
@@ -5202,8 +5204,8 @@ Your task is to return one of the following strings:
       d
         ? `${d.firstName}, ${d.country}`
         : "There will be no Python developers")(
-          list.find((d) => d.language === "Python")
-        );
+      list.find((d) => d.language === "Python")
+    );
 
   // console.log(getFirstPython(list1));
 }
@@ -5269,10 +5271,10 @@ Your task is to return one of the following strings:
   const countLanguages = (list) =>
     [...new Set(list.map(({ language }) => language))].reduce(
       (res, l) =>
-      (res = {
-        ...res,
-        [l]: list.filter(({ language }) => language === l).length,
-      }),
+        (res = {
+          ...res,
+          [l]: list.filter(({ language }) => language === l).length,
+        }),
       {}
     );
 
@@ -6016,12 +6018,12 @@ Task:    Write function scale(strng, k, v) k and v will be positive integers. If
   const scale = (strng, k, n) =>
     strng
       ? strng
-        .split("\n")
-        .map((e) =>
-          ([...e].map((el) => el.repeat(k)).join("") + "\n").repeat(n)
-        )
-        .join("")
-        .trim()
+          .split("\n")
+          .map((e) =>
+            ([...e].map((el) => el.repeat(k)).join("") + "\n").repeat(n)
+          )
+          .join("")
+          .trim()
       : "";
 
   // console.log(scale('abcd\nefgh\nijkl\nmnop', 2, 3));
@@ -6283,11 +6285,13 @@ Ex: Input: 105 --> Output: "BangBoom" Ex: Input: 9 --> Output: "Bang" Ex:Input: 
     return a.length === b.length
       ? a.reduce((res, e, i) => [...res, e, b[i]], [])
       : a.length < b.length
-        ? a.reduce((res, e, i) => [...res, e, b[i]], []).concat(b.slice(a.length))
+        ? a
+            .reduce((res, e, i) => [...res, e, b[i]], [])
+            .concat(b.slice(a.length))
         : a
-          .slice(0, b.length)
-          .reduce((res, e, i) => [...res, e, b[i]], [])
-          .concat(a.slice(b.length));
+            .slice(0, b.length)
+            .reduce((res, e, i) => [...res, e, b[i]], [])
+            .concat(a.slice(b.length));
   }
 
   // console.log(mergeArrays([1, 2, 3, 6, 8, 5], ['a', 'b', 'c', 'd']));
@@ -6538,15 +6542,15 @@ secondSymbol('Hello world!!!', 'A') --> -1   */
 
   const AmIAfraid = (day, num) =>
     ((d) =>
-    ({
-      Mo: num === 12,
-      Tu: num > 95,
-      We: num === 34,
-      Th: num === 0,
-      Fr: num % 2 === 0,
-      Sa: num === 56,
-      Su: 666 === Math.abs(num),
-    }[d]))((day = day.slice(0, 2)));
+      ({
+        Mo: num === 12,
+        Tu: num > 95,
+        We: num === 34,
+        Th: num === 0,
+        Fr: num % 2 === 0,
+        Sa: num === 56,
+        Su: 666 === Math.abs(num),
+      })[d])((day = day.slice(0, 2)));
 
   // console.log(AmIAfraid('Friday', 2));
 }
@@ -7511,8 +7515,8 @@ roundIt(34.56) should return 35   */
   const roundIt = (n) =>
     ((res) =>
       res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n))(
-        (n + "").split(".")[0].length - (n + "").split(".")[1].length
-      );
+      (n + "").split(".")[0].length - (n + "").split(".")[1].length
+    );
 
   // console.log(roundIt(3.45));
 }
@@ -8155,13 +8159,13 @@ Write a function that accepts arbitrary X and Y resolutions and converts them in
         ? [x, Math.ceil((x * 9) / 16)]
         : constant === "diagonal"
           ? [
-            Math.ceil(16 * ((x ** 2 + y ** 2) / 337) ** 0.5),
-            Math.ceil(9 * ((x ** 2 + y ** 2) / 337) ** 0.5),
-          ]
+              Math.ceil(16 * ((x ** 2 + y ** 2) / 337) ** 0.5),
+              Math.ceil(9 * ((x ** 2 + y ** 2) / 337) ** 0.5),
+            ]
           : [
-            Math.ceil(16 * ((x * y) / 144) ** 0.5),
-            Math.ceil(9 * ((x * y) / 144) ** 0.5),
-          ];
+              Math.ceil(16 * ((x * y) / 144) ** 0.5),
+              Math.ceil(9 * ((x * y) / 144) ** 0.5),
+            ];
   }
 
   // console.log(aspectRatio(374, 280, 'height'));
@@ -8439,15 +8443,15 @@ Notes:
     !getTowns(strng).includes(town)
       ? -1
       : findTownData(town, strng).reduce((sum, e) => sum + e, 0) /
-      findTownData(town, strng).length;
+        findTownData(town, strng).length;
 
   const variance = (town, strng) =>
     !getTowns(strng).includes(town)
       ? -1
       : findTownData(town, strng).reduce(
-        (sum, e) => sum + (e - mean(town, strng)) ** 2,
-        0
-      ) / findTownData(town, strng).length;
+          (sum, e) => sum + (e - mean(town, strng)) ** 2,
+          0
+        ) / findTownData(town, strng).length;
 
   // console.log(mean('London', data));
   // console.log(variance('London', data));
@@ -8675,9 +8679,9 @@ Notes:
   const sortVowels = (s) =>
     typeof s === "string"
       ? s
-        .split("")
-        .map((e) => (/[aeoui]/i.test(e) ? "|" + e : e + "|"))
-        .join("\n")
+          .split("")
+          .map((e) => (/[aeoui]/i.test(e) ? "|" + e : e + "|"))
+          .join("\n")
       : "";
 
   // console.log(sortVowels('Codewars'));
@@ -9076,7 +9080,7 @@ Examples: [10, 9, 9, 10, 9, 10, 9] ==> [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They d
     };
     const res = [
       Math.round((array.reduce((sum, e) => sum + e, 0) / array.length) * 1e3) /
-      1e3,
+        1e3,
       obj,
     ];
     obj.h < array.length ? res : res.push("They did well");
@@ -9383,19 +9387,20 @@ What you need to think about is how to judge it correctly and effectively and do
   // }
 
   const whatNumberIsIt = (n) =>
-    `Input number is ${n === Number.POSITIVE_INFINITY
-      ? "Number.POSITIVE_INFINITY"
-      : n === Number.MAX_VALUE
-        ? "Number.MAX_VALUE"
-        : n === Number.NEGATIVE_INFINITY
-          ? "Number.NEGATIVE_INFINITY"
-          : isNaN(n)
-            ? "Number.NaN"
-            : !n
-              ? n
-              : n <= Number.MIN_VALUE
-                ? "Number.MIN_VALUE"
-                : n
+    `Input number is ${
+      n === Number.POSITIVE_INFINITY
+        ? "Number.POSITIVE_INFINITY"
+        : n === Number.MAX_VALUE
+          ? "Number.MAX_VALUE"
+          : n === Number.NEGATIVE_INFINITY
+            ? "Number.NEGATIVE_INFINITY"
+            : isNaN(n)
+              ? "Number.NaN"
+              : !n
+                ? n
+                : n <= Number.MIN_VALUE
+                  ? "Number.MIN_VALUE"
+                  : n
     }`;
 }
 
@@ -9931,12 +9936,13 @@ Go to the store and buy some more, 99 bottles of beer on the wall.
         ? code
         : code === "9"
           ? `${Array.from({ length: 97 }, (_, i) => 99 - i)
-            .map(
-              (n) =>
-                `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${n - 1
-                } bottles of beer on the wall.`
-            )
-            .join("\n")}
+              .map(
+                (n) =>
+                  `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${
+                    n - 1
+                  } bottles of beer on the wall.`
+              )
+              .join("\n")}
 2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
 1 bottle of beer on the wall, 1 bottle of beer.
@@ -10033,11 +10039,12 @@ Using string template and ternary operator can make your work easier. */
   //     : "It's a fake array";
 
   const blackAndWhite = (arr) =>
-    `It's a ${Array.isArray(arr)
-      ? arr.indexOf(5) < 0 || arr.indexOf(13) < 0
-        ? "white"
-        : "black"
-      : "fake"
+    `It's a ${
+      Array.isArray(arr)
+        ? arr.indexOf(5) < 0 || arr.indexOf(13) < 0
+          ? "white"
+          : "black"
+        : "fake"
     } array`;
 
   // console.log(blackAndWhite([8, 5, 13, 9]));
@@ -10085,8 +10092,8 @@ tailAndHead([35456,782,569,2454,875]) should return 12012          */
         .slice(0, -1)
         .map((e, i) => eval([e[1], ar.slice(1)[i][0]].join("+")))
         .reduce((pr, e) => pr * e))(
-          arr.map((e, i) => [("" + e)[0], ("" + e)[("" + e).length - 1]])
-        );
+      arr.map((e, i) => [("" + e)[0], ("" + e)[("" + e).length - 1]])
+    );
 
   // console.log(tailAndHead([123, 456, 789, 12, 34, 56, 78]));
 }
@@ -10542,8 +10549,8 @@ As you can see, the lists are cascading; ie, they overlap, but never out of orde
     n > array.length
       ? []
       : Array(array.length - n + 1)
-        .fill(1)
-        .map((e, i) => array.slice(i, i + n));
+          .fill(1)
+          .map((e, i) => array.slice(i, i + n));
 
   // console.log(eachCons([7, 4], 3));
 }
@@ -10676,8 +10683,8 @@ For apples=[7,7,7,5], the output should be -1.
       apples.some((e) => (Math.abs(med - e) / 2) % 1) || med % 1
         ? -1
         : apples.reduce((score, e) => score + Math.abs(med - e) / 4, 0))(
-          apples.reduce((sum, e) => sum + e, 0) / apples.length
-        );
+      apples.reduce((sum, e) => sum + e, 0) / apples.length
+    );
 
   // console.log(minSteps([1, 1, 4, 4, 8, 6]));
 }
@@ -10826,13 +10833,13 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
               : s < 140.6
                 ? toPass[4]
                 : toPass[5])([
-                  "Starting Line... Good Luck!",
-                  { Swim: (140.6 - s).toFixed(2) + " to go!" },
-                  { Bike: (140.6 - s).toFixed(2) + " to go!" },
-                  { Run: (140.6 - s).toFixed(2) + " to go!" },
-                  { Run: "Nearly there!" },
-                  "You're done! Stop running!",
-                ]);
+      "Starting Line... Good Luck!",
+      { Swim: (140.6 - s).toFixed(2) + " to go!" },
+      { Bike: (140.6 - s).toFixed(2) + " to go!" },
+      { Run: (140.6 - s).toFixed(2) + " to go!" },
+      { Run: "Nearly there!" },
+      "You're done! Stop running!",
+    ]);
 
   // console.log(iTri(121));
 }
@@ -10849,7 +10856,7 @@ Make your strings more nerdy: Replace all 'a'/'A' with 4, 'e'/'E' with 3 and 'l'
   //   txt.replace(/[a]/gi, 4).replace(/[e]/gi, 3).replace(/[l]/g, 1);
 
   const nerdify = (txt) =>
-    txt.replace(/[aelAE]/g, (el) => ({ a: 4, e: 3, l: 1 }[el.toLowerCase()]));
+    txt.replace(/[aelAE]/g, (el) => ({ a: 4, e: 3, l: 1 })[el.toLowerCase()]);
 
   // console.log(nerdify("Los Angeles"));
 }
@@ -11297,13 +11304,13 @@ Examples (input -> output):
   const mostFrequentDays = (year) =>
     ((set) =>
       set.length < 2 ? set : set[0] !== "Sunday" ? set : set.reverse())([
-        ...new Set([
-          new Date(year, 0, 1).toLocaleString("en", {
-            weekday: "long",
-          }),
-          new Date(year, 11, 31).toLocaleString("en", { weekday: "long" }),
-        ]),
-      ]);
+      ...new Set([
+        new Date(year, 0, 1).toLocaleString("en", {
+          weekday: "long",
+        }),
+        new Date(year, 11, 31).toLocaleString("en", { weekday: "long" }),
+      ]),
+    ]);
 
   // console.log(mostFrequentDays(1984));
 }
@@ -11385,8 +11392,8 @@ if (x) == ['a', 3]  you should return [['a', 3], ['a', 3], ['a', 3]].    */
     x.every((e) => isNaN(e))
       ? "Void!"
       : Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(
-        x
-      );
+          x
+        );
 
   // console.log(explode(["y", 0]));
 }
@@ -11605,8 +11612,8 @@ Either teams score has a range of 0-9, and the ref won't say the same string eve
   // console.log(scoreboard("The score is four nil"));
 }
 
-
-{  /**  
+{
+  /**  
 7 kyu
 GCD sum
 Given the sum and gcd of two numbers, return those two numbers in ascending order. If the numbers do not exist, return -1, (or NULL in C, tuple (-1,-1) in C#, pair (-1,-1) in C++,None in Rust, array {-1,-1} in Java and Golang).
@@ -11634,14 +11641,13 @@ More examples in test cases.  */
   //   else { return [g, s - g] }
   // }
 
-  const solve = (s, g) =>
-    ((s - g) % g) ? -1 :
-      [g, s - g]
+  const solve = (s, g) => ((s - g) % g ? -1 : [g, s - g]);
 
   // console.log(solve(12, 4))
 }
 
-{  /**  
+{
+  /**  
 7 kyu
 Easy Time Convert
 This kata requires you to convert minutes (int) to hours and minutes in the format hh:mm (string).
@@ -11661,17 +11667,22 @@ If the input is 78, then you should return "01:18", because 78 minutes converts 
   //   return num > 0 ? ('' + Math.floor(num / 60)).padStart(2, '0') + ':' + ('' + num % 60).padStart(2, '0') : '00:00'
   // }
 
-
   // const timeConvert = (num) => num > 0 ? ('' + Math.floor(num / 60)).padStart(2, '0') + ':' + ('' + num % 60).padStart(2, '0') : '00:00'
 
   // const timeConvert = (num) => num > 0 ? ('' + ((num / 60 ^ 0) || 0)).padStart(2, '0') + ':' + ('' + num % 60).padStart(2, '0') : '00:00'
 
-  const timeConvert = (num) => num < 1 ? '00:00' : [num / 60 ^ 0, num % 60].map(e => ('' + e).padStart(2, '0')).join(':')
+  const timeConvert = (num) =>
+    num < 1
+      ? "00:00"
+      : [(num / 60) ^ 0, num % 60]
+          .map((e) => ("" + e).padStart(2, "0"))
+          .join(":");
 
   // console.log(timeConvert(565757))
 }
 
-{  /**  8 kyu  simple calculator
+{
+  /**  8 kyu  simple calculator
 You are required to create a simple calculator that returns the result of addition, subtraction, multiplication or division of two numbers.
 
 Your function will accept three arguments:
@@ -11745,23 +11756,25 @@ should return "unknown value"
 
   const calculator = (a, b, sign) => {
     const fn = {
-      '+': (a, b) => a + b,
-      '-': (a, b) => a - b,
-      '*': (a, b) => a * b,
-      '/': (a, b) => a / b
-    }
-    return fn[sign] && !isNaN(a) && !isNaN(b) ? fn[sign](a, b) : 'unknown value'
-  }
+      "+": (a, b) => a + b,
+      "-": (a, b) => a - b,
+      "*": (a, b) => a * b,
+      "/": (a, b) => a / b,
+    };
+    return fn[sign] && !isNaN(a) && !isNaN(b)
+      ? fn[sign](a, b)
+      : "unknown value";
+  };
 
   // console.log(calculator(1, 5, '',))
 }
 
 {
   const people = [
-    { name: 'Warrior reading this kata', wasNice: true },
-    { name: 'xDranik', wasNice: false },
-    { name: 'Santa', wasNice: true }
-  ]
+    { name: "Warrior reading this kata", wasNice: true },
+    { name: "xDranik", wasNice: false },
+    { name: "Santa", wasNice: true },
+  ];
 
   // function getNiceNames(people) {
   //   return people.filter((p) => p.wasNice ? p : '').map(({ name }) => name)
@@ -11789,14 +11802,18 @@ should return "unknown value"
   // const getNiceNames = (...args) => args[0].map((p) => p = p.wasNice ? p.name : '').filter(e => e)
   // const getNaughtyNames = (...args) => args[0].map(({ wasNice, name }) => !wasNice ? name : '').filter(e => e)
 
-  const getNiceNames = (people, bool = true) => people.map((p) => p.wasNice === bool ? p.name : '').filter(name => name)
-  const getNaughtyNames = (people) => getNiceNames(people, false)
+  const getNiceNames = (people, bool = true) =>
+    people
+      .map((p) => (p.wasNice === bool ? p.name : ""))
+      .filter((name) => name);
+  const getNaughtyNames = (people) => getNiceNames(people, false);
 
   // console.log(getNiceNames(people))
   // console.log(getNaughtyNames(people))
 }
 
-{ /**  
+{
+  /**  
 6 kyu
 Compare Versions
 Karan's company makes software that provides different features based on the version of operating system of the user.
@@ -11852,21 +11869,22 @@ Specification notes:
   // const compareVersions = (version1, version2) => version1.localeCompare(version2, 0, { numeric: true }) >= 0
 
   const compareVersions = (version1, version2) => {
-    const v1 = version1.split('.').map(Number)
-    const v2 = version2.split('.').map(Number)
+    const v1 = version1.split(".").map(Number);
+    const v2 = version2.split(".").map(Number);
 
     for (let i = 0; i < v1.length; i++) {
-      console.log(v1[1], '"', v2[i], '"', v1[i] - v2[i])
-      if (v1[i] - v2[i]) return v1[i] > v2[i]
+      console.log(v1[1], '"', v2[i], '"', v1[i] - v2[i]);
+      if (v1[i] - v2[i]) return v1[i] > v2[i];
     }
 
-    return v1.length >= v2.length
-  }
+    return v1.length >= v2.length;
+  };
 
   // console.log(compareVersions("10.4.3.10.1.1", "10.4.3.10.1"))
 }
 
-{  /**  
+{
+  /**  
 7 kyu
 Rotate for a Max
 Let us begin with an example:
@@ -11932,21 +11950,22 @@ So max_rot (or maxRot or ... depending on the language) is such as:
   // }
 
   function maxRot(n) {
-    n = n.toString()
-    let arr = [n]
+    n = n.toString();
+    let arr = [n];
 
     for (let i = 0; i < n.length - 1; i++) {
       n = n.slice(0, i) + n.slice(i + 1) + n.slice(i, i + 1);
-      arr.push(n)
+      arr.push(n);
     }
 
-    return Math.max(...arr)
+    return Math.max(...arr);
   }
 
   // console.log(maxRot(56789))
 }
 
-{  /**  
+{
+  /**  
 8 kyu
 Duck Duck Goose
 The objective of Duck, duck, goose is to walk in a circle, tapping on each player's head until one is chosen.
@@ -11974,18 +11993,19 @@ Random input limits:
   let ex_names = ["a", "b", "c", "d", "c", "e", "f", "g", "h", "z"];
   let players = ex_names.map((n) => new Player(n));
 
-
   // function duckDuckGoose(players, goose) {
   //   console.log(players)
   //   return players[((goose - 1) % players.length)].name
   // }
 
-  const duckDuckGoose = (players, goose) => players[((goose - 1) % players.length)].name
+  const duckDuckGoose = (players, goose) =>
+    players[(goose - 1) % players.length].name;
 
   // console.log(duckDuckGoose(players, 5))
 }
 
-{  /**  
+{
+  /**  
 7 kyu
 Do you speak retsec?
 
@@ -12008,12 +12028,17 @@ reverseByCenter("agent")   == "nteag"  // center character is "e"
   //     + s.slice(0, s.length / 2)
   // }
 
-  const reverseByCenter = (s) => (n => s.length % 2 ? s.slice(n + 1) + s.slice(n, n + 1) + s.slice(0, n) : s.slice(n) + s.slice(0, n))(s.length / 2)
+  const reverseByCenter = (s) =>
+    ((n) =>
+      s.length % 2
+        ? s.slice(n + 1) + s.slice(n, n + 1) + s.slice(0, n)
+        : s.slice(n) + s.slice(0, n))(s.length / 2);
 
   // console.log(reverseByCenter('agenda'))
 }
 
-{  /**
+{
+  /**
 8 kyu
 Enumerable Magic #2 - True for Any?
 
@@ -12029,12 +12054,13 @@ The function should return false if the array is empty.  */
 
   // const any = (arr, fun) => arr.some((e, i) => fun(e) && i)
 
-  const any = (arr, fun) => arr.some(fun)
+  const any = (arr, fun) => arr.some(fun);
 
   // console.log(any([1, 2, 3, 4], function (v, i) { return v > 1 }))
 }
 
-{  /**  
+{
+  /**  
 7 kyu
 Eliminate the intruders! Bit manipulation
 You are given a string representing a number in binary. Your task is to delete all the unset bits in this string and return the corresponding number (after keeping only the '1's).
@@ -12068,12 +12094,14 @@ eliminateUnsetBits("000") -> 0
 
   // const eliminateUnsetBits = (number) => Number.isNaN(parseInt(number.replace(/0/g, ''), 2)) ? 0 : (parseInt(number.replace(/0/g, ''), 2))
 
-  const eliminateUnsetBits = (number) => (n => Number.isNaN(n) ? 0 : n)(parseInt(number.replace(/0/g, ''), 2))
+  const eliminateUnsetBits = (number) =>
+    ((n) => (Number.isNaN(n) ? 0 : n))(parseInt(number.replace(/0/g, ""), 2));
 
   // console.log(eliminateUnsetBits("000"))
 }
 
-{  /**  6 kyu  Irreducible Sum of Rationals
+{
+  /**  6 kyu  Irreducible Sum of Rationals
 You will have a list of rationals in the form
 lst = [ [numer_1, denom_1] , ... , [numer_n, denom_n] ]
 or
@@ -12135,24 +12163,25 @@ Example:
   // }
 
   function sumFracts(l) {
-    if (!l.length) return null
-    let cd = l.reduce((d, e) => d * e[1], 1)
-    let sum = l.reduce((s, e) => s + e[0] * cd / e[1], 0)
+    if (!l.length) return null;
+    let cd = l.reduce((d, e) => d * e[1], 1);
+    let sum = l.reduce((s, e) => s + (e[0] * cd) / e[1], 0);
 
     for (let i = 2; i < cd; i++) {
       while (!(cd % i) && !(sum % i)) {
-        sum /= i
-        cd /= i
+        sum /= i;
+        cd /= i;
       }
     }
 
-    return !(sum % cd) ? sum / cd : [sum, cd]
+    return !(sum % cd) ? sum / cd : [sum, cd];
   }
 
   // console.log(sumFracts([[2, 7], [1, 3], [1, 12]]))
 }
 
-{  /**  
+{
+  /**  
 7 kyu
 Complete Series
 You are given an array of non-negative integers, your task is to complete the series from 0 to the highest number in the array.
@@ -12181,14 +12210,18 @@ inputs        outputs
 
   // const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : Array.from({ length: Math.max(...arr) + 1 }, (e, i) => i)
 
-  const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : [...Array(Math.max(...arr) + 1).keys()]
+  const completeSeries = (arr) =>
+    new Set(arr).size !== arr.length
+      ? [0]
+      : [...Array(Math.max(...arr) + 1).keys()];
 
   // const completeSeries = (arr) => new Set(arr).size !== arr.length ? [0] : [...Array(Math.max(...arr) + 1)].map((e, i) => i)
 
   // console.log(completeSeries([1, 4, 6]))
 }
 
-{  /**  
+{
+  /**  
 6 kyu
 Organise duplicate numbers in list
 Sam is an avid collector of numbers. Every time he finds a new number he throws it on the top of his number-pile. Help Sam organise his collection so he can take it to the International Number Collectors Conference in Cologne.
@@ -12205,7 +12238,39 @@ Assume the input is always going to be an array of numbers. If the input is an e
   //   return [...new Set(arr)].map(e => arr.filter(el => el === e))
   // }
 
-  const group = (arr) => [...new Set(arr)].map(e => arr.filter(el => el === e))
+  const group = (arr) =>
+    [...new Set(arr)].map((e) => arr.filter((el) => el === e));
 
   // console.log(group([3, 2, 6, 2, 1, 3]))
+}
+
+{
+  /**  7 kyu
+Find the longest gap!
+A binary gap within a positive number num is any sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of num.
+For example:
+9 has binary representation 1001 and contains a binary gap of length 2.
+529 has binary representation 1000010001 and contains two binary gaps: one of length 4 and one of length 3.
+20 has binary representation 10100 and contains one binary gap of length 1.
+15 has binary representation 1111 and has 0 binary gaps.
+Write function gap(num) that,  given a positive num,  returns the length of its longest binary gap.
+The function should return 0 if num doesn't contain a binary gap. */
+
+  function gap(num) {
+    let n = num.toString(2);
+    while (n.startsWith("0")) {
+      n = n.slice(1);
+    }
+    while (n.endsWith("0")) {
+      n = n.slice(0, -1);
+    }
+    const arr = n
+      .split("1")
+      .filter((e) => /0+/.test(e))
+      .map((e) => e.length);
+
+    return arr.length ? Math.max(...arr) : 0;
+  }
+
+  console.log(gap(15));
 }
