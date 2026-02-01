@@ -585,11 +585,11 @@ See Examples Test Cases for more examples.    */
           e,
           [...e.toUpperCase()].reduce(
             (res, el) => res + el.charCodeAt() - 64,
-            e.length
+            e.length,
           ) * we[i],
         ])
         .sort()
-        .sort((a, b) => b[1] - a[1])
+        .sort((a, b) => b[1] - a[1]),
     );
 
   // console.log(rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4));
@@ -1130,9 +1130,9 @@ class Cube {
         [
           ...Array.from(
             { length: end - start + 1 },
-            (_, i) => start + i + ""
+            (_, i) => start + i + "",
           ).reduce((res, e) => res + e, ""),
-        ].filter((el) => +el === e).length
+        ].filter((el) => +el === e).length,
     );
   // console.log(paintLetterboxes(125, 132));
 
@@ -1537,7 +1537,7 @@ splitTheBill(group) // returns {A: 5, B: 0, C: -5} */
     return entries.reduce(
       (obj, [key, value]) =>
         (obj = ((obj[key] = +(value - sumDiv).toFixed(2)), obj)),
-      {}
+      {},
     );
   };
   // console.log(splitTheBill({ A: 20, B: 14, C: 10 }));
@@ -1628,7 +1628,7 @@ The Office I - Outed   */
 
   const boredom = (
     staff,
-    scoreRes = Object.keys(staff).reduce((sum, e) => sum + score[staff[e]], 0)
+    scoreRes = Object.keys(staff).reduce((sum, e) => sum + score[staff[e]], 0),
   ) =>
     scoreRes <= 80
       ? "kill me now"
@@ -1942,7 +1942,7 @@ If the total of both even and odd numbers are identical return: "Even and Odd ar
         : e
           ? "Even is greater than Odd"
           : "Even and Odd are the same")(
-      [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0)
+      [...str].reduce((sum, e) => sum + (e % 2 ? +e : -e), 0),
     );
 
   // console.log(evenOrOdd('12123344'));
@@ -2376,7 +2376,7 @@ Note: The calculated height should be represented as an integer. If the height i
 
   const findAdmin = (list, lang) =>
     list.filter(
-      ({ language, githubAdmin }) => language === lang && githubAdmin === "yes"
+      ({ language, githubAdmin }) => language === lang && githubAdmin === "yes",
     );
   // console.log(findAdmin(list1, 'JavaScript'));
 }
@@ -2830,7 +2830,7 @@ Input will be a string with length > 0*/
   // const moveTen = s => [...s].map(e => String.fromCharCode(e.charCodeAt() > 112 ? (e.charCodeAt() + 10) % 122 + 96 : e.charCodeAt() + 10)).join('');
   const moveTen = (s) =>
     s.replace(/[a-z]/g, (e) =>
-      String.fromCharCode(97 + ((e.charCodeAt() - 87) % 26))
+      String.fromCharCode(97 + ((e.charCodeAt() - 87) % 26)),
     );
   // console.log(moveTen("exampletesthere"));
 }
@@ -2877,7 +2877,7 @@ Examples (Input => Output)
   // const dotCalculator = (equation, [a, sign, b] = equation.split(' ')) => '.'.repeat(eval(a.length + sign.slice(-1) + b.length));
   const dotCalculator = (equation) =>
     ".".repeat(
-      eval(equation.replace(/\.+/g, (e) => e.length).replace("//", "/"))
+      eval(equation.replace(/\.+/g, (e) => e.length).replace("//", "/")),
     );
 
   // console.log(dotCalculator("..... + ..............."));
@@ -3194,7 +3194,7 @@ function gordon(a) {
   // const solve = arr => [...Array.from({ length: arr.sort((a, b) => a - b).length }, (e, i) => i % 2 ? arr.shift() : arr.pop())];
   const solve = (arr) =>
     [...arr.sort((a, b) => a - b)].map((e, i) =>
-      i % 2 ? arr.shift() : arr.pop()
+      i % 2 ? arr.shift() : arr.pop(),
     );
   // console.log(solve([15, 11, 10, 7, 12]));
 }
@@ -3400,7 +3400,7 @@ Examples
   const rotate = (str) =>
     Array.from(
       { length: str.length },
-      () => (str = str.replace(/(.)(.*)/, "$2$1"))
+      () => (str = str.replace(/(.)(.*)/, "$2$1")),
     );
 
   // console.log(rotate('Hello'));
@@ -3530,7 +3530,7 @@ Examples
     ((t) =>
       [t, ...[...t].map((_, i) => (t = t.replace(/(.)(.*)/, "$2$1")))].slice(
         0,
-        -1
+        -1,
       ))((text = text.toUpperCase()));
 
   // console.log(scrollingText('coDEWARS'));
@@ -3558,7 +3558,7 @@ Examples
       .map(
         (s, i) =>
           RegExp(String.fromCharCode(65 + i), `i`).test(string) ? "1" : "0",
-        ""
+        "",
       )
       .join("");
 
@@ -3706,7 +3706,7 @@ Do not expect any negative or invalid inputs. */
   const binaryToString = (binary) =>
     binary
       ? String.fromCharCode(
-          ...binary.match(/\d{8}/g).map((e) => parseInt(e, 2))
+          ...binary.match(/\d{8}/g).map((e) => parseInt(e, 2)),
         )
       : "";
 
@@ -4068,7 +4068,7 @@ Do not expect any negative or invalid inputs. */
       fight
         .replace(/(\w?\*\w?)|[^mqdzsbpw]/g, "")
         .split("")
-        .reduce((sum, e) => sum + str.indexOf(e) - 4, 0)
+        .reduce((sum, e) => sum + str.indexOf(e) - 4, 0),
     );
   }
 
@@ -4178,7 +4178,7 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
   // const cutIt = arr => (min => arr.map(e => e.slice(0, min)))(arr.reduce((min, e) => min = min < e.length ? min : e.length, arr[0].length));
   const cutIt = (arr) =>
     ((min) => arr.map((e) => e.substr(0, min)))(
-      Math.min(...arr.map((e) => e.length))
+      Math.min(...arr.map((e) => e.length)),
     );
 
   // console.log(cutIt(["abc", "defgh", "ijklmn"]));
@@ -4272,7 +4272,7 @@ cutIt(["codewars","javascript","java"]) should return ["code","java","java"]    
   // const well = x => (l => l ? l > 2 ? `I smell a series!` : `Publish!` : `Fail!`)((('' + x).match(/good/gi) || []).length);
   const well = (x) =>
     ((l) => (l ? (l > 2 ? `I smell a series!` : `Publish!`) : `Fail!`))(
-      x.flat().reduce((sum, e) => sum + /good/gi.test(e), 0)
+      x.flat().reduce((sum, e) => sum + /good/gi.test(e), 0),
     );
 
   // console.log(well([['gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD'], ['bad'], ['gOOd', 'BAD']]));
@@ -5020,7 +5020,7 @@ The elements in the returned array should be in the same order as in the initial
   const findOddNames = (list) =>
     list.filter(
       ({ firstName }) =>
-        eval([...firstName].map((e) => e.charCodeAt()).join("+")) % 2
+        eval([...firstName].map((e) => e.charCodeAt()).join("+")) % 2,
     );
 
   // console.log(findOddNames(list1));
@@ -5107,7 +5107,7 @@ Notes:
         e.continent === "Europe" && e.language === "JavaScript"
           ? count + 1
           : count,
-      0
+      0,
     );
 
   // console.log(countDevelopers(list1));
@@ -5164,7 +5164,7 @@ Hi < firstName here >, what do you like the most about < language here >?   */
         (d = {
           ...d,
           greeting: `Hi ${d.firstName}, what do you like the most about ${d.language}?`,
-        })
+        }),
     );
 
   // console.log(greetDevelopers(list1));
@@ -5204,7 +5204,7 @@ Your task is to return one of the following strings:
       d
         ? `${d.firstName}, ${d.country}`
         : "There will be no Python developers")(
-      list.find((d) => d.language === "Python")
+      list.find((d) => d.language === "Python"),
     );
 
   // console.log(getFirstPython(list1));
@@ -5275,7 +5275,7 @@ Your task is to return one of the following strings:
           ...res,
           [l]: list.filter(({ language }) => language === l).length,
         }),
-      {}
+      {},
     );
 
   // console.log(countLanguages(list1));
@@ -5691,7 +5691,7 @@ Notes:
           (d.firstName + d.lastName[0]).toLowerCase() +
           (new Date().getFullYear() - d.age)),
         d
-      )
+      ),
     );
 
   // console.log(addUsername(list1));
@@ -5832,8 +5832,8 @@ Notes:
   const isLanguageDiverse = (list) =>
     ((arr) => Math.max(...arr) / Math.min(...arr) <= 2)(
       [...new Set(list.map((d) => d.language))].map(
-        (l) => list.filter((e) => e.language === l).length
-      )
+        (l) => list.filter((e) => e.language === l).length,
+      ),
     );
 
   // console.log(isLanguageDiverse(list1));
@@ -5945,7 +5945,7 @@ Given the following input array:  */
     list.sort((a, b) =>
       a.language === b.language
         ? a.firstName.localeCompare(b.firstName)
-        : a.language.localeCompare(b.language)
+        : a.language.localeCompare(b.language),
     );
 
   // console.log(sortByLanguage(list1));
@@ -6020,7 +6020,7 @@ Task:    Write function scale(strng, k, v) k and v will be positive integers. If
       ? strng
           .split("\n")
           .map((e) =>
-            ([...e].map((el) => el.repeat(k)).join("") + "\n").repeat(n)
+            ([...e].map((el) => el.repeat(k)).join("") + "\n").repeat(n),
           )
           .join("")
           .trim()
@@ -6484,7 +6484,7 @@ function tankvol(h, d, vt, r = d / 2) {
   function containAllRots(strng, arr) {
     if (typeof strng !== "string") return false;
     const rots = [...strng].map(
-      (e, I) => (strng = strng.slice(-1) + strng.slice(0, -1))
+      (e, I) => (strng = strng.slice(-1) + strng.slice(0, -1)),
     );
     const delta = arr.length - rots.length;
     rots.map((e) => {
@@ -7141,7 +7141,7 @@ All input will be valid strings of length > 0. Leading zeros in binary should no
 
   const moreZeros = (s) =>
     [...new Set(s)].filter(
-      (e) => e.charCodeAt().toString(2).replace(/1/g, "").length > 3
+      (e) => e.charCodeAt().toString(2).replace(/1/g, "").length > 3,
     );
 
   // console.log(moreZeros('abcdeabcde'));
@@ -7307,7 +7307,7 @@ NOTICE:
 
   const multiples = (s1, s2, s3) =>
     Array.from({ length: s3 - s1 }, (e, i) =>
-      (i + s1) % s1 || (i + s1) % s2 ? null : i + s1
+      (i + s1) % s1 || (i + s1) % s2 ? null : i + s1,
     ).filter((e) => e);
 
   // console.log(multiples(12, 3, 60));
@@ -7358,7 +7358,7 @@ Change the input text s to new borrower speak. */
     if (x % y) {
       return `${Math.trunc(x / y)} ${Math.abs(x % y)}/${Math.abs(y)}`.replace(
         /\/\s+(\d+)\b/,
-        "/" + "$1"
+        "/" + "$1",
       );
     }
     return `${x / y}`;
@@ -7515,7 +7515,7 @@ roundIt(34.56) should return 35   */
   const roundIt = (n) =>
     ((res) =>
       res > 0 ? Math.floor(n) : res < 0 ? Math.ceil(n) : Math.round(n))(
-      (n + "").split(".")[0].length - (n + "").split(".")[1].length
+      (n + "").split(".")[0].length - (n + "").split(".")[1].length,
     );
 
   // console.log(roundIt(3.45));
@@ -7661,7 +7661,7 @@ roundIt(34.56) should return 35   */
 
   const replaceAll = (seq, find, replace) =>
     ((el) => (Array.isArray(seq) ? el : el.join("")))(
-      [...seq].map((e) => (e === find ? replace : e))
+      [...seq].map((e) => (e === find ? replace : e)),
     );
 
   // console.log(replaceAll([1, 2, 2], 1, 2));
@@ -7780,7 +7780,7 @@ roundIt(34.56) should return 35   */
       (str, e, i) =>
         str +
         "abcdefghijklmnopqrstuvwxyz"[e - ("" + n)[i % ("" + n).length] - 1],
-      ""
+      "",
     );
 
   // console.log(decode([20, 12, 18, 30, 21], 1939));
@@ -8450,7 +8450,7 @@ Notes:
       ? -1
       : findTownData(town, strng).reduce(
           (sum, e) => sum + (e - mean(town, strng)) ** 2,
-          0
+          0,
         ) / findTownData(town, strng).length;
 
   // console.log(mean('London', data));
@@ -8922,8 +8922,8 @@ Input will consist of alphabet characters, both uppercase and lowercase. No spac
     arr.map((e) =>
       [...e.toLowerCase()].reduce(
         (q, e, i) => q + (i === e.charCodeAt() - 97 ? 1 : 0),
-        0
-      )
+        0,
+      ),
     );
 
   // console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc']));
@@ -9195,7 +9195,7 @@ Examples:
 
   const mirror = (data) =>
     ((sorted) => [...sorted, ...sorted.reverse().slice(1)])(
-      data.map((e) => e).sort((a, b) => a - b)
+      data.map((e) => e).sort((a, b) => a - b),
     );
 
   // console.log(mirror([3, 6, 7, 8, 2, 33, -Infinity]));
@@ -9306,7 +9306,7 @@ The right wing is nearly as steep as the right one.    */
     ((a) => (a.length % 2 ? a.reverse() : a))(
       [...arr]
         .sort((a, b) => a - b)
-        .reduce((ar, e, i) => (i % 2 ? [e, ...ar] : [...ar, e]), [])
+        .reduce((ar, e, i) => (i % 2 ? [e, ...ar] : [...ar, e]), []),
     );
 
   // console.log(makeValley([19, 17, 16, 15, 13, 8, 5, 5, 4, 4, 4, 4]));
@@ -9611,7 +9611,7 @@ The combine function should be a good citizen, so should not mutate the input ob
         Object.keys(arg).map((key) => (obj[key] = arg[key] + (obj[key] ?? 0))),
         obj
       ),
-      {}
+      {},
     );
   }
 
@@ -9940,7 +9940,7 @@ Go to the store and buy some more, 99 bottles of beer on the wall.
                 (n) =>
                   `${n} bottles of beer on the wall, ${n} bottles of beer.\nTake one down and pass it around, ${
                     n - 1
-                  } bottles of beer on the wall.`
+                  } bottles of beer on the wall.`,
               )
               .join("\n")}
 2 bottles of beer on the wall, 2 bottles of beer.
@@ -10092,7 +10092,7 @@ tailAndHead([35456,782,569,2454,875]) should return 12012          */
         .slice(0, -1)
         .map((e, i) => eval([e[1], ar.slice(1)[i][0]].join("+")))
         .reduce((pr, e) => pr * e))(
-      arr.map((e, i) => [("" + e)[0], ("" + e)[("" + e).length - 1]])
+      arr.map((e, i) => [("" + e)[0], ("" + e)[("" + e).length - 1]]),
     );
 
   // console.log(tailAndHead([123, 456, 789, 12, 34, 56, 78]));
@@ -10155,7 +10155,7 @@ Write a function that takes in a string and replaces all the letters with their 
     str.replace(
       /[a-z]/gi,
       (e) =>
-        1 + e.charCodeAt() - ("a" > e ? "A".charCodeAt() : "a".charCodeAt())
+        1 + e.charCodeAt() - ("a" > e ? "A".charCodeAt() : "a".charCodeAt()),
     );
 
   // console.log(encode('ABCD'));
@@ -10511,7 +10511,10 @@ capital(mixed_capitals)[1] // returns "The capital of Spain is Madrid"
     capitals.map((e, i) =>
       Object.keys(e)[1] === "capital"
         ? `The capital of ${Object.values(e)[0]} is ${Object.values(e)[1]}`
-        : "The capital of " + Object.values(e)[1] + " is " + Object.values(e)[0]
+        : "The capital of " +
+          Object.values(e)[1] +
+          " is " +
+          Object.values(e)[0],
     );
 
   // console.log( capital([{ state: "Maine", capital: "Augusta" }, { country: "Spain", capital: "Madrid" }]));
@@ -10683,7 +10686,7 @@ For apples=[7,7,7,5], the output should be -1.
       apples.some((e) => (Math.abs(med - e) / 2) % 1) || med % 1
         ? -1
         : apples.reduce((score, e) => score + Math.abs(med - e) / 4, 0))(
-      apples.reduce((sum, e) => sum + e, 0) / apples.length
+      apples.reduce((sum, e) => sum + e, 0) / apples.length,
     );
 
   // console.log(minSteps([1, 1, 4, 4, 8, 6]));
@@ -10732,7 +10735,7 @@ So, for example the string "Cat30" would return "dbU30" (Cat30 --> Dbu30 --> dbU
     str
       .toLowerCase()
       .replace(/[a-z]/g, (e) =>
-        e === "z" ? "a" : String.fromCharCode(e.charCodeAt() + 1)
+        e === "z" ? "a" : String.fromCharCode(e.charCodeAt() + 1),
       )
       .replace(/[aeiou]/g, (e) => e.toUpperCase());
 
@@ -11392,7 +11395,7 @@ if (x) == ['a', 3]  you should return [['a', 3], ['a', 3], ['a', 3]].    */
     x.every((e) => isNaN(e))
       ? "Void!"
       : Array(x.reduce((s, e) => (typeof e === "number" ? s + e : s), 0)).fill(
-          x
+          x,
         );
 
   // console.log(explode(["y", 0]));
@@ -11606,7 +11609,7 @@ Either teams score has a range of 0-9, and the ref won't say the same string eve
           "seven",
           "eight",
           "nine",
-        ].indexOf(e)
+        ].indexOf(e),
       );
 
   // console.log(scoreboard("The score is four nil"));
@@ -12312,8 +12315,19 @@ The function should return 0 if num doesn't contain a binary gap. */
         .replace(/^[0]+/, "")
         .replace(/[0]+$/, "")
         .split(/[1]+/)
-        .map((e) => e.length)
+        .map((e) => e.length),
     );
 
   // console.log(gap(15));
+}
+
+{
+  function pofi(n) {
+    return ((sq) =>
+      n % 2 ? ((sq + "").length > 1 ? (sq + "")[0] + "i" : "i") : sq + "")(
+      (-1) ** ((n / 2) ^ 0),
+    );
+  }
+
+  console.log(pofi(17));
 }
