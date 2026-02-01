@@ -12328,12 +12328,18 @@ i is the imaginary unit, it is defined by i²=−1, therefore it is a solution t
 Your Task
 Complete the function pofi that returns i to the power of a given non-negative integer in its simplest form, as a string (answer may contain i). */
 
-  function pofi(n) {
-    return ((sq) =>
+  // function pofi(n) {
+  //   return ((sq) =>
+  //     n % 2 ? ((sq + "").length > 1 ? (sq + "")[0] + "i" : "i") : sq + "")(
+  //     (-1) ** ((n / 2) ^ 0),
+  //   );
+  // }
+
+  const pofi = (n) =>
+    ((sq) =>
       n % 2 ? ((sq + "").length > 1 ? (sq + "")[0] + "i" : "i") : sq + "")(
       (-1) ** ((n / 2) ^ 0),
     );
-  }
 
   console.log(pofi(17));
 }
