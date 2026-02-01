@@ -12335,11 +12335,16 @@ Complete the function pofi that returns i to the power of a given non-negative i
   //   );
   // }
 
+  // const pofi = (n) =>
+  //   ((sq) =>
+  //     n % 2 ? ((sq + "").length > 1 ? (sq + "")[0] + "i" : "i") : sq + "")(
+  //     (-1) ** ((n / 2) ^ 0),
+  //   );
+
   const pofi = (n) =>
-    ((sq) =>
-      n % 2 ? ((sq + "").length > 1 ? (sq + "")[0] + "i" : "i") : sq + "")(
+    ((sq) => (n % 2 ? ((sq + "").length > 1 ? "-i" : "i") : sq + ""))(
       (-1) ** ((n / 2) ^ 0),
     );
 
-  console.log(pofi(17));
+  console.log(pofi(172));
 }
