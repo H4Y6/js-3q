@@ -12379,9 +12379,11 @@ and then returns the product of all the processed sub-lists: -3 * -1 * 1 --> 3.
 
 For input, you can trust that neither the main list nor the sublists will be empty.    */
 
-  function processData(data) {
-    return data.reduce((res, e) => res * (e[0] - e[1]), 1);
-  }
+  // function processData(data) {
+  //   return data.reduce((res, e) => res * (e[0] - e[1]), 1);
+  // }
+
+  const processData = (data) => data.reduce((res, e) => res * (e[0] - e[1]), 1);
 
   console.log(
     processData([
