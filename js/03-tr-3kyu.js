@@ -12438,9 +12438,11 @@ should return:
 ]
 The values will always be numbers, and the properties will always exist.*/
 
-  function sortList(sortBy, list) {
-    return list.sort((c, d) => d[sortBy] - c[sortBy]);
-  }
+  // function sortList(sortBy, list) {
+  //   return list.sort((c, d) => d[sortBy] - c[sortBy]);
+  // }
+
+  const sortList = (sortBy, list) => list.sort((c, d) => d[sortBy] - c[sortBy]);
 
   console.log(
     sortList("a", [
