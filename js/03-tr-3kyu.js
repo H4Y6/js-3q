@@ -12383,13 +12383,27 @@ For input, you can trust that neither the main list nor the sublists will be emp
   //   return data.reduce((res, e) => res * (e[0] - e[1]), 1);
   // }
 
-  const processData = (data) => data.reduce((res, e) => res * (e[0] - e[1]), 1);
+  // const processData = (data) => data.reduce((res, e) => res * (e[0] - e[1]), 1);
 
-  console.log(
-    processData([
-      [2, 9],
-      [2, 4],
-      [7, 5],
-    ]),
-  );
+  const processData = (data) => data.reduce((res, [a, b]) => res * (a - b), 1);
+
+  // console.log(processData([[2, 9], [2, 4], [7, 5]]));
+}
+
+{
+  /**  7 kyu  sPoNgEbOb MeMe
+  Remember the spongebob meme that is meant to make fun of people by repeating what they say in a mocking way?
+
+  You need to create a function that converts the input into this format, with the output being the same string expect there is a pattern of uppercase and lowercase letters.
+Example:
+input:  "stop Making spongebob Memes!"
+output: "StOp mAkInG SpOnGeBoB MeMeS!"   */
+
+  function spongeMeme(sentence) {
+    return [...sentence]
+      .map((e, i) => (i % 2 ? e.toLowerCase() : e.toUpperCase()))
+      .join("");
+  }
+
+  console.log(spongeMeme("stop Making spongebob Memes!"));
 }
