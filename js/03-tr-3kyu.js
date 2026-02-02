@@ -12405,10 +12405,12 @@ output: "StOp mAkInG SpOnGeBoB MeMeS!"   */
   //     .join("");
   // }
 
+  // const spongeMeme = (sentence) => [...sentence].map((e, i) => (i % 2 ? e.toLowerCase() : e.toUpperCase())).join("");
+
   const spongeMeme = (sentence) =>
-    [...sentence]
-      .map((e, i) => (i % 2 ? e.toLowerCase() : e.toUpperCase()))
-      .join("");
+    sentence.replace(/./g, (e, i) =>
+      i % 2 ? e.toLowerCase() : e.toUpperCase(),
+    );
 
   console.log(spongeMeme("stop Making spongebob Memes!"));
 }
