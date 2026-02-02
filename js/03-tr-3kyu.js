@@ -12399,11 +12399,16 @@ Example:
 input:  "stop Making spongebob Memes!"
 output: "StOp mAkInG SpOnGeBoB MeMeS!"   */
 
-  function spongeMeme(sentence) {
-    return [...sentence]
+  // function spongeMeme(sentence) {
+  //   return [...sentence]
+  //     .map((e, i) => (i % 2 ? e.toLowerCase() : e.toUpperCase()))
+  //     .join("");
+  // }
+
+  const spongeMeme = (sentence) =>
+    [...sentence]
       .map((e, i) => (i % 2 ? e.toLowerCase() : e.toUpperCase()))
       .join("");
-  }
 
   console.log(spongeMeme("stop Making spongebob Memes!"));
 }
