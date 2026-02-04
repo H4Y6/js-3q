@@ -12466,15 +12466,28 @@ pattern(6):
 6
 Note: There are no blank spaces
 
-Hint: Use \n in string to jump to next line */ function pattern(n) {
-    if (n < 1) return "";
-    return [...Array(n + 1).keys()]
-      .reduce(
-        (arr, e, i, ar) => [...arr, ar.slice(i + 1).join("") + "\n"].join(""),
-        [],
-      )
-      .slice(0, -2);
-  }
+Hint: Use \n in string to jump to next line */
+
+  // function pattern(n) {
+  //   if (n < 1) return "";
+  //   return [...Array(n + 1).keys()]
+  //     .reduce(
+  //       (arr, e, i, ar) => [...arr, ar.slice(i + 1).join("") + "\n"].join(""),
+  //       [],
+  //     )
+  //     .slice(0, -2);
+  // }
+
+  const pattern = (n) =>
+    n < 1
+      ? ""
+      : [...Array(n + 1).keys()]
+          .reduce(
+            (arr, e, i, ar) =>
+              [...arr, ar.slice(i + 1).join("") + "\n"].join(""),
+            [],
+          )
+          .slice(0, -2);
 
   console.log(pattern(2));
 }
