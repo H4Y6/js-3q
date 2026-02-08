@@ -12478,16 +12478,29 @@ Hint: Use \n in string to jump to next line */
   //     .slice(0, -2);
   // }
 
-  const pattern = (n) =>
-    n < 1
-      ? ""
-      : [...Array(n + 1).keys()]
-          .reduce(
-            (arr, e, i, ar) =>
-              [...arr, ar.slice(i + 1).join("") + "\n"].join(""),
-            [],
-          )
-          .slice(0, -2);
+  // const pattern = (n) =>
+  //   n < 1
+  //     ? ""
+  //     : [...Array(n + 1).keys()]
+  //         .reduce(
+  //           (arr, e, i, ar) =>
+  //             [...arr, ar.slice(i + 1).join("") + "\n"].join(""),
+  //           [],
+  //         )
+  //         .slice(0, -2);
 
-  console.log(pattern(2));
+  const pattern = (n) =>
+    n > 0
+      ? Array(n)
+          .fill(n)
+          .map((e, i) =>
+            Array.from({ length: e - i })
+              .map((e, i) => n - i)
+              .reverse()
+              .join(""),
+          )
+          .join("\n")
+      : "";
+
+  console.log(pattern(-4));
 }
