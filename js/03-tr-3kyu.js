@@ -12590,12 +12590,18 @@ Examples
   //   return arr;
   // }
 
-  function shuffleIt(arr, ...indArr) {
-    return indArr.reduce(
+  // function shuffleIt(arr, ...indArr) {
+  //   return indArr.reduce(
+  //     (ar, [a, b]) => (([ar[a], ar[b]] = [ar[b], ar[a]]), ar),
+  //     [...arr],
+  //   );
+  // }
+
+  const shuffleIt = (arr, ...indArr) =>
+    indArr.reduce(
       (ar, [a, b]) => (([ar[a], ar[b]] = [ar[b], ar[a]]), ar),
       [...arr],
     );
-  }
 
   console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
 }
