@@ -12538,3 +12538,16 @@ Hint: Use \n in string to jump to next line */
 
   // console.log(Calculator.average(2, 3, 4));
 }
+
+{
+  function shuffleIt(arr, ...indArr) {
+    for (let i = 0; i < indArr.length; i++) {
+      const c = arr[indArr[i][0]];
+      arr[indArr[i][0]] = arr[indArr[i][1]];
+      arr[indArr[i][1]] = c;
+    }
+    return arr;
+  }
+
+  console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
+}
