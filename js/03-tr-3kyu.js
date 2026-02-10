@@ -12514,11 +12514,17 @@ Hint: Use \n in string to jump to next line */
   //   },
   // };
 
+  // var Calculator = {
+  //   average: function () {
+  //     return (
+  //       [...arguments].reduce((s, e) => s + e, 0) / (arguments.length || 1)
+  //     );
+  //   },
+  // };
+
   var Calculator = {
     average: function () {
-      return (
-        [...arguments].reduce((s, e) => s + e, 0) / (arguments.length || 1)
-      );
+      return [...arguments].reduce((s, e) => s + e, 0) / arguments.length || 0;
     },
   };
 
