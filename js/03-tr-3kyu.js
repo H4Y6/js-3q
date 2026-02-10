@@ -12570,13 +12570,18 @@ Examples
   //   return arr;
   // }
 
+  // function shuffleIt(arr, ...indArr) {
+  //   for (let i = 0; i < indArr.length; i++) {
+  //     [arr[indArr[i][0]], arr[indArr[i][1]]] = [
+  //       arr[indArr[i][1]],
+  //       arr[indArr[i][0]],
+  //     ];
+  //   }
+  //   return arr;
+  // }
+
   function shuffleIt(arr, ...indArr) {
-    for (let i = 0; i < indArr.length; i++) {
-      [arr[indArr[i][0]], arr[indArr[i][1]]] = [
-        arr[indArr[i][1]],
-        arr[indArr[i][0]],
-      ];
-    }
+    for (const [a, b] of indArr) [arr[a], arr[b]] = [arr[b], arr[a]];
     return arr;
   }
 
