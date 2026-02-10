@@ -12585,9 +12585,16 @@ Examples
   //   return arr;
   // }
 
+  // function shuffleIt(arr, ...indArr) {
+  //   indArr.forEach(([a, b]) => ([arr[a], arr[b]] = [arr[b], arr[a]]));
+  //   return arr;
+  // }
+
   function shuffleIt(arr, ...indArr) {
-    indArr.forEach(([a, b]) => ([arr[a], arr[b]] = [arr[b], arr[a]]));
-    return arr;
+    return indArr.reduce(
+      (ar, [a, b]) => (([ar[a], ar[b]] = [ar[b], ar[a]]), ar),
+      [...arr],
+    );
   }
 
   console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
