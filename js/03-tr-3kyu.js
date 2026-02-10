@@ -12597,11 +12597,16 @@ Examples
   //   );
   // }
 
-  const shuffleIt = (arr, ...indArr) =>
-    indArr.reduce(
-      (ar, [a, b]) => (([ar[a], ar[b]] = [ar[b], ar[a]]), ar),
-      [...arr],
-    );
+  // const shuffleIt = (arr, ...indArr) =>
+  //   indArr.reduce(
+  //     (ar, [a, b]) => (([ar[a], ar[b]] = [ar[b], ar[a]]), ar),
+  //     [...arr],
+  //   );
+
+  const shuffleIt = (arr, ...indArr) => {
+    for (const [a, b] of indArr) [arr[a], arr[b]] = [arr[b], arr[a]];
+    return arr;
+  };
 
   console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
 }
