@@ -12540,11 +12540,42 @@ Hint: Use \n in string to jump to next line */
 }
 
 {
+  /**  7 kyu
+Training Time
+
+Task
+Complete the function that accepts two or more parameters. The first parameter is an array of numbers, followed by an arbitrary number of numeric arrays. Each numeric array contains two numbers, which are indices for elements in arr (the numbers will always be within bounds). For every such array, swap the elements.
+
+For a detailed explanation of arrow functions (JS only), the spread operator, destructuring, and rest parameters, scroll down.
+
+Examples
+[1, 2, 3, 4, 5], [1, 2]  should return  [1, 3, 2, 4, 5]
+    <-->
+
+[1, 2, 3, 4, 5], [1, 2], [3, 4]  should return  [1, 3, 2, 5, 4]
+    <-->
+          <-->
+
+[1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]  should return  [1, 3, 5, 2, 4]
+    <-->
+          <-->
+       <--> */
+
+  // function shuffleIt(arr, ...indArr) {
+  //   for (let i = 0; i < indArr.length; i++) {
+  //     const c = arr[indArr[i][0]];
+  //     arr[indArr[i][0]] = arr[indArr[i][1]];
+  //     arr[indArr[i][1]] = c;
+  //   }
+  //   return arr;
+  // }
+
   function shuffleIt(arr, ...indArr) {
     for (let i = 0; i < indArr.length; i++) {
-      const c = arr[indArr[i][0]];
-      arr[indArr[i][0]] = arr[indArr[i][1]];
-      arr[indArr[i][1]] = c;
+      [arr[indArr[i][0]], arr[indArr[i][1]]] = [
+        arr[indArr[i][1]],
+        arr[indArr[i][0]],
+      ];
     }
     return arr;
   }
