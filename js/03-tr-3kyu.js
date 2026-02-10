@@ -12528,10 +12528,13 @@ Hint: Use \n in string to jump to next line */
   //   },
   // };
 
-  const Calculator = {};
+  // const Calculator = {};
+  // Calculator.average = (...args) =>
+  //   args.reduce((s, e) => s + e, 0) / args.length || 0;
 
-  Calculator.average = (...args) =>
-    args.reduce((s, e) => s + e, 0) / args.length || 0;
+  var Calculator = {
+    average: (...args) => args.reduce((s, e) => s + e, 0) / args.length || 0,
+  };
 
-  console.log(Calculator.average());
+  // console.log(Calculator.average(2, 3, 4));
 }
