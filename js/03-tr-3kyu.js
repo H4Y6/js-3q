@@ -12502,5 +12502,17 @@ Hint: Use \n in string to jump to next line */
           .join("\n")
       : "";
 
-  console.log(pattern(-4));
+  // console.log(pattern(-4));
+}
+
+{
+  var Calculator = {
+    average: function () {
+      return arguments.length
+        ? [...arguments].reduce((s, e) => s + e, 0) / arguments.length
+        : 0;
+    },
+  };
+
+  console.log(Calculator.average(3, 4, 5));
 }
