@@ -12580,8 +12580,13 @@ Examples
   //   return arr;
   // }
 
+  // function shuffleIt(arr, ...indArr) {
+  //   for (const [a, b] of indArr) [arr[a], arr[b]] = [arr[b], arr[a]];
+  //   return arr;
+  // }
+
   function shuffleIt(arr, ...indArr) {
-    for (const [a, b] of indArr) [arr[a], arr[b]] = [arr[b], arr[a]];
+    indArr.forEach(([a, b]) => ([arr[a], arr[b]] = [arr[b], arr[a]]));
     return arr;
   }
 
