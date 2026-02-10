@@ -12506,13 +12506,21 @@ Hint: Use \n in string to jump to next line */
 }
 
 {
+  // var Calculator = {
+  //   average: function () {
+  //     return arguments.length
+  //       ? [...arguments].reduce((s, e) => s + e, 0) / arguments.length
+  //       : 0;
+  //   },
+  // };
+
   var Calculator = {
     average: function () {
-      return arguments.length
-        ? [...arguments].reduce((s, e) => s + e, 0) / arguments.length
-        : 0;
+      return (
+        [...arguments].reduce((s, e) => s + e, 0) / (arguments.length || 1)
+      );
     },
   };
 
-  console.log(Calculator.average(3, 4, 5));
+  console.log(Calculator.average());
 }
