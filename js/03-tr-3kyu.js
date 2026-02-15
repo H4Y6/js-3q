@@ -12637,11 +12637,16 @@ You don't need to worry about error handling in this kata (i.e. both letters wil
   //         );
   // }
 
-  const gimmeTheLetters = (sp, str = "abcdefghijklmnopqrstuvwxyz") => {
-    return ((s) => s.slice(s.indexOf(sp[0]), 1 + s.indexOf(sp[2])))(
+  // const gimmeTheLetters = (sp, str = "abcdefghijklmnopqrstuvwxyz") => {
+  //   return ((s) => s.slice(s.indexOf(sp[0]), 1 + s.indexOf(sp[2])))(
+  //     sp.charCodeAt() < 97 ? (str = str.toUpperCase()) : str,
+  //   );
+  // };
+
+  const gimmeTheLetters = (sp, str = "abcdefghijklmnopqrstuvwxyz") =>
+    ((s) => s.slice(s.indexOf(sp[0]), 1 + s.indexOf(sp[2])))(
       sp.charCodeAt() < 97 ? (str = str.toUpperCase()) : str,
     );
-  };
 
   console.log(gimmeTheLetters("a-r"));
 }
