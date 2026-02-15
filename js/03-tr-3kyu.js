@@ -12656,7 +12656,11 @@ You don't need to worry about error handling in this kata (i.e. both letters wil
 Regexp Basics - is it a vowel?
 Implement the function which should return true if given object is a vowel (meaning a, e, i, o, u, uppercase or lowercase), and false otherwise.   */
 
+  // String.prototype.vowel = function () {
+  //   return /^[aeiou]$/i.test(this);
+  // };
+
   String.prototype.vowel = function () {
-    return /^[aeiou]$/i.test(this);
+    return this.match(/^[aeiou]$/i) ? true : false;
   };
 }
