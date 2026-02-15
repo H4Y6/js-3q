@@ -12608,5 +12608,34 @@ Examples
     return arr;
   };
 
-  console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
+  // console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4], [2, 3]));
+}
+
+{
+  /**  7 kyu
+From A to Z
+Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter.
+Note that if the range is given in capital letters, return the string in capitals also!
+
+Examples
+"a-z" ➞ "abcdefghijklmnopqrstuvwxyz"
+"h-o" ➞ "hijklmno"
+"Q-Z" ➞ "QRSTUVWXYZ"
+"J-J" ➞ "J"
+Notes
+A hyphen will separate the two letters in the string.
+You don't need to worry about error handling in this kata (i.e. both letters will be the same case and the second letter will not be before the first alphabetically).   */
+
+  function gimmeTheLetters(sp, str = "abcdefghijklmnopqrstuvwxyz") {
+    return sp[0] === sp[0].toLowerCase()
+      ? str.slice(str.indexOf(sp[0]), 1 + str.indexOf(sp[2]))
+      : str
+          .toUpperCase()
+          .slice(
+            str.toUpperCase().indexOf(sp[0]),
+            1 + str.toUpperCase().indexOf(sp[2]),
+          );
+  }
+
+  console.log(gimmeTheLetters("Q-Z"));
 }
