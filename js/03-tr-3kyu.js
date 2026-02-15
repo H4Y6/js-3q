@@ -12626,16 +12626,22 @@ Notes
 A hyphen will separate the two letters in the string.
 You don't need to worry about error handling in this kata (i.e. both letters will be the same case and the second letter will not be before the first alphabetically).   */
 
-  function gimmeTheLetters(sp, str = "abcdefghijklmnopqrstuvwxyz") {
-    return sp[0] === sp[0].toLowerCase()
-      ? str.slice(str.indexOf(sp[0]), 1 + str.indexOf(sp[2]))
-      : str
-          .toUpperCase()
-          .slice(
-            str.toUpperCase().indexOf(sp[0]),
-            1 + str.toUpperCase().indexOf(sp[2]),
-          );
-  }
+  // function gimmeTheLetters(sp, str = "abcdefghijklmnopqrstuvwxyz") {
+  //   return sp[0] === sp[0].toLowerCase()
+  //     ? str.slice(str.indexOf(sp[0]), 1 + str.indexOf(sp[2]))
+  //     : str
+  //         .toUpperCase()
+  //         .slice(
+  //           str.toUpperCase().indexOf(sp[0]),
+  //           1 + str.toUpperCase().indexOf(sp[2]),
+  //         );
+  // }
 
-  console.log(gimmeTheLetters("Q-Z"));
+  const gimmeTheLetters = (sp, str = "abcdefghijklmnopqrstuvwxyz") => {
+    return ((s) => s.slice(s.indexOf(sp[0]), 1 + s.indexOf(sp[2])))(
+      sp.charCodeAt() < 97 ? (str = str.toUpperCase()) : str,
+    );
+  };
+
+  console.log(gimmeTheLetters("a-r"));
 }
