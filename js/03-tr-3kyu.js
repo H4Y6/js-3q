@@ -12660,7 +12660,14 @@ Implement the function which should return true if given object is a vowel (mean
   //   return /^[aeiou]$/i.test(this);
   // };
 
+  // String.prototype.vowel = function () {
+  //   return this.match(/^[aeiou]$/i) ? true : false;
+  // };
+
   String.prototype.vowel = function () {
-    return this.match(/^[aeiou]$/i) ? true : false;
+    console.log(this);
+    return this.length === 1
+      ? "aeiou".includes(this.toLocaleLowerCase())
+      : !this;
   };
 }
