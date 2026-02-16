@@ -12715,3 +12715,15 @@ The answer should be rounded to the nearest 2 decimal places.    */
 
   // console.log(howMuchWater(50, 15, 24));
 }
+
+{
+  function capitalsFirst(str) {
+    return ((s) =>
+      s
+        .filter((e) => e[0] === e[0].toUpperCase())
+        .concat(s.filter((e) => e[0] === e[0].toLowerCase()))
+        .join(" "))(str.split(" ").filter((e) => /[a-z]/i.test(e[0])));
+  }
+
+  console.log(capitalsFirst("hey You, 33 Sort me Already!"));
+}
