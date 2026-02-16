@@ -12691,13 +12691,20 @@ The answer should be rounded to the nearest 2 decimal places.    */
   //   return Math.round(water * 1.1 ** (clothes - load) * 100) / 100;
   // }
 
-  function howMuchWater(water, load, clothes) {
-    return clothes / 2 > load
+  // function howMuchWater(water, load, clothes) {
+  //   return clothes / 2 > load
+  //     ? "Too much clothes"
+  //     : clothes < load
+  //       ? "Not enough clothes"
+  //       : Math.round(water * 1.1 ** (clothes - load) * 100) / 100;
+  // }
+
+  const howMuchWater = (water, load, clothes) =>
+    clothes / 2 > load
       ? "Too much clothes"
       : clothes < load
         ? "Not enough clothes"
         : Math.round(water * 1.1 ** (clothes - load) * 100) / 100;
-  }
 
   console.log(howMuchWater(50, 15, 4));
 }
