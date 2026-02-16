@@ -12685,10 +12685,18 @@ My washing machine is an old model that can only handle double the amount of loa
 
 The answer should be rounded to the nearest 2 decimal places.    */
 
+  // function howMuchWater(water, load, clothes) {
+  //   if (clothes / 2 > load) return "Too much clothes";
+  //   if (clothes < load) return "Not enough clothes";
+  //   return Math.round(water * 1.1 ** (clothes - load) * 100) / 100;
+  // }
+
   function howMuchWater(water, load, clothes) {
-    if (clothes / 2 > load) return "Too much clothes";
-    if (clothes < load) return "Not enough clothes";
-    return Math.round(water * 1.1 ** (clothes - load) * 100) / 100;
+    return clothes / 2 > load
+      ? "Too much clothes"
+      : clothes < load
+        ? "Not enough clothes"
+        : Math.round(water * 1.1 ** (clothes - load) * 100) / 100;
   }
 
   console.log(howMuchWater(50, 15, 4));
