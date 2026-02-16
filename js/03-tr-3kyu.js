@@ -12735,12 +12735,19 @@ For an input String: "hey You, Sort me Already!" the function should return: "Yo
   //       .join(" "))(str.split(" ").filter((e) => /[a-z]/i.test(e[0])));
   // }
 
+  // const capitalsFirst = (str) =>
+  //   ((s) =>
+  //     s
+  //       .filter((e) => /[A-Z]/.test(e[0]))
+  //       .concat(s.filter((e) => /[a-z]/.test(e[0])))
+  //       .join(" "))(str.split(" "));
+
   const capitalsFirst = (str) =>
     ((s) =>
-      s
-        .filter((e) => /[A-Z]/.test(e[0]))
-        .concat(s.filter((e) => /[a-z]/.test(e[0])))
-        .join(" "))(str.split(" "));
+      [
+        ...s.filter((e) => /[A-Z]/.test(e[0])),
+        ...s.filter((e) => /[a-z]/.test(e[0])),
+      ].join(" "))(str.split(" "));
 
-  console.log(capitalsFirst("hey You, 33 Sort me Already!"));
+  // console.log(capitalsFirst("hey You, 33 Sort me Already!"));
 }
