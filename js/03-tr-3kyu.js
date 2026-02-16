@@ -12738,9 +12738,9 @@ For an input String: "hey You, Sort me Already!" the function should return: "Yo
   const capitalsFirst = (str) =>
     ((s) =>
       s
-        .filter((e) => e[0] === e[0].toUpperCase())
-        .concat(s.filter((e) => e[0] === e[0].toLowerCase()))
-        .join(" "))(str.split(" ").filter((e) => /[a-z]/i.test(e[0])));
+        .filter((e) => /[A-Z]/.test(e[0]))
+        .concat(s.filter((e) => /[a-z]/.test(e[0])))
+        .join(" "))(str.split(" "));
 
   console.log(capitalsFirst("hey You, 33 Sort me Already!"));
 }
