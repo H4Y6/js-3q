@@ -12765,6 +12765,20 @@ For an input String: "hey You, Sort me Already!" the function should return: "Yo
 }
 
 {
+  /**  8 kyu
+Arguments to Binary addition
+Past Solutions
+Given an array add all the number elements and return the binary equivalent of that sum; to make the code bullet proof anything else than a number should be added as 0 since it can't be added.
+
+If your language can handle float binaries assume the array won't contain float or doubles.
+
+arr2bin([1,2]) == '11'
+arr2bin([1,2,'a']) == '11'
+arr2bin([]) == '0'
+
+NOTE: NaN is a number too in javascript for decimal, binary and n-ary base
+Return "NaN" if the sum of all numbers is NaN. */
+
   // function arr2bin(arr) {
   //   return arr
   //     .reduce((s, e) => s + (typeof e === "number" ? e : 0), 0)
@@ -12775,4 +12789,26 @@ For an input String: "hey You, Sort me Already!" the function should return: "Yo
     arr.reduce((s, e) => s + (typeof e === "number" ? e : 0), 0).toString(2);
 
   // console.log(arr2bin([1, 2, 3, 4, 5, "ty"]));
+}
+
+{
+  /**7 kyu
+Integer Difference
+Write a function that accepts two arguments: an array/list of integers and another integer (n).
+
+Determine the number of times where two integers in the array have a difference of n.
+
+For example:
+
+[1, 1, 5, 6, 9, 16, 27], n=4  -->  3  # (1,5), (1,5), (5,9)
+[1, 1, 3, 3], n=2             -->  4  # (1,3), (1,3), (1,3), (1,3) */
+
+  const intDiff = (arr, n) => {
+    return arr
+      .map((e, i) => arr.slice(i + 1).map((el) => Math.abs(el - e)))
+      .flatMap((e) => e)
+      .filter((e) => e === n).length;
+  };
+
+  console.log(intDiff([1, 1, 3, 3], 2));
 }
