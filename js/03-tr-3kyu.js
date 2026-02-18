@@ -12765,11 +12765,14 @@ For an input String: "hey You, Sort me Already!" the function should return: "Yo
 }
 
 {
-  function arr2bin(arr) {
-    return arr
-      .reduce((s, e) => s + (typeof e === "number" ? e : 0), 0)
-      .toString(2);
-  }
+  // function arr2bin(arr) {
+  //   return arr
+  //     .reduce((s, e) => s + (typeof e === "number" ? e : 0), 0)
+  //     .toString(2);
+  // }
 
-  console.log(arr2bin([1, 2, 3, 4, 5, "ty"]));
+  const arr2bin = (arr) =>
+    arr.reduce((s, e) => s + (typeof e === "number" ? e : 0), 0).toString(2);
+
+  // console.log(arr2bin([1, 2, 3, 4, 5, "ty"]));
 }
