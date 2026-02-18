@@ -12803,11 +12803,19 @@ For example:
 [1, 1, 5, 6, 9, 16, 27], n=4  -->  3  # (1,5), (1,5), (5,9)
 [1, 1, 3, 3], n=2             -->  4  # (1,3), (1,3), (1,3), (1,3) */
 
+  // const intDiff = (arr, n) => {
+  //   return arr
+  //     .map((e, i) => arr.slice(i + 1).map((el) => Math.abs(el - e)))
+  //     .flatMap((e) => e)
+  //     .filter((e) => e === n).length;
+  // };
+
   const intDiff = (arr, n) => {
-    return arr
-      .map((e, i) => arr.slice(i + 1).map((el) => Math.abs(el - e)))
-      .flatMap((e) => e)
-      .filter((e) => e === n).length;
+    return arr.reduce(
+      (res, e, i) =>
+        res + arr.slice(i + 1).filter((el) => n === Math.abs(el - e)).length,
+      0,
+    );
   };
 
   console.log(intDiff([1, 1, 3, 3], 2));
