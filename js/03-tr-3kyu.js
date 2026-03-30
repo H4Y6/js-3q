@@ -12822,20 +12822,32 @@ For example:
 }
 
 {
-  const dict = {
-    Monday: "James",
-    Tuesday: "John",
-    Wednesday: "Robert",
-    Thursday: "Michael",
-    Friday: "William",
-  };
+  // const dict = {
+  //   Monday: "James",
+  //   Tuesday: "John",
+  //   Wednesday: "Robert",
+  //   Thursday: "Michael",
+  //   Friday: "William",
+  // };
 
   // function task(w, t, c) {
   //   return `It is ${w} today, ${dict[w]}, you have to work, you must spray ${t} trees and you need ${t * c} dollars to buy liquid`;
   // }
 
-  const task = (w, t, c) =>
-    `It is ${w} today, ${dict[w]}, you have to work, you must spray ${t} trees and you need ${t * c} dollars to buy liquid`;
+  // const task = (w, t, c) =>
+  //   `It is ${w} today, ${dict[w]}, you have to work, you must spray ${t} trees and you need ${t * c} dollars to buy liquid`;
 
-  console.log(task("Wednesday", 10, 2));
+  const task = (w, t, c) =>
+    ((dict) =>
+      `It is ${w} today, ${dict[w]}, you have to work, you must spray ${t} trees and you need ${t * c} dollars to buy liquid`)(
+      {
+        Monday: "James",
+        Tuesday: "John",
+        Wednesday: "Robert",
+        Thursday: "Michael",
+        Friday: "William",
+      },
+    );
+
+  // console.log(task("Wednesday", 10, 2));
 }
