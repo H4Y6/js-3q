@@ -12875,11 +12875,16 @@ Examples
 "!Hi You!"    => " !!HYiou"
  */
 
-  function orderWord(s) {
-    return s === null || s.length === 0
+  // function orderWord(s) {
+  //   return s === null || s.length === 0
+  //     ? "Invalid String!"
+  //     : s.split("").sort().join("");
+  // }
+
+  const orderWord = (s) =>
+    s === null || s.length === 0
       ? "Invalid String!"
       : s.split("").sort().join("");
-  }
 
   console.log(orderWord(null));
 }
