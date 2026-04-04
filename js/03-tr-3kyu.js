@@ -12888,7 +12888,10 @@ Examples
 
   // const orderWord = (s) => (!s ? "Invalid String!" : [...s].sort().join(""));
 
-  const orderWord = (s) => (s ? [...s].sort().join("") : "Invalid String!");
+  // const orderWord = (s) => (s ? [...s].sort().join("") : "Invalid String!");
 
-  console.log(orderWord("null"));
+  const orderWord = (s) =>
+    s && s.length ? s.split("").sort().join("") : "Invalid String!";
+
+  // console.log(orderWord("null"));
 }
