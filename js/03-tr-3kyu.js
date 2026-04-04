@@ -12881,10 +12881,12 @@ Examples
   //     : s.split("").sort().join("");
   // }
 
-  const orderWord = (s) =>
-    s === null || s.length === 0
-      ? "Invalid String!"
-      : s.split("").sort().join("");
+  // const orderWord = (s) =>
+  //   s === null || s.length === 0
+  //     ? "Invalid String!"
+  //     : s.split("").sort().join("");
 
-  console.log(orderWord(null));
+  const orderWord = (s) => (!s ? "Invalid String!" : [...s].sort().join(""));
+
+  console.log(orderWord("null"));
 }
