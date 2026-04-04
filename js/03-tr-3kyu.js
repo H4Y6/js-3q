@@ -12886,7 +12886,9 @@ Examples
   //     ? "Invalid String!"
   //     : s.split("").sort().join("");
 
-  const orderWord = (s) => (!s ? "Invalid String!" : [...s].sort().join(""));
+  // const orderWord = (s) => (!s ? "Invalid String!" : [...s].sort().join(""));
+
+  const orderWord = (s) => (s ? [...s].sort().join("") : "Invalid String!");
 
   console.log(orderWord("null"));
 }
