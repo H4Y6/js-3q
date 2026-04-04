@@ -12851,3 +12851,35 @@ For example:
 
   // console.log(task("Wednesday", 10, 2));
 }
+
+{
+  /**  
+7 kyu
+Ordering the words!
+Description:
+
+Given a string, you need to write a method that order every letter in this string in ascending order.
+
+Also, you should validate that the given string is not empty or null. If so, the method should return:
+
+"Invalid String!"
+
+Notes
+• the given string can be lowercase and uppercase.
+• the string could include spaces or other special characters like '# ! or ,'. Sort them based on their ASCII codes
+Examples
+
+"hello world" => " dehllloorw"
+"bobby"       => "bbboy"
+""            => "Invalid String!"
+"!Hi You!"    => " !!HYiou"
+ */
+
+  function orderWord(s) {
+    return s === null || s.length === 0
+      ? "Invalid String!"
+      : s.split("").sort().join("");
+  }
+
+  console.log(orderWord(null));
+}
