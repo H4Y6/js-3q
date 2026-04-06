@@ -12903,9 +12903,12 @@ Write a function that takes a string and returns an array containing binary numb
 Example: 'man' should return [ '01101101', '01100001', '01101110' ]
  */
 
-  function wordToBin(str) {
-    return [...str].map((e) => e.charCodeAt().toString(2).padStart(8, "0"));
-  }
+  // function wordToBin(str) {
+  //   return [...str].map((e) => e.charCodeAt().toString(2).padStart(8, "0"));
+  // }
+
+  const wordToBin = (str) =>
+    [...str].map((e) => e.charCodeAt().toString(2).padStart(8, "0"));
 
   console.log(wordToBin("man"));
 }
