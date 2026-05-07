@@ -12930,7 +12930,9 @@ getDecimal(-0.2) === 0.2 */
   //   return n % 1 ? +(0 + n.toString().match(/\.\d+/)[0]) : 0;
   // }
 
-  const getDecimal = (n) => (n % 1 ? +(0 + n.toString().match(/\.\d+/)[0]) : 0);
+  // const getDecimal = (n) => (n % 1 ? +(0 + n.toString().match(/\.\d+/)[0]) : 0);
 
-  console.log(getDecimal(11));
+  const getDecimal = (n) => Math.abs(n % 1);
+
+  console.log(getDecimal(-11.3));
 }
