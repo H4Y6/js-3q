@@ -12936,5 +12936,13 @@ getDecimal(-0.2) === 0.2 */
 
   const getDecimal = (n) => ((n) => n - Math.floor(n))(n < 0 ? (n *= -1) : n);
 
-  console.log(getDecimal(-11.3));
+  // console.log(getDecimal(-11.3));
+}
+
+{
+  function inverseSlice(items, a, b) {
+    return items.slice(0, a).concat(items.slice(b));
+  }
+
+  console.log(inverseSlice([12, 14, 63, 72, 55, 24], 2, 4));
 }
