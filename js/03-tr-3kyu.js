@@ -12944,8 +12944,10 @@ getDecimal(-0.2) === 0.2 */
   //   return items.slice(0, a).concat(items.slice(b));
   // }
 
-  const inverseSlice = (items, a, b) =>
-    items.slice(0, a).concat(items.slice(b));
+  // const inverseSlice = (items, a, b) =>
+  //   items.slice(0, a).concat(items.slice(b));
+
+  const inverseSlice = (items, a, b) => items.filter((e, i) => i < a || i >= b);
 
   console.log(inverseSlice([12, 14, 63, 72, 55, 24], 2, 4));
 }
