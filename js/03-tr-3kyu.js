@@ -12978,8 +12978,15 @@ The expected result is a boolean, indicating whether you have any good arrows le
   //   return arrows.filter((e) => e.damaged !== true).length > 0;
   // };
 
-  const anyArrows = (arrows) =>
-    arrows.filter((e) => e.damaged !== true).length > 0;
+  // const anyArrows = (arrows) =>
+  //   arrows.filter((e) => e.damaged !== true).length > 0;
+
+  // const anyArrows = (arrows) => arrows.some((e) => e.damaged !== true);
+
+  const anyArrows = (arrows) => arrows.some((e) => !e.damaged);
 
   console.log(anyArrows([]));
+}
+
+{
 }
