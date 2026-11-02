@@ -12987,8 +12987,12 @@ The expected result is a boolean, indicating whether you have any good arrows le
 
   const anyArrows = (arrows) => arrows.some((e) => !e["damaged"]);
 
-  console.log(anyArrows([]));
+  // console.log(anyArrows([]));
 }
 
 {
+  function onesComplement(n) {
+    return [...n].map((e) => Math.abs(e - 1)).join("");
+  }
+  console.log(onesComplement("1001"));
 }
