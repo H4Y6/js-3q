@@ -12996,7 +12996,7 @@ The expected result is a boolean, indicating whether you have any good arrows le
   // }
 
   // const onesComplement = (n) => [...n].map((e) => Math.abs(e - 1)).join("");
-  const onesComplement = (n) => n.replace(/\d/g, (e) => Math.abs(e - 1));
-
-  console.log(onesComplement("1001"));
+  // const onesComplement = (n) => n.replace(/\d/g, (e) => Math.abs(e - 1));
+  const onesComplement = (n) => n.replace(/\d/g, (e) => (+e ? "0" : "1"));
+  // console.log(onesComplement("1001"));
 }
