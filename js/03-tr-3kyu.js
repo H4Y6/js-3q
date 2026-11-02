@@ -12991,8 +12991,11 @@ The expected result is a boolean, indicating whether you have any good arrows le
 }
 
 {
-  function onesComplement(n) {
-    return [...n].map((e) => Math.abs(e - 1)).join("");
-  }
+  // function onesComplement(n) {
+  //   return [...n].map((e) => Math.abs(e - 1)).join("");
+  // }
+
+  const onesComplement = (n) => [...n].map((e) => Math.abs(e - 1)).join("");
+
   console.log(onesComplement("1001"));
 }
