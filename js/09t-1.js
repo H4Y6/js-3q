@@ -730,4 +730,22 @@ function getShippingCost(country) {
   // Change code above this line
   return message;
 }
-// console.log(getShippingCost("China"));
+
+{
+  function getShippingCost(country) {
+    let message;
+    // Change code below this line
+    const ship = { China: 100, Chile: 250, Australia: 170, Jamaica: 120 };
+    switch (country) {
+      case country:
+        message = !ship[country]
+          ? "Sorry, there is no delivery to your country"
+          : `Shipping to ${country} will cost ${ship[country]} credits`;
+    }
+
+    // Change code above this line
+    return message;
+  }
+
+  // console.log(getShippingCost("uyt"));
+}
