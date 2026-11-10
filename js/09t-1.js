@@ -776,3 +776,78 @@ const productName = "Repair droid"; // Если в переменной хран
 
   // console.log(getNameLength("Poly"));
 }
+
+{
+  /**  #31   Индексация элементов строки
+
+Строка — это индексированный набор из нуля или более символов, заключенных в одинарные, двойные или косые кавычки.
+
+Индексация элементов строки начинается с нуля. Например, в строке 'JavaScript' буква 'J' стоит на позиции с индексом 0, а 't' идёт под индексом 9. При этом длина строки 'JavaScript' равна 10, то есть индекс последнего элемента всегда на единицу меньше чем её длина.
+
+Для доступа к значению элемента строки используется синтаксис квадратных скобок строка[индекс].
+
+const productName = "Repair droid"; console.log(productName[0]); // "R" console.log(productName[5]); // "r" console.log(productName[11]); // "d" console.log(productName[productName.length - 1]); // "d"
+
+Содержимое строки нельзя изменить, только прочитать. То есть нельзя взять какой-то символ и заменить его, как только строка создана — она такая навсегда. Можно лишь создать целиком новую строку и присвоить в переменную вместо старой.
+Задание
+
+Дополни код присвоив объявленным переменным выражения обращения к соответствующим элементам или свойствам строки в переменной course.
+
+    courseTopicLength - длина строки.
+    firstElement - первый символ строки.
+    lastElement - последний символ строки.
+
+Тесты
+
+    Объявлена переменная courseTopic
+    Значение переменной courseTopic это строка "JavaScript essentials"
+    Объявлена переменная courseTopicLength
+    Значение переменной courseTopicLength это число 21
+    Объявлена переменная firstElement
+    Значение переменной firstElement это строка "J"
+    Объявлена переменная lastElement
+    Значение переменной lastElement это строка "s"
+ */
+  const courseTopic = "JavaScript essentials";
+  // Change code below this line
+
+  const courseTopicLength = courseTopic.length;
+  const firstElement = courseTopic[0];
+  const lastElement = courseTopic[courseTopicLength - 1];
+
+  // Change code above this line
+}
+
+{
+  /**  #32   Метод slice()
+
+Метод строк slice(startIndex, endIndex) используется для создания копии части или всей строки. Он делает копию элементов строки от startIndex и до, но не включая endIndex и возвращает новую строку.
+
+const productName = "Repair droid"; console.log(productName.slice(0, 4)); // "Repa" console.log(productName.slice(3, 9)); // "air dr" console.log(productName.slice(0, productName.length)); // "Repair droid" console.log(productName.slice(7, productName.length)); // "droid"
+
+Задание
+
+Функция getSubstring(string, length) принимает строку и возвращает подстроку от начала и до length символов. Она объявляет два параметра, значения которых будут задаваться во время её вызова:
+
+    string - оригинальная строка
+    length - количество символов с начала строки для подстроки
+
+Присвой переменной substring выражение создания подстроки длинной length символов (от начала) из строки string.
+Тесты
+
+    Объявлена функция getSubstring(string, length)
+    Вызов функции getSubstring("Hello world", 3) возвращает "Hel"
+    Вызов функции getSubstring("Hello world", 6) возвращает "Hello"
+    Вызов функции getSubstring("Hello world", 8) возвращает "Hello wo"
+    Вызов функции getSubstring("Hello world", 11) возвращает "Hello world"
+    Вызов функции getSubstring("Hello world", 0) возвращает ""
+*/
+
+  function getSubstring(string, length) {
+    const substring = string.slice(0, length); // Change this line
+
+    return substring;
+  }
+
+  // console.log(getSubstring("Hello world", 6));
+}
