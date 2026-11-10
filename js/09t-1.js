@@ -851,3 +851,66 @@ const productName = "Repair droid"; console.log(productName.slice(0, 4)); // "Re
 
   // console.log(getSubstring("Hello world", 6));
 }
+
+{
+  /**  #33   Задача: форматирование сообщения
+Задание
+
+Функция formatMessage(message, maxLength) принимает строку (параметр message) и форматирует её, если длина превышает значение в параметре maxLength.
+
+Дополни код функции так, что если длина строки:
+
+    не превышает maxLength, функция возвращает её в исходном виде.
+    больше maxLength, то функция обрезает строку до maxLength символов и добавляет в конец троеточие "...", после чего возвращает укороченную версию.
+
+Тесты
+
+    Объявлена функция formatMessage(message, maxLength)
+    Вызов функции formatMessage("Curabitur ligula sapien", 16) возвращает "Curabitur ligula..."
+    Вызов функции formatMessage("Curabitur ligula sapien", 23) возвращает "Curabitur ligula sapien"
+    Вызов функции formatMessage("Vestibulum facilisis purus nec", 20) возвращает "Vestibulum facilisis..."
+    Вызов функции formatMessage("Vestibulum facilisis purus nec", 30) возвращает "Vestibulum facilisis purus nec"
+    Вызов функции formatMessage("Nunc sed turpis a felis in nunc fringilla", 15) возвращает "Nunc sed turpis..."
+    Вызов функции formatMessage("Nunc sed turpis a felis in nunc fringilla", 41) возвращает "Nunc sed turpis a felis in nunc fringilla"
+*/
+
+  function formatMessage(message, maxLength) {
+    let result;
+    // Change code below this line
+    result =
+      message.length > maxLength
+        ? `${message.slice(0, maxLength)}...`
+        : message;
+    /// Change code above this line
+    return result;
+  }
+}
+
+{
+  /**  #34  Методы toLowerCase() и toUpperCase()
+
+Бывают ситуации когда все символы в строке необходимо преобразовать в один регистр, верхний или нижний. Например, при поиске по ключевому слову, когда пользователь вводит строку 'saMsUng', а сравнить её надо со строкой 'samsung' или 'SAMSUNG'.
+
+console.log("saMsUng" === "samsung"); // false console.log("saMsUng" === "SAMSUNG"); // false
+
+Чтобы не требовать абсолютно точный ввод можно сделать «нормализацию» введённой пользователем строки, то есть преобразовать все её символы в верхний или нижний регистр. Методы строки toLowerCase() и toUpperCase() вернут новую строку в соответствующем регистре, не изменяя оригинальную.
+
+const BRAND_NAME = "SAMSUNG"; const userInput = "saMsUng"; const normalizedToUpperCaseInput = userInput.toUpperCase(); console.log(userInput); // 'saMsUng' console.log(userInput === BRAND_NAME); // false console.log(normalizedToUpperCaseInput); // 'SAMSUNG' console.log(normalizedToUpperCaseInput === BRAND_NAME); // true
+
+Задание
+
+Функция normalizeInput(input) принимает строку (параметр input) и возвращает такую же строку, но в нижнем регистре. Присвой переменной normalizedInput выражение создания строки в нижнем регистре из параметра input.
+Тесты
+
+    Объявлена функция normalizeInput(input)
+    Вызов функции normalizeInput("Hello world") возвращает "hello world"
+    Вызов функции normalizeInput("This ISN'T SpaM") возвращает "this isn't spam"
+    Вызов функции normalizeInput("Big SALE") возвращает "big sale"
+ */
+
+  function normalizeInput(input) {
+    const normalizedInput = input.toLowerCase(); // Change this line
+
+    return normalizedInput;
+  }
+}
