@@ -709,5 +709,80 @@ const planets = ["Earth", "Mars", "Venus"]; planets.push("Jupiter"); planets.pus
     return array;
     // Change code above this line
   }
-  console.log(filterArray([12, 24, 8, 41, 76], 38));
+  // console.log(filterArray([12, 24, 8, 41, 76], 38));
+}
+
+{
+  /**  #24
+   *
+   *Метод includes()
+
+Метод includes(value) проверяет есть ли в массиве элемент со значением value и возвращает true или false соответственно. Область применения этого метода сводится к ситуациям, когда необходимо проверить есть ли элемент в массиве и не важна его позиция (индекс).
+
+const planets = ["Earth", "Mars", "Venus"]; console.log(planets.includes("Earth")); // true console.log(planets.includes("Mars")); // true console.log(planets.includes("Venus")); // true console.log(planets.includes("Jupiter")); // false
+
+Задание
+
+Функция checkFruit(fruit) принимает строку с названием фрукта (параметр fruit), и проверяет есть ли такой фрукт в массиве fruits.
+
+Дополни код функции так, что если:
+
+    фрукт есть в массиве, то функция возвращает true;
+    фрукта нет в массиве, то функция возвращает false.
+
+Тесты
+
+    Объявлена функция checkFruit(fruit)
+    Вызов checkFruit("plum") возвращает true
+    Вызов checkFruit("mandarin") возвращает false
+    Вызов checkFruit("pear") возвращает true
+    Вызов checkFruit("Pear") возвращает false
+    Вызов checkFruit("apple") возвращает true
+    Вызов функции checkFruit() со случайным словом возвращает правильное значение boolean
+    В функции использовался метод includes
+   */
+
+  function checkFruit(fruit) {
+    const fruits = ["apple", "plum", "pear", "orange"];
+
+    return fruits.includes(fruit); // Change this line
+  }
+}
+
+{
+  /**  #25 
+   * 
+   * Задача: общие элементы
+Задание
+
+Общими элементами массивов называют те элементы, которые присутствуют во всех массивах.
+
+Например, в двух массивах [1, 3, 5] и [0, 8, 5, 3] общими будут числа 3 и 5, т.к. они присутствуют в обоих исходных массивах. А числа 0, 1 и 8 присутствуют только в одном из массивов.
+
+Напиши функцию getCommonElements(array1, array2) которая получает два массива произвольной длины в параметры array1 и array2, и возвращает новый массив, состоящий из тех элементов, которые присутствуют в обоих исходных массивах.
+Тесты
+
+    Объявлена функция getCommonElements(array1, array2)
+    Вызов getCommonElements([1, 2, 3], [2, 4]) возвращает [2]
+    Вызов getCommonElements([1, 2, 3], [2, 1, 17, 19]) возвращает [1, 2]
+    Вызов getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]) возвращает [12, 27, 3]
+    Вызов getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]) возвращает [10, 30, 40]
+    Вызов getCommonElements([1, 2, 3], [10, 20, 30]) возвращает []
+    Вызов функции getCommonElements() со случайными двумя массивами возвращает правильный массив
+    В цикле for использовались методы includes и push
+  */
+
+  function getCommonElements(array1, array2) {
+    // Change code below this line
+    const common = [];
+
+    for (let i = 0; i < array1.length; i += 1) {
+      if (array2.includes(array1[i])) {
+        common.push(array1[i]);
+      }
+    }
+
+    return common;
+    // Change code above this line
+  }
 }
