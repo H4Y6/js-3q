@@ -916,3 +916,123 @@ const planets = ["Earth", "Mars", "Venus"]; for (const planet of planets) { cons
   }
   // console.log(getEvenNumbers(2, 7));
 }
+
+{
+  /**  #30
+   *
+   *Оператор break
+Прервать выполнение цикла можно в любой момент. Для этого существует оператор break, который полностью прекращает выполнение цикла и передаёт управление на строку за его телом.
+
+В примере ищем число 3. Как только выполнится условие if, цикл прекратит своё выполнение (будет прерван).
+
+for (let i = 0; i <= 5; i += 1) { console.log(i); if (i === 3) { console.log("Нашли число 3, прерываем выполнение цикла"); break; } } console.log("Лог после цикла");
+Задание
+Дополни код так, чтобы в переменную number записывалось первое число от start до end, которое делится на 5 без остатка.
+
+Тесты
+Объявлена переменная start со значением 6
+Объявлена переменная end со значением 27
+Объявлена переменная number без инициализации
+Итоговое значение переменной number равно 10
+В цикле for используется break для выхода до завершения всех итераций цикла
+   */
+
+  const start = 6;
+  const end = 27;
+  let number;
+
+  for (let i = start; i < end; i += 1) {
+    if (i % 5 === 0) {
+      number = i;
+      break;
+    }
+  }
+  // console.log(number);
+}
+
+{
+  /**  #31
+   * 
+   * Оператор break vs return в функции
+Если цикл находится в теле функции, то оператор break не прекращает выполнение функции, а только прервёт цикл. Для того чтобы прерывать выполнение сразу цикла и функции есть оператор return.
+
+В примере ищем число 3. Как только выполнится условие if, делаем возврат, который прервёт выполнение цикла и функции.
+
+function fn() { for (let i = 0; i <= 5; i += 1) { console.log(i); if (i === 3) { console.log("Нашли число 3, делаем возврат, прерывая цикл и функцию"); return i; } } // Этот console.log не выполнится console.log("Лог после цикла в теле функции"); } const result = fn(); console.log("Лог после выхода из функции"); console.log(`Результат выполнения функции ${result}`);
+Задание
+Выполни рефакторинг функции findNumber(start, end, divisor) так, чтобы она:
+
+возвращала первое число от start до end, которое делится на divisor без остатка
+не использовала оператор break
+не использовала переменную number
+Тесты
+Объявлена функция findNumber(start, end, divisor)
+Вызов findNumber(2, 6, 5) возвращает 5
+Вызов findNumber(8, 17, 3) возвращает 9
+Вызов findNumber(6, 9, 4) возвращает 8
+Вызов findNumber(16, 35, 7) возвращает 21
+Вызов findNumber() со случайным набором чисел возвращает верный результат
+В цикле for не должен использоваться break для выхода до завершения всех итераций цикла
+   */
+
+  // function findNumber(start, end, divisor) {
+  //   // Change code below this line
+  //   let number;
+
+  //   for (let i = start; i < end; i += 1) {
+  //     if (i % divisor === 0) {
+  //       number = i;
+  //       break;
+  //     }
+  //   }
+
+  //   return number;
+  //   // Change code above this line
+  // }
+
+  function findNumber(start, end, divisor) {
+    // Change code below this line
+
+    for (let i = start; i < end; i += 1) {
+      if (i % divisor === 0) {
+        return i;
+      }
+    }
+    // Change code above this line
+  }
+}
+
+{
+  /**  #32
+   *
+   *  Задача: функция includes()
+Задание
+Напиши функцию includes(array, value), которая делает тоже самое, что и метод массива массив.includes(значение) - проверяет, есть ли в массиве array значение value, возвращая true если есть и false в противном случае.
+
+При выполнении этой задачи в теле функции includes() нельзя использовать метод массив.includes(значение).
+
+Тесты
+Объявлена функция includes(array, value)
+Вызов includes([1, 2, 3, 4, 5], 3) возвращает true
+Вызов includes([1, 2, 3, 4, 5], 17) возвращает false
+Вызов includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Jupiter") возвращает true
+Вызов includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Uranus") возвращает false
+Вызов includes(["apple", "plum", "pear", "orange"], "plum") возвращает true
+Вызов includes(["apple", "plum", "pear", "orange"], "kiwi") возвращает false
+Вызов includes() для случайного массива со случайным value возвращает верный boolean
+В функции includes используется for, return, но не метод массива includes
+   */
+
+  function includes(array, value) {
+    // Change code below this line
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[i] === value) {
+        return true;
+      }
+    }
+    return false;
+    // Change code above this line
+  }
+
+  // console.log(includes([2, 3, 5, 7], 5));
+}
