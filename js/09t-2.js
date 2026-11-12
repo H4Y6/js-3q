@@ -255,5 +255,63 @@ lastElement 	Значение последнего элемента массив
     // Change code above this line
     return [array[0], array[array.length - 1]];
   }
-  console.log(getExtremeElements(fruits));
+  // console.log(getExtremeElements(fruits));
+}
+
+{
+  /**  #10
+   *
+   *Метод строк split()
+
+Метод split(delimiter) позволяет превратить строку в массив, «разбив» его по разделителю delimiter. Если разделитель это пустая строка, то получится массив отдельных символов. Разделителем может быть один или несколько символов.
+
+const name = "Mango"; console.log(name.split("")); // ["M", "a", "n", "g", "o"] const message = "JavaScript essentials"; console.log(message.split(" ")); // ["JavaScript", "essentials"]
+
+Задание
+
+Дополни код функции splitMessage(message, delimiter) так, чтобы она возвращала в переменной words результат разделения строки message по разделителю delimiter - массив строк.
+Тесты
+
+    Объявлена функция splitMessage(message, delimiter)
+    Вызов splitMessage("Mango hurries to the train", " ") возвращает ["Mango", "hurries", "to", "the", "train"]
+    Вызов splitMessage("Mango", "") возвращает ["M", "a", "n", "g", "o"]
+    Вызов splitMessage("best_for_week", "_") возвращает ["best", "for", "week"]
+
+   */
+
+  function splitMessage(message, delimiter) {
+    let words;
+    // Change code below this line
+    words = message.split(delimiter);
+    // Change code above this line
+    return words;
+  }
+}
+
+{
+  /** #11
+   *
+   *Задача: гравировка украшений
+Задание
+
+Сервису гравировки украшений нужна функция, которая бы автоматически считала цену гравировки, в зависимости от количества слов и цены за слово.
+
+Объявлена функция calculateEngravingPrice(message, pricePerWord). Эта функция принимает строку, состоящую из слов разделённых только пробелами (параметр message) и цену гравировки одного слова (параметр pricePerWord).
+
+Напиши тело функции, чтобы она возвращала общую стоимость гравировки всех слов в строке.
+Тесты
+
+    Объявлена функция calculateEngravingPrice(message, pricePerWord)
+    Вызов calculateEngravingPrice("JavaScript is in my blood", 10) возвращает 50
+    Вызов calculateEngravingPrice("JavaScript is in my blood", 20) возвращает 100
+    Вызов calculateEngravingPrice("Web-development is creative work", 40) возвращает 160
+    Вызов calculateEngravingPrice("Web-development is creative work", 20) возвращает 80
+
+   */
+
+  function calculateEngravingPrice(message, pricePerWord) {
+    // Change code below this line
+    return message.split(" ").length * pricePerWord;
+    // Change code above this line
+  }
 }
