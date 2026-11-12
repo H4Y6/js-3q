@@ -425,3 +425,60 @@ const planets = ["Earth", "Mars", "Venus", "Jupiter", "Saturn"]; console.log(pla
 
   // console.log(lastThreeEls);
 }
+
+{
+  /**  #15
+   * 
+   * Метод concat()
+
+Метод concat используется для объединения двух или более массивов. Он не изменяет массив на котором вызывается, а возвращает новый. Порядок аргументов метода влияет на порядок элементов нового массива.
+
+const firstArray = ["Mercury", "Venus", "Earth"]; const secondArray = ["Mars", "Jupiter"]; const thirdArray = ["Saturn", "Uranus", "Neptune"]; const allPlanets = firstArray.concat(secondArray, thirdArray); console.log(firstArray); // ['Mercury', 'Venus', 'Earth']; console.log(allPlanets); // ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+
+Задание
+
+Дополни код так, чтобы в переменной allClients получился массив всех элементов массивов oldClients и newClients.
+Тесты
+
+    Объявлена переменная oldClients
+    Значение переменной oldClients это массив ["Mango", "Ajax", "Poly", "Kiwi"]
+    Объявлена переменная newClients
+    Значение переменной newClients это массив ["Peach", "Houston"]
+    Объявлена переменная allClients
+    Значение переменной allClients это массив ["Mango", "Ajax", "Poly", "Kiwi", "Peach", "Houston"]
+    Переменной allClients присвоен массив после применения метода concat с правильными аргументами
+   */
+
+  const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"];
+  const newClients = ["Peach", "Houston"];
+
+  const allClients = oldClients.concat(newClients); // Change this line
+}
+
+{
+  /** #16
+   *
+   *  Задача: композиция массивов
+Задание
+
+Напиши функцию makeArray(firstArray, secondArray, maxLength) для создания нового массива со всеми элементами двух исходных firstArray и secondArray. Параметр maxLength содержит максимально допустимую длину нового массива.
+
+Если количество элементов нового массива больше maxLength, функция должна вернуть копию массива длиной maxLength элементов. В противном случае функция должна вернуть новый массив целиком.
+Тесты
+
+    Объявлена функция makeArray(firstArray, secondArray, maxLength)
+    Вызов makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3) возвращает ["Mango", "Poly", "Ajax"]
+    Вызов makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4) возвращает ["Mango", "Poly", "Houston", "Ajax"]
+    Вызов makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3) возвращает ["Mango", "Ajax", "Chelsea"]
+    Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2) возвращает ["Earth", "Jupiter"]
+    Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4) возвращает ["Earth", "Jupiter", "Neptune", "Uranus"]
+    Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0) возвращает []
+    Вызов функции makeArray() со случайными массивами и случайным числом возвращает правильный массив
+   */
+
+  function makeArray(firstArray, secondArray, maxLength) {
+    // Change code below this line
+    return firstArray.concat(secondArray).slice(0, maxLength);
+    // Change code above this line
+  }
+}
