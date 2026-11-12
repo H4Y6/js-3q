@@ -551,3 +551,132 @@ for (let i = 0; i <= 20; i += 5) { console.log(i); }
   }
   // calculateNumber(5);
 }
+
+{
+  /**  #19 
+   * 
+   * Итерация по массиву
+
+Цикл for можно использовать для итерации по массиву, то есть «перебрать» его поэлементно.
+
+const planets = ["Earth", "Mars", "Venus"]; for (let i = 0; i < planets.length; i += 1) { console.log(planets[i]); }
+
+Для доступа к элементам используется синтаксис квадратных скобок массив[индекс], где индекс - это значение счётчика цикла от 0 и до последнего индекса массива, который на единицу меньше длины массива.
+Задание
+
+Дополни код цикла for так, чтобы он последовательно логировал все элементы массива fruits.
+Тесты
+
+    Объявлена переменная fruits
+    Значение переменной fruits это массив ["apple", "plum", "pear", "orange"]
+    Объявлена переменная i - счётчик цикла
+    Начальное значение переменной i равно 0
+    Условие цикла приводится к true до тех пор, пока i меньше 4
+    На каждой итерации значение переменной i увеличивается на единицу
+    В теле цикла for объявляется переменная const fruit и этой переменной присваивается значение - элемент массива
+    В теле цикла for используется вывод в консоль переменной fruit
+  */
+
+  const fruits = ["apple", "plum", "pear", "orange"];
+
+  for (let i = 0; i < fruits.length; i += 1) {
+    // Change this line
+    const fruit = fruits[i]; // Change this line
+    // console.log(fruit);
+  }
+}
+
+{
+  /**  #20
+   *
+   *  Задача: подсчёт суммы покупки
+Задание
+
+Напиши функцию calculateTotalPrice(order), которая принимает один параметр order - массив чисел, и рассчитывает общую сумму его элементов. Общая сумма элементов должна сохраняться в переменной total, которая возвращается, как результат работы функции.
+Тесты
+
+    Объявлена функция calculateTotalPrice(order)
+    Вызов функции calculateTotalPrice([12, 85, 37, 4]) возвращает 138
+    Вызов функции calculateTotalPrice([164, 48, 291]) возвращает 503
+    Вызов функции calculateTotalPrice([412, 371, 94, 63, 176]) возвращает 1116
+    Вызов функции calculateTotalPrice() со случайным массивом возвращает правильное значение
+   */
+
+  function calculateTotalPrice(order) {
+    let total = 0;
+    // Change code below this line
+    for (let i = 0; i < order.length; i += 1) {
+      total += order[i];
+    }
+    // Change code above this line
+    console.log(total);
+    return total;
+  }
+  // calculateTotalPrice([3, 6, 4, 5, 9]);
+}
+
+{
+  /**  #21
+   *
+   *  Задача: поиск самого длинного слова
+Задание
+
+Напиши функцию findLongestWord(string) которая принимает произвольную строку состоящую только из слов разделённых пробелом (параметр string) и возвращает самое длинное слово в этой строке.
+Тесты
+
+    Объявлена функция findLongestWord(string)
+    Вызов функции findLongestWord("The quick brown fox jumped over the lazy dog") возвращает jumped
+    Вызов функции findLongestWord("Google do a roll") возвращает Google
+    Вызов функции findLongestWord("May the force be with you") возвращает force
+    Вызов функции findLongestWord() со случайной строкой возвращает правильное значение
+   */
+
+  function findLongestWord(string) {
+    // Change code below this line
+    const words = string.split(" ");
+    let longestWord = "";
+
+    for (let i = 0; i < words.length; i += 1) {
+      longestWord =
+        longestWord.length > words[i].length ? longestWord : words[i];
+    }
+    return longestWord;
+    // Change code above this line
+  }
+  // console.log(findLongestWord("er try"));
+}
+
+{
+  /**  #22
+   *
+   *  Метод push()
+
+Метод push() позволяет добавить один или несколько элементов в конец массива, без необходимости указывать индексы добавляемых элементов.
+
+const planets = ["Earth", "Mars", "Venus"]; planets.push("Jupiter"); planets.push("Saturn", "Uranus", "Neptune"); console.log(planets); // ['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+
+Задание
+
+Дополни код функции createArrayOfNumbers(min, max) так, чтобы она возвращала массив всех целых чисел от значения min до max.
+Тесты
+
+    Объявлена функция createArrayOfNumbers(min, max)
+    Вызов функции createArrayOfNumbers(1, 3) возвращает [1, 2, 3]
+    Вызов функции createArrayOfNumbers(14, 17) возвращает [14, 15, 16, 17]
+    Вызов функции createArrayOfNumbers(29, 34) возвращает [29, 30, 31, 32, 33, 34]
+    Вызов функции createArrayOfNumbers() со случайными min и max возвращает правильный массив
+    В цикле for использовался метод push
+   */
+
+  function createArrayOfNumbers(min, max) {
+    const numbers = [];
+    // Change code below this line
+
+    for (let i = min; i <= max; i += 1) {
+      numbers.push(i);
+    }
+    // Change code above this line
+    return numbers;
+  }
+  // console.log(createArrayOfNumbers(2, 4));
+}
