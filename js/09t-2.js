@@ -203,3 +203,57 @@ const planets = ["Earth", "Mars", "Venus"]; console.log(planets.length); // 3
 
   const fruitsArrayLength = fruits.length;
 }
+
+{
+  /**  #8 
+   * 
+   * Индекс последнего элемента
+
+Чаще всего, мы заранее в коде не знаем какая будет длина массива. Для того, чтобы получить значение последнего элемента применяется следующий подход - длина массива всегда на единицу больше, чем индекс последнего элемента. Используя формулу длина_массива - 1 можно получить значение последнего элемента массива произвольной длины.
+
+const planets = ["Earth", "Mars", "Venus"]; const lastElementIndex = planets.length - 1; planets[lastElementIndex]; // "Venus"
+
+Задание
+
+Объяви две переменные:
+Имя переменной 	Ожидаемое значение
+lastElementIndex 	Индекс последнего элемента масcива fruits через длина_массива - 1
+lastElement 	Значение последнего элемента массива
+Тесты
+
+    Объявлена переменная lastElementIndex
+    Значение переменной lastElementIndex это число 3
+    Объявлена переменная lastElement
+    Значение переменной lastElement это строка "banana"
+
+   */
+
+  const fruits = ["apple", "peach", "pear", "banana"];
+
+  // Change code below this line
+  const lastElementIndex = fruits.length - 1;
+  const lastElement = fruits[lastElementIndex];
+  // console.log(lastElement);
+
+  /** #9 
+   * 
+   * Задача: Крайние элементы массива
+Задание
+
+Напиши функцию getExtremeElements(array) которая принимает один параметр array - массив элементов произвольной длины. Функция должна возвращать массив из двух элементов - первого и последнего элемента параметра array.
+Тесты
+
+    Объявлена функция getExtremeElements(array)
+    Вызов getExtremeElements([1, 2, 3, 4, 5]) возвращает [1, 5]
+    Вызов getExtremeElements(["Earth", "Mars", "Venus"]) возвращает ["Earth", "Venus"]
+    Вызов getExtremeElements(["apple", "peach", "pear", "banana"]) возвращает ["apple", "banana"]
+  */
+
+  function getExtremeElements(array) {
+    // Change code below this line
+
+    // Change code above this line
+    return [array[0], array[array.length - 1]];
+  }
+  console.log(getExtremeElements(fruits));
+}
