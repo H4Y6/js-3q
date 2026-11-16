@@ -407,3 +407,82 @@ const name = "Генри Сибола"; const age = 25; const user = { name, age
 
   // console.log(product);
 }
+
+{
+  /**  #9
+   * 
+   * Вычисляемые свойства
+Бывают ситуации, когда при объявлении обьекта необходимо добавить свойство с именем, которое мы заранее не знаем, потому что оно хранится как значение переменной или как результат выполнения функции.
+
+Раньше для этого необходимо было сначала создать объект, а потом добавлять свойства через квадратные скобки, что не совсем удобно.
+
+const propName = "name"; const user = { age: 25 }; user[propName] = "Генри Сибола"; console.log(user.name); // "Генри Сибола"
+Синтаксис вычисляемых свойств (computed properties) помогает избежать лишнего кода и в некоторых случаях упростить его. Значением вычисляемого свойства может быть любое валидное выражение.
+
+const propName = "name"; const user = { age: 25, // Имя этого свойства будет взято из значения переменной propName [propName]: "Генри Сибола" }; console.log(user.name); // "Генри Сибола"
+Задание
+Дополни код объявления объекта credentials так, чтобы в результате у него были два свойства: email и password, имена которых хранятся в переменных emailInputName и passwordInputName.
+
+Значением свойства email должна быть строка "henry.carter@aptmail.com", а значением свойства password - строка "jqueryismyjam".
+
+Тесты
+Объявлена переменная credentials
+Значение переменной credentials это объект
+В объекте credentials есть свойство email
+Значение вложенного свойства email это строка "henry.carter@aptmail.com"
+В объекте credentials есть свойство password
+Значение вложенного свойства password это строка "jqueryismyjam"
+   */
+
+  const emailInputName = "email";
+  const passwordInputName = "password";
+
+  const credentials = {
+    // Change code below this line
+
+    [emailInputName]: "henry.carter@aptmail.com",
+    [passwordInputName]: "jqueryismyjam",
+
+    // Change code above this line
+  };
+
+  // console.log(credentials);
+}
+
+{
+  /**  #10
+   * Цикл for...in
+   * 
+В отличии от массива или строки, объект - это не итерируемая сущность, то есть его нельзя перебрать циклами for или for...of. Для перебора объектов используется специальный цикл for...in, который перебирает ключи объекта object.
+
+for (key in object) { // инструкции }
+Переменная key доступная только в теле цикла. На каждой итерации в неё будет записано значение ключа (имя) свойства. Для того чтобы получить значение свойства с таким ключом (именем), используется синтаксис квадратных скобок.
+
+const book = { title: "The Last Kingdom", author: "Bernard Cornwell", genres: ["historical prose", "adventure"], rating: 8.38, }; for (const key in book) { // Ключ console.log(key); // Значение свойства с таким ключом console.log(book[key]); }
+Задание
+Перебери объект apartment используя цикл for...in и запиши в массив keys все его ключи, а в массив values все значения его свойств.
+
+Тесты
+Объявлена переменная apartment
+Значение переменной apartment это объект
+Объявлена переменная keys
+Значение переменной keys это массив ["descr", "rating", "price"]
+Объявлена переменная values
+Значение переменной values это массив ["Spacious apartment in the city center", 4, 2153]
+   */
+
+  const apartment = {
+    descr: "Spacious apartment in the city center",
+    rating: 4,
+    price: 2153,
+  };
+  const keys = [];
+  const values = [];
+  // Change code below this line
+  for (const key in apartment) {
+    keys.push(key);
+    values.push(apartment[key]);
+  }
+  //   console.log(keys);
+  //   console.log(values);
+}
