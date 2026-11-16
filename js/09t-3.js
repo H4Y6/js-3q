@@ -770,7 +770,7 @@ for (const book of books) { // Объект книги console.log(book); // Н�
 
   function getProductPrice(productName) {
     // Change code below this line
-    for (product of products) {
+    for (const product of products) {
       if (productName === product.name) {
         return product.price;
       }
@@ -779,4 +779,43 @@ for (const book of books) { // Объект книги console.log(book); // Н�
 
     // Change code above this line
   }
+}
+
+{
+  /**  # 19
+   * 
+   * Задача. Коллекция значений свойства
+Задание
+Напиши функцию getAllPropValues(propName) которая принимает один параметр propName - имя (ключ) свойства. Функция должна вернуть массив всех значений свойства с таким именем из каждого объекта в массиве products. Если в объектах нет свойства с таким именем, функция должна вернуть пустой массив.
+
+Тесты
+Объявлена функция getAllPropValues(propName)
+Вызов getAllPropValues("name") возвращает ["Radar", "Scanner", "Droid", "Grip"]
+Вызов getAllPropValues("quantity") возвращает [4, 3, 7, 9]
+Вызов getAllPropValues("price") возвращает [1300, 2700, 400, 1200]
+Вызов getAllPropValues("category") возвращает []
+   */
+
+  const products = [
+    { name: "Radar", price: 1300, quantity: 4 },
+    { name: "Scanner", price: 2700, quantity: 3 },
+    { name: "Droid", price: 400, quantity: 7 },
+    { name: "Grip", price: 1200, quantity: 9 },
+  ];
+
+  function getAllPropValues(propName) {
+    // Change code below this line
+    const values = [];
+
+    for (const product of products) {
+      const keys = Object.keys(product);
+      if (keys.includes(propName)) {
+        values.push(product[propName]);
+      }
+    }
+    return values;
+    // Change code above this line
+  }
+
+  // console.log(getAllPropValues("name"));
 }
