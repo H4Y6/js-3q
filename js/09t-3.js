@@ -1286,3 +1286,76 @@ const first = { propA: 5, propB: 10, propC: 50 }; const second = { propC: 15 }; 
   // Change code below this line
   const finalSettings = { ...defaultSettings, ...overrideSettings };
 }
+
+{
+  /**  # 30
+   *
+   *  Задача. Карточки задач
+Задание
+Напиши функцию makeTask(data) которая принимает один параметр data - объект со следующими свойствами.
+
+text - текст задачи.
+category - категория задачи.
+priority - приоритет задачи.
+Функция должна составить и вернуть новый объект задачи, не изменяя напрямую параметр data. В новом объекте должно быть свойство completed, значение которого хранится в одноимённой локальной переменной.
+
+В параметре data гарантированно будет только свойство text, а остальные два, category и priority, могут отсутствовать. Тогда, в новом объекте задачи, в свойствах category и priority должны быть значения по умолчанию, хранящиеся в одноимённых локальных переменных.
+
+Тесты
+Объявлена функция makeTask(data)
+Вызов makeTask({}) возвращает { category: "General", priority: "Normal", completed: false }
+Вызов makeTask({ category: "Homemade", priority: "Low", text: "Take out the trash" }) возвращает { category: "Homemade", priority: "Low", text: "Take out the trash", completed: false }
+Вызов makeTask({ category: "Finance", text: "Take interest" }) возвращает { category: "Finance", priority: "Normal", text: "Take interest", completed: false }
+Вызов makeTask({ priority: "Low", text: "Choose shampoo" }) возвращает { category: "General", priority: "Low", text: "Choose shampoo", completed: false }
+Вызов makeTask({ text: "Buy bread" }) возвращает { category: "General", priority: "Normal", text: "Buy bread", completed: false }
+   */
+
+  function makeTask(data) {
+    const completed = false;
+    const category = "General";
+    const priority = "Normal";
+    // Change code below this line
+    return { completed, category, priority, ...data };
+    // Change code above this line
+  }
+}
+
+{
+  /**  # 31
+   * 
+   * Операция rest для сбора всех аргументов функции
+Операция ... (rest) позволяет собрать группу независимых элементов в новую коллекцию. Синтаксически это близнец операции распыления, но отличить их просто - распыление это когда ... находится в правой части операции присваивания, а сбор это когда ... находится в её левой части.
+
+Вернёмся к аналогии с яблоками. Если на полу лежат яблоки и у нас есть пустой ящик, то операция rest позволит «собрать» яблоки в ящик. При этом оригинальные яблоки останутся на полу, а в ящике будет копия каждого яблока.
+
+Одна из областей применения операции rest это создание функций которые могут принимать произвольное количество аргументов.
+
+// Как объявить параметры функции так, // чтобы можно было передать любое кол-во аргументов? function multiply() { // ... } multiply(1, 2); multiply(1, 2, 3); multiply(1, 2, 3, 4);
+Если убрать весь «синтаксический шум» и посмотреть на аргументы и параметры функции, то аргументы находятся в правой части операции присваивания, а параметры в левой, потому что значения аргументов присваиваются объявленным параметрам. Значит можно «собрать» все аргументы функции в один параметр используя операцию rest.
+
+function multiply(...args) { console.log(args); // массив всех аргументов } multiply(1, 2); multiply(1, 2, 3); multiply(1, 2, 3, 4);
+Имя параметра может быть произвольным. Чаще всего его называют args, restArgs или otherArgs, сокращённое от arguments.
+
+Задание
+Используя операцию rest дополни код функции add() так, чтобы она принимала любое количество аргументов, считала и возвращала их сумму.
+
+Тесты
+Объявлена функция add
+Функция add использует параметр args
+Для сбора аргументов в переменную args, в подписи функции используется синтаксис ... (оперетор rest)
+Вызов add(15, 27) возвращает 42
+Вызов add(12, 4, 11, 48) возвращает 75
+Вызов add(32, 6, 13, 19, 8) возвращает 78
+Вызов add(74, 11, 62, 46, 12, 36) возвращает 241
+   */
+
+  // Change code below this line
+  function add(...args) {
+    let res = 0;
+    for (const arg of args) {
+      res += arg;
+    }
+    return res;
+    // Change code above this line
+  }
+}
