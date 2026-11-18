@@ -1528,3 +1528,50 @@ const bookShelf = { books: ["Последнее королевство"], getBoo
     },
   };
 }
+
+{
+  /**  # 36
+   *
+   *  Задача. Лавка зелий «У старой жабы»
+Задание
+К нам обратилась владелица лавки зелий «У старой жабы» и заказала программу для ведения инвентаря - добавления, удаления, поиска и обновления зелий. Добавь объекту atTheOldToad свойство potions, значением которого сделай пустой массив.
+
+Тесты
+Объявлена переменная atTheOldToad
+Значение переменной atTheOldToad это объект
+Значение свойства atTheOldToad.potions это массив []
+   */
+
+  const atTheOldToad = {
+    // Change code below this line
+
+    potions: [],
+
+    // Change code above this line
+  };
+}
+
+{
+  /**  # 37
+   * 
+   * Задача. Получаем все зелья
+Задание
+Добавь объекту atTheOldToad метод getPotions(), который просто возвращает значение свойства potions.
+
+Тесты
+Объявлена переменная atTheOldToad
+Значение переменной atTheOldToad это объект
+Значение свойства atTheOldToad.potions это массив ["Speed potion", "Dragon breath", "Stone skin"]
+Значение свойства atTheOldToad.getPotions это метод объекта
+Вызов метода atTheOldToad.getPotions() возвращает ["Speed potion", "Dragon breath", "Stone skin"]
+   */
+
+  const atTheOldToad = {
+    potions: ["Speed potion", "Dragon breath", "Stone skin"],
+    // Change code below this line
+    getPotions() {
+      return this.potions;
+    },
+    // Change code above this line
+  };
+}
