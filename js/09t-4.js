@@ -270,8 +270,12 @@ const numbers = [5, 10, 15, 20, 25]; // Классический for for (let i 
     //   totalPrice += element;
     // });
 
-    orderedItems.forEach((element, index, arr) => {
-      totalPrice += arr[index];
+    // orderedItems.forEach((element, index, arr) => {
+    //   totalPrice += arr[index];
+    // });
+
+    orderedItems.forEach(function (element) {
+      totalPrice += element;
     });
 
     // Change code above this line
