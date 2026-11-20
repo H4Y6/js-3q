@@ -179,13 +179,37 @@ function processCall(recipient, onAvailable, onNotAvailable) { // Имитиру
 
   /**  -----------------------------------------        */
 
+  // const pizzaPalace = {
+  //   pizzas: ["Ultracheese", "Smoked", "Four meats"],
+  //   order(pizzaName, onSuccess, onError) {
+  //     if (!this.pizzas.includes(pizzaName)) {
+  //       return onError(
+  //         `There is no pizza with a name ${pizzaName} in the assortment.`,
+  //       );
+  //     }
+  //     return onSuccess(pizzaName);
+  //   },
+  // };
+  // // Change code above this line
+
+  // // Callback for onSuccess
+  // function makePizza(pizzaName) {
+  //   return `Your order is accepted. Cooking pizza ${pizzaName}.`;
+  // }
+
+  // // Callback for onError
+  // function onOrderError(error) {
+  //   return `Error! ${error}`;
+  // }
+
   const pizzaPalace = {
     pizzas: ["Ultracheese", "Smoked", "Four meats"],
     order(pizzaName, onSuccess, onError) {
-      if (!this.pizzas.includes(pizzaName)) {
+      if (this.pizzas.indexOf(pizzaName) === -1) {
         return onError(
           `There is no pizza with a name ${pizzaName} in the assortment.`,
         );
+      } else {
       }
       return onSuccess(pizzaName);
     },
