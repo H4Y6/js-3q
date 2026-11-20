@@ -313,9 +313,11 @@ const numbers = [5, 10, 15, 20, 25]; // Классический for for (let i 
     //   }
     // }
 
-    numbers.forEach(function (e) {
-      e > value ? filteredNumbers.push(e) : e;
-    });
+    // numbers.forEach(function (e) {
+    //   e > value ? filteredNumbers.push(e) : e;
+    // });
+
+    numbers.forEach((e) => (e > value ? filteredNumbers.push(e) : e));
 
     // Change code above this line
     return filteredNumbers;
