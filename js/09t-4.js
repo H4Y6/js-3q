@@ -469,3 +469,92 @@ const numbers = [5, 10, 15, 20, 25]; const logMessage = (number, index) => { con
 
   // console.log(calculateTotalPrice([12, 85, 37, 4]));
 }
+
+{
+  /**  #11 
+   * 
+   * Задача. Фильтрация массива чисел 2.0
+Задание
+Замени объявление функции filterArray() и коллбек для метода forEach() на стрелочные функции.
+
+Тесты
+Объявлена переменная filterArray
+Переменной filterArray присвоена стрелочная функция с параметрами (numbers, value)
+Для перебора массива numbers использован метод forEach
+Коллбек для метода forEach это стрелочная функция
+Вызов функции filterArray([1, 2, 3, 4, 5], 3) возвращает [4, 5]
+Вызов функции filterArray([1, 2, 3, 4, 5], 4) возвращает [5]
+Вызов функции filterArray([1, 2, 3, 4, 5], 5) возвращает []
+Вызов функции filterArray([12, 24, 8, 41, 76], 38) возвращает [41, 76]
+Вызов функции filterArray([12, 24, 8, 41, 76], 20) возвращает [24, 41, 76]
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+  */
+
+  // Change code below this line
+
+  // function filterArray(numbers, value) {
+  //   const filteredNumbers = [];
+
+  //   numbers.forEach(function (number) {
+  //     if (number > value) {
+  //       filteredNumbers.push(number);
+  //     }
+  //   });
+
+  const filterArray = (numbers, value) => {
+    const filteredNumbers = [];
+    numbers.forEach((number) => {
+      if (number > value) filteredNumbers.push(number);
+    });
+
+    // Change code above this line
+    return filteredNumbers;
+  };
+
+  // console.log(filterArray([12, 24, 8, 41, 76], 38));
+}
+
+{
+  /**  # 12
+   * 
+   *   Задача. Общие элементы 2.0
+Задание
+Замени объявление функции getCommonElements() и коллбек для метода forEach() на стрелочные функции.
+
+Тесты
+-Объявлена переменная getCommonElements.
+
+Переменной getCommonElements присвоена стрелочная функция с параметрами (firstArray, secondArray)
+Для перебора массива firstArray использован метод forEach
+Коллбек для метода forEach это стрелочная функция
+Вызов getCommonElements([1, 2, 3], [2, 4]) возвращает [2]
+Вызов getCommonElements([1, 2, 3], [2, 1, 17, 19]) возвращает [1, 2]
+Вызов getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]) возвращает [12, 27, 3]
+Вызов getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]) возвращает [10, 30, 40]
+Вызов getCommonElements([1, 2, 3], [10, 20, 30]) возвращает []
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+    */
+
+  // Change code below this line
+  //
+  // function getCommonElements(firstArray, secondArray) {
+  //   const commonElements = [];
+
+  //   firstArray.forEach(function (element) {
+  //     if (secondArray.includes(element)) {
+  //       commonElements.push(element);
+  //     }
+  //   });
+
+  const getCommonElements = (firstArray, secondArray) => {
+    const commonElements = [];
+
+    firstArray.forEach((e) =>
+      secondArray.includes(e) ? commonElements.push(e) : 0,
+    );
+    // Change code above this line
+    return commonElements;
+  };
+
+  // console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
+}
