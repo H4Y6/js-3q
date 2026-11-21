@@ -757,8 +757,12 @@ const students = [ { name: "Mango", courses: ["mathematics", "physics"] }, { nam
    */
 
   // Change code below this line
-  const getUserNames = (users) => {
-    return users.map(({ name }) => name);
-  };
+
+  // const getUserNames = (users) => {
+  //   return users.map(({ name }) => name);
+  // };
+
+  const getUserNames = (users) => users.map(({ name }) => name);
+
   // Change code above this line
 }
