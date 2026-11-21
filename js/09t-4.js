@@ -952,76 +952,77 @@ const LOW_SCORE = 50; const HIGH_SCORE = 80; const students = [ { name: "Mango",
   const booksByAuthor = books.filter(({ author }) => author === AUTHOR);
 }
 
+const users = [
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    gender: "male",
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    gender: "female",
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    gender: "male",
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    gender: "female",
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    gender: "male",
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+    isActive: false,
+    balance: 1498,
+    gender: "male",
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    gender: "female",
+  },
+];
+
 {
   /**  # 22
    *
    *  Задача. Пользователи с цветом глаз
 Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.*/
-  const users = [
-    {
-      name: "Moore Hensley",
-      email: "moorehensley@indexia.com",
-      eyeColor: "blue",
-      friends: ["Sharron Pace"],
-      isActive: false,
-      balance: 2811,
-      gender: "male",
-    },
-    {
-      name: "Sharlene Bush",
-      email: "sharlenebush@tubesys.com",
-      eyeColor: "blue",
-      friends: ["Briana Decker", "Sharron Pace"],
-      isActive: true,
-      balance: 3821,
-      gender: "female",
-    },
-    {
-      name: "Ross Vazquez",
-      email: "rossvazquez@xinware.com",
-      eyeColor: "green",
-      friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-      isActive: false,
-      balance: 3793,
-      gender: "male",
-    },
-    {
-      name: "Elma Head",
-      email: "elmahead@omatom.com",
-      eyeColor: "green",
-      friends: ["Goldie Gentry", "Aisha Tran"],
-      isActive: true,
-      balance: 2278,
-      gender: "female",
-    },
-    {
-      name: "Carey Barr",
-      email: "careybarr@nurali.com",
-      eyeColor: "blue",
-      friends: ["Jordan Sampson", "Eddie Strong"],
-      isActive: true,
-      balance: 3951,
-      gender: "male",
-    },
-    {
-      name: "Blackburn Dotson",
-      email: "blackburndotson@furnigeer.com",
-      eyeColor: "brown",
-      friends: ["Jacklyn Lucas", "Linda Chapman"],
-      isActive: false,
-      balance: 1498,
-      gender: "male",
-    },
-    {
-      name: "Sheree Anthony",
-      email: "shereeanthony@kog.com",
-      eyeColor: "brown",
-      friends: ["Goldie Gentry", "Briana Decker"],
-      isActive: true,
-      balance: 2764,
-      gender: "female",
-    },
-  ];
 
   /*
 Задание
@@ -1039,9 +1040,41 @@ const LOW_SCORE = 50; const HIGH_SCORE = 80; const students = [ { name: "Mango",
    */
 
   // Change code below this line
-  const getUsersWithEyeColor = (users, color) => {
-    return users.filter(({ eyeColor }) => eyeColor === color);
+
+  // const getUsersWithEyeColor = (users, color) => {
+  //   return users.filter(({ eyeColor }) => eyeColor === color);
+  // };
+
+  const getUsersWithEyeColor = (users, color) =>
+    users.filter(({ eyeColor }) => eyeColor === color);
+  // Change code above this line
+
+  // console.log(getUsersWithEyeColor(users, "blue"));
+}
+
+{
+  /**  # 23
+   *
+   *  Задача. Пользователи в возрастной категории
+Этот массив объектов мы будем передавать в параметр users при вызове функции из задания.
+
+[ { name: "Moore Hensley", email: "moorehensley@indexia.com", eyeColor: "blue", friends: ["Sharron Pace"], isActive: false, balance: 2811, gender: "male", age: 37 }, { name: "Sharlene Bush", email: "sharlenebush@tubesys.com", eyeColor: "blue", friends: ["Briana Decker", "Sharron Pace"], isActive: true, balance: 3821, gender: "female", age: 34 }, { name: "Ross Vazquez", email: "rossvazquez@xinware.com", eyeColor: "green", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"], isActive: false, balance: 3793, gender: "male", age: 24 }, { name: "Elma Head", email: "elmahead@omatom.com", eyeColor: "green", friends: ["Goldie Gentry", "Aisha Tran"], isActive: true, balance: 2278, gender: "female", age: 21 }, { name: "Carey Barr", email: "careybarr@nurali.com", eyeColor: "blue", friends: ["Jordan Sampson", "Eddie Strong"], isActive: true, balance: 3951, gender: "male", age: 27 }, { name: "Blackburn Dotson", email: "blackburndotson@furnigeer.com", eyeColor: "brown", friends: ["Jacklyn Lucas", "Linda Chapman"], isActive: false, balance: 1498, gender: "male", age: 38 }, { name: "Sheree Anthony", email: "shereeanthony@kog.com", eyeColor: "brown", friends: ["Goldie Gentry", "Briana Decker"], isActive: true, balance: 2764, gender: "female", age: 39 } ]
+Задание
+Дополни функцию getUsersWithAge(users, minAge, maxAge) так, чтобы она возвращала массив пользователей, возраст которых (свойство age) попадает в промежуток от minAge до maxAge.
+
+Тесты
+Объявлена переменная getUsersWithAge
+Переменной getUsersWithAge присвоена стрелочная функция с параметрами (users, minAge, maxAge)
+Для перебора параметра users используется метод filter()
+Если значение параметров minAge и maxAge равны 20 и 30 соотвественно, функция возвращает массив объектов пользователей с именами Ross Vazquez, Elma Head и Carey Barr
+Если значение параметров minAge и maxAge равны 30 и 40 соотвественно, функция возвращает массив объектов пользователей с именами Moore Hensley, Sharlene Bush, Blackburn Dotson, Sheree Anthony
+Если значение параметров minAge и maxAge равны 80 и 100 соотвественно, функция возвращает пустой массив
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+  const getUsersWithAge = (users, minAge, maxAge) => {
+    return users.filter(({ age }) => age >= minAge && age <= maxAge);
   };
   // Change code above this line
-  // console.log(getUsersWithEyeColor(users, "blue"));
 }
