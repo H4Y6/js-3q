@@ -1538,3 +1538,27 @@ const students = [ { name: "Mango", score: 83 }, { name: "Poly", score: 59 }, { 
     0,
   );
 }
+
+{
+  /**  # 36
+   *
+   *  Задача. Общий баланс пользователей
+Задание
+Дополни функцию calculateTotalBalance(users) так, чтобы она считала и возвращала сумму всех средств (свойство balance) которые хранят пользователи из массива users.
+
+Тесты
+Объявлена переменная calculateTotalBalance
+Переменной calculateTotalBalance присвоена стрелочная функция с параметром (users)
+Для перебора параметра users используется метод reduce()
+Вызов функции с указанным массивом пользователей возвращает число 20916
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+  const calculateTotalBalance = (users) => {
+    return users.reduce((total, { balance }) => {
+      return total + balance;
+    }, 0);
+  };
+  // Change code above this line
+}
