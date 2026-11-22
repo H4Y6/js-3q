@@ -1109,3 +1109,32 @@ const users = [
     users.filter(({ friends }) => friends.includes(friendName));
   // Change code above this line
 }
+
+{
+  /**  # 25
+   * 
+   * Задача. Список друзей
+Задание
+Дополни функцию getFriends(users) так, чтобы она возвращала массив друзей всех пользователей (свойство friends). У нескольких пользователей могут быть одинаковые друзья, сделай так чтобы возвращаемый массив не содержал повторений.
+
+Тесты
+Объявлена переменная getFriends
+Переменной getFriends присвоена стрелочная функция с параметром (users)
+Вызов функции с указанным массивом пользователей возвращает массив ["Sharron Pace", "Briana Decker", "Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner", "Goldie Gentry", "Aisha Tran", "Jordan Sampson", "Eddie Strong", "Jacklyn Lucas", "Linda Chapman"]
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+  const getFriends = (users) => {
+    const friendList = [];
+    users.map(({ friends }) => {
+      friendList.push(friends);
+    });
+    return friendList
+      .flatMap((e) => e)
+      .filter((friend, i, arr) => arr.indexOf(friend) === i);
+  };
+  // Change code above this line
+
+  // console.log(getFriends(users));
+}
