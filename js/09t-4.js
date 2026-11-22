@@ -1253,3 +1253,32 @@ const colorPickerOptions = [ { label: "red", color: "#F44336" }, { label: "green
   const bookWithTitle = books.find(({ title }) => title === BOOK_TITLE);
   const bookByAuthor = books.find(({ author }) => author === AUTHOR);
 }
+
+{
+  /**  # 29 
+   * 
+   *   Задача. Пользователь с почтой
+Задание
+Дополни функцию getUserWithEmail(users, email) так, чтобы она возвращала объект пользователя, почта которого (свойство email) совпадает со значением параметра email.
+
+Тесты
+Объявлена функция getUserWithEmail(users, email)
+
+Для перебора параметра users используется метод find()
+
+Если значение параметра email это "shereeanthony@kog.com", функция возвращает объект пользователя с именем Sheree Anthony
+
+Если значение параметра email это "elmahead@omatom.com", функция возвращает объект пользователя с именем Elma Head
+
+Если значение параметра email это "blackburndotson@furnigeer.com", функция возвращает объект пользователя с именем Blackburn Dotson
+
+Если в массиве users нет пользователя с почтой из параметра email, функция возвращает undefined
+
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+  */
+
+  // Change code below this line
+  const getUserWithEmail = (users, email) =>
+    users.find((users) => users.email === email);
+  // Change code above this line
+}
