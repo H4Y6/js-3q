@@ -1125,8 +1125,18 @@ const users = [
    */
 
   // Change code below this line
-  const getFriends = (users) => {
-    const friendList = [];
+
+  // const getFriends = (users) => {
+  //   const friendList = [];
+  //   users.map(({ friends }) => {
+  //     friendList.push(friends);
+  //   });
+  //   return friendList
+  //     .flatMap((e) => e)
+  //     .filter((friend, i, arr) => arr.indexOf(friend) === i);
+  // };
+
+  const getFriends = (users, friendList = []) => {
     users.map(({ friends }) => {
       friendList.push(friends);
     });
