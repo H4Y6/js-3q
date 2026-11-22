@@ -1566,3 +1566,34 @@ const students = [ { name: "Mango", score: 83 }, { name: "Poly", score: 59 }, { 
     users.reduce((total, { balance }) => total + balance, 0);
   // Change code above this line
 }
+
+{
+  /**  # 37
+   * 
+   * адача. Общее количество друзей
+Задание
+Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
+
+Тесты
+Объявлена переменная getTotalFriendCount
+Переменной getTotalFriendCount присвоена стрелочная функция с параметром (users)
+Для перебора параметра users используется метод reduce()
+Вызов функции с указанным массивом пользователей возвращает число 14
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+
+  // const getTotalFriendCount = (users) => {
+  //   return users.reduce((totalFriends, { friends }) => {
+  //     return totalFriends + friends.length;
+  //   }, 0);
+  // };
+
+  const getTotalFriendCount = (users) =>
+    users.reduce(
+      (totalFriends, { friends }) => totalFriends + friends.length,
+      0,
+    );
+  // Change code above this line
+}
