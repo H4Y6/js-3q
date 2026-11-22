@@ -1499,3 +1499,42 @@ const colorPickerOptions = [ { label: "red", color: "#F44336" }, { label: "green
   // Change code above this line
   const averagePlayTime = totalPlayTime / playtimes.length;
 }
+
+{
+  /**  # 35
+   * 
+   * Метод reduce() и массив объектов
+При работе с массивом объектов выполняется редуцирование по значению какого-то свойства. Например, есть массив студентов с баллами за тест. Необходимо получить средний бал.
+
+const students = [ { name: "Mango", score: 83 }, { name: "Poly", score: 59 }, { name: "Ajax", score: 37 }, { name: "Kiwi", score: 94 }, { name: "Houston", score: 64 }, ]; // Название аккумулятора может быть произвольным, это просто параметр функции const totalScore = students.reduce((total, student) => { return total + student.score; }, 0); const averageScore = totalScore / students.length;
+Задание
+Нашему сервису необходимо рассчитать среднее время проведённое в одной игре для каждого игрока, и получить общую сумму этих времён. Рассчитать время для каждого из игроков, можно разделив его время (свойство playtime) на количество игр (свойство gamesPlayed).
+
+Тесты
+Объявлена переменная players
+Значение переменной players это массив объектов игроков
+Объявлена переменная totalAveragePlaytimePerGame
+Значение переменной totalAveragePlaytimePerGame это число 1023
+Для перебора массива players используется метод reduce()
+   */
+
+  const players = [
+    { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+    { name: "Poly", playtime: 469, gamesPlayed: 2 },
+    { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+    { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+  ];
+  // Change code below this line
+
+  // const totalAveragePlaytimePerGame = players.reduce(
+  //   (total, { playtime, gamesPlayed }) => total + playtime / gamesPlayed,
+  //   0,
+  // );
+
+  const totalAveragePlaytimePerGame = players.reduce(
+    (total, { playtime, gamesPlayed }) => {
+      return total + playtime / gamesPlayed;
+    },
+    0,
+  );
+}
