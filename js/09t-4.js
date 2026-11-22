@@ -1555,10 +1555,14 @@ const students = [ { name: "Mango", score: 83 }, { name: "Poly", score: 59 }, { 
    */
 
   // Change code below this line
-  const calculateTotalBalance = (users) => {
-    return users.reduce((total, { balance }) => {
-      return total + balance;
-    }, 0);
-  };
+
+  // const calculateTotalBalance = (users) => {
+  //   return users.reduce((total, { balance }) => {
+  //     return total + balance;
+  //   }, 0);
+  // };
+
+  const calculateTotalBalance = (users) =>
+    users.reduce((total, { balance }) => total + balance, 0);
   // Change code above this line
 }
