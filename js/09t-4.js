@@ -1164,8 +1164,33 @@ const users = [
    */
 
   // Change code below this line
-  const getActiveUsers = (users) => {
-    return users.filter(({ isActive }) => isActive);
-  };
+
+  // const getActiveUsers = (users) => {
+  //   return users.filter(({ isActive }) => isActive);
+  // };
+
+  const getActiveUsers = (users) => users.filter(({ isActive }) => isActive);
+
+  // Change code above this line
+}
+
+{
+  /**  # 27
+   *
+   *  Задача. Неактивные пользователи
+Задание
+Дополни функцию getInactiveUsers(users) так, чтобы она возвращала массив неактивных пользователей, значение свойства isActive которых false.
+
+Тесты
+-Объявлена переменная getInactiveUsers.
+
+Переменной getInactiveUsers присвоена стрелочная функция с параметром users
+Для перебора параметра users используется метод filter()
+Вызов функции с указанным массивом пользователей возвращает массив объектов пользователей с именами Moore Hensley, Ross Vazquez и Blackburn Dotson
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+  const getInactiveUsers = (users) => users.filter(({ isActive }) => !isActive);
   // Change code above this line
 }
