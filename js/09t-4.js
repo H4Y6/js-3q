@@ -1801,3 +1801,28 @@ const students = [ { name: "Mango", score: 83 }, { name: "Poly", score: 59 }, { 
     (firstBook, secondBook) => secondBook.rating - firstBook.rating,
   );
 }
+
+{
+  /**  # 42
+   * 
+   * Задача. Сортировка по балансу
+Задание
+Дополни функцию sortByAscendingBalance(users) так, чтобы она возвращала массив пользователей отсортированный по возрастанию их баланса (свойство balance).
+
+Тесты
+Объявлена переменная sortByAscendingBalance
+Переменной sortByAscendingBalance присвоена стрелочная функция с параметром (users)
+Значение параметра users не изменяется
+Вызов функции с указанным массивом пользователей возвращает новый массив пользователей отсортированный по возрастанию их баланса
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+Для перебора параметра users использован метод sort()
+   */
+
+  // Change code below this line
+  const sortByAscendingBalance = (users) => {
+    return users.sort(
+      (firstUser, secondUser) => firstUser.balance - secondUser.balance,
+    );
+  };
+  // Change code above this line
+}
