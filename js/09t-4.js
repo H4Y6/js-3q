@@ -1977,3 +1977,30 @@ const uniqueSortedCourses = students .flatMap(student => student.courses) .filte
       .map(({ name }) => name);
   };
 }
+
+{
+  /**  # 47
+   *
+   *  Задача. Имена друзей
+Задание
+Дополни функцию getSortedFriends(users) так, чтобы она возвращала массив уникальных имён друзей (свойство friends) отсортированный по алфавиту .
+
+Тесты
+Объявлена переменная getSortedFriends
+Переменной getSortedFriends присвоена стрелочная функция с параметром (users)
+В теле функции используется цепочка методов в правильном порядке
+Значение параметра users не изменяется
+Вызов функции с указанным массивом пользователей возвращает массив ["Adrian Cross", "Aisha Tran", "Briana Decker", "Eddie Strong", "Goldie Gentry", "Jacklyn Lucas", "Jordan Sampson", "Linda Chapman", "Marilyn Mcintosh", "Naomi Buckner", "Padilla Garrison", "Sharron Pace", "Solomon Fokes"]
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+  const getSortedFriends = (users) => {
+    return users
+      .flatMap(({ friends }) => friends)
+      .filter((f, i, arr) => arr.indexOf(f) == i)
+      .sort((a, b) => a.localeCompare(b));
+  };
+
+  // console.log(getSortedFriends(users));
+}
