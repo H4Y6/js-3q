@@ -1951,5 +1951,29 @@ const uniqueSortedCourses = students .flatMap(student => student.courses) .filte
     .sort((a, b) => a.author.localeCompare(b.author))
     .map(({ author }) => author);
 
-  console.log(names);
+  // console.log(names);
+}
+
+{
+  /**  # 46
+   * 
+   * Задача. Пользователи и друзья
+Задание
+Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён пользователей отсортированный по возрастанию количества их друзей (свойство friends).
+
+Тесты
+Объявлена переменная getNamesSortedByFriendCount
+Переменной getNamesSortedByFriendCount присвоена стрелочная функция с параметром (users)
+В теле функции используется цепочка методов
+Значение параметра users не изменяется
+Вызов функции с указанным массивом пользователей возвращает массив ["Moore Hensley", "Sharlene Bush", "Elma Head", "Sheree Anthony", "Ross Vazquez", "Carey Barr", "Blackburn Dotson"]
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+  const getNamesSortedByFriendCount = (users) => {
+    return [...users]
+      .sort((a, b) => a.friends.length - b.friends.length)
+      .map(({ name }) => name);
+  };
 }
