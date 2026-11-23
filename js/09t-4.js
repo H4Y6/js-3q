@@ -1852,3 +1852,28 @@ const students = [ { name: "Mango", score: 83 }, { name: "Poly", score: 59 }, { 
   };
   // Change code above this line
 }
+
+{
+  /**  # 44
+   * 
+   *   Задача. Сортировка по имени
+Задание
+Дополни функцию sortByName(users) так, чтобы она возвращала массив пользователей отсортированный по их имени (свойство name) в алфавитном порядке.
+
+Тесты
+Объявлена переменная sortByName
+Переменной sortByName присвоена стрелочная функция с параметром (users)
+Значение параметра users не изменяется
+Для перебора параметра users использован метод sort()
+Вызов функции с указанным массивом пользователей возвращает новый массив пользователей отсортированный по имени в алфавитном порядке
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+   */
+
+  // Change code below this line
+  const sortByName = (users) => {
+    return [...users].sort((firstUser, secondUser) =>
+      firstUser.name.localeCompare(secondUser.name),
+    );
+  };
+  // Change code above this line
+}
