@@ -1826,3 +1826,29 @@ const students = [ { name: "Mango", score: 83 }, { name: "Poly", score: 59 }, { 
   };
   // Change code above this line
 }
+
+{
+  /**  # 43
+ * 
+ * Задача. Сортировка по количеству друзей
+Задание
+Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей отсортированный по убыванию количества их друзей (свойство friends).
+
+Тесты
+Объявлена переменная sortByDescendingFriendCount
+Переменной sortByDescendingFriendCount присвоена стрелочная функция с параметром (users)
+Значение параметра users не изменяется
+Для перебора параметра users использован метод sort()
+Вызов функции с указанным массивом пользователей возвращает новый массив пользователей отсортированный по убыванию количества их друзей
+Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+ */
+
+  // Change code below this line
+  const sortByDescendingFriendCount = (users) => {
+    return [...users].sort(
+      (firstUser, secondUser) =>
+        secondUser.friends.length - firstUser.friends.length,
+    );
+  };
+  // Change code above this line
+}
